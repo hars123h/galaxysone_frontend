@@ -3,11 +3,20 @@ import axios from 'axios'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import BASE_URL from '../api_url';
 import { ContextApi } from '../App';
-import logo from '../images/logo (1).svg'
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
-import applogo from '../images/appLogo.png'
-import tradelogo from '../images/logo_g.svg'
-import Tradmark from './Tradmark';
+// import logo from '../images/logo (1).svg'
+// import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
+// import applogo from '../images/appLogo.png'
+// import tradelogo from '../images/logo_g.svg'
+// import Tradmark from './Tradmark';
+import logo from '../images/galaxysone/logo.png'
+import imgriti from '../images/galaxysone/imgriti.png'
+import phone from '../images/galaxysone/phone.png'
+import sms from '../images/galaxysone/sms.png'
+import indian from '../images/galaxysone/indianFlag.png'
+import password from '../images/galaxysone/password.png'
+import eyeclosed from '../images/galaxysone/eyeclosed.png'
+import eyeopened from '../images/galaxysone/eyeopened.png'
+
 
 const Register = () => {
 
@@ -25,18 +34,31 @@ const Register = () => {
     const [otp, setOtp] = useState('');
     const [mobno, setMobno] = useState('')
     const [pwd, setPwd] = useState('')
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
+    const [pwd2, setPwd2] = useState('')
     const [invt, setInvt] = useState(search.get('invitation_code'));
-    const [secret, setSecret] = useState('password')
+    const [loginpwd, setLoginpwd] = useState('password')
+    const [loginpwd2, setLoginpwd2] = useState('password')
 
 
-    const secrethandel = () => {
-        if (secret === 'password') {
-            setSecret('text')
+    const secrethandel = type => {
+
+        console.log(type);
+
+        if (type === 'loginpwd') {
+            if (loginpwd === 'password') {
+                setLoginpwd('text')
+            }
+            else {
+                setLoginpwd('password')
+            }
         }
-        else {
-            setSecret('password')
+        else if (type === 'loginpwd2') {
+            if (loginpwd2 === 'password') {
+                setLoginpwd2('text')
+            }
+            else {
+                setLoginpwd2('password')
+            }
         }
     }
 
@@ -59,13 +81,13 @@ const Register = () => {
             return;
         }
 
-        else if (name.length === 0) {
-            toaster('Nick Name Should not be empty')
+        else if (pwd !== pwd2) {
+            toaster('password does not match')
         }
 
         setLoading(true);
 
-        await axios.post(`${BASE_URL}/register`, { mobno, pwd, name, email, invt })
+        await axios.post(`${BASE_URL}/register`, { mobno, pwd, invt })
             .then(({ data }) => {
                 if (data.message === 'Mobile Number already registered!') {
                     toaster('Mobile Number already registered!');
@@ -83,8 +105,6 @@ const Register = () => {
                     setMobno('');
                     setPwd('');
                     // setInvt('');
-                    setEmail('')
-                    setName('')
                     setOTPfield('')
                     setOtp('')
                     setTimeout(() => {
@@ -105,12 +125,13 @@ const Register = () => {
             toaster('Invalid Mobile No, please enter a valid number');
             return;
         }
-        fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=27b58V4YOqBDMgWvNjapz1k9IHlrJfynC6w0hceRAZGoLimK3PuJC7OoiV4N2B6DjfwWKzb0lhgEetPH&variables_values=${otpfield}&route=otp&numbers=${mobno}`)
-            .then((response) => {
-                console.log(response);
-                toaster('OTP sent successfully');
-            })
-            .catch(error => toaster('Something went wrong'));
+        // fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=27b58V4YOqBDMgWvNjapz1k9IHlrJfynC6w0hceRAZGoLimK3PuJC7OoiV4N2B6DjfwWKzb0lhgEetPH&variables_values=${otpfield}&route=otp&numbers=${mobno}`)
+        //     .then((response) => {
+        //         console.log(response);
+        //         toaster('OTP sent successfully');
+        //     })
+        //     .catch(error => toaster('Something went wrong'));
+        // console.log(otpfield, "otpfield");
     }
 
     // console.log("otp",otpfield);
@@ -118,184 +139,159 @@ const Register = () => {
     return (
         <>
 
-            <div className="signupMain bgimg01 after:bg-white">
+            <div className="min-h-screen pt-[8vw] pb-[10vw] relative z-[1] loginPage overflow-y-scroll">
+                <div className="px-[8vw] text-left ">
 
-                <div className="max-w-[800px] mx-auto">
+                    <div className="mb-[6vw] relative">
 
-                    <div className="flex relative items-center min-h-[90vh] flex-wrap mx-auto">
+                        <img src={logo} alt="logo" className='w-[41vw] h-auto mb-[2.5vw] ' />
 
-                        <div className="w-full">
+                        <p className="andount" data-v-380ab766="">Register to receive free </p>
+                        <p className="andount" data-v-380ab766="">equipment and total</p>
+                        <p className="andount" data-v-380ab766="">revenue is <span data-v-380ab766="">₹11988</span></p>
+                        <img className="imgriti" src={imgriti} alt="" data-v-380ab766=""></img>
 
-                            <div className="bg-white mt-5 mb-[50px] mx-[10px] pt-10 px-5 pb-5 relative rounded-lg">
+                    </div>
 
-                                <div className="w-full rounded-2xl mb-8">
+                    <div className="numberi" data-v-380ab766="">
+                        <img src={phone} alt="" data-v-380ab766="" />
+                        <p data-v-380ab766="">Phone number</p>
+                    </div>
 
-                                    <img src={applogo} alt="logo" className='max-h-[100px] inline-block relative' />
+                    <div className="van-cell van-field input-box" data-v-380ab766="">
 
-                                </div>
-
-
-
-                                <div className="">
-
-                                    <div className="mb-5 relative">
-
-                                        <div className="px-[10px] relative border-0 border-solid border-[rgba(215, 215, 215, 0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
-                                            <div className="flex items-center flex-wrap h-full text-center z-10">
-                                                <p className='text-sm text-[#818393] mr-1'>+91</p>
-                                            </div>
-                                            <div className="flex items-center relative flex-1">
-                                                <input onChange={e => { setMobno(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
-                                                    type="number"
-                                                    name="mobno"
-                                                    id="mobno"
-                                                    className=' fillArea w-full h-[50px] text-base px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent '
-                                                    maxLength={11}
-                                                    size={11}
-                                                    placeholder=''
-                                                />
-                                                <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                                <label className='placeholder text-[#818393] text-sm left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>TEL</label>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="mb-5 relative">
-
-                                        <div className="px-[10px] relative border-0 border-solid border-[rgba(215, 215, 215, 0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
-                                            <input onChange={e => setPwd(e.target.value)}
-                                                type={secret}
-                                                name="pwd"
-                                                id="pwd"
-                                                className='flex-1 fillArea w-full h-[50px] text-base px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent '
-                                                placeholder=''
-
-                                            />
-                                            <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                            <label className='placeholder text-[#818393] text-sm left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>Login password</label>
-                                            <div className={` right-[10px] h-full text-center bg-no-repeat bg-[center_center]  bg-[length:30px] z-10 `} onClick={secrethandel}>
-                                                {
-                                                    secret === 'password' ?
-                                                        <AiFillEyeInvisible size={22} />
-                                                        :
-                                                        <AiFillEye size={22} />
-                                                }
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div className="mb-5 relative">
-
-                                        <div className="px-[10px] relative border-0 border-solid border-[rgba(215, 215, 215, 0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
-                                            <input onChange={e => setName(e.target.value)}
-                                                type='text'
-                                                name="name"
-                                                id="name"
-                                                className=' fillArea w-full h-[50px] text-base px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent flex-1'
-                                                placeholder=''
-                                                maxLength={20}
-                                                size={20}
-
-                                            />
-                                            <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                            <label className='placeholder text-[#818393] text-sm left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>Nick Name</label>
-                                        </div>
-                                    </div>
-
-                                    <div className="mb-5 relative">
-
-                                        <div className="px-[10px] relative border-0 border-solid border-[rgba(215, 215, 215, 0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
-                                            <input onChange={e => setEmail(e.target.value)}
-                                                type="email"
-                                                name="email"
-                                                id="email"
-                                                className=' fillArea w-full h-[50px] text-base px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent flex-1'
-                                                placeholder=''
-                                                maxLength={20}
-                                                size={20}
-
-                                            />
-                                            <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                            <label className='placeholder text-[#818393] text-sm left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>E-mail</label>
-                                        </div>
-                                    </div>
-
-                                    {/* <div className="mb-5 relative">
-
-                                        <div className="px-[10px] relative border-0 border-solid border-[rgba(215,215,215,0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
-                                            <input onChange={e => setOtp(e.target.value)}
-                                                type="text"
-                                                name="otp"
-                                                id="otp"
-                                                className='flex-1 fillArea w-full h-[50px] text-base px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent '
-                                                placeholder=''
-
-                                            />
-                                            <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                            <label className='placeholder text-[#818393] text-sm left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>Verification code (OTP)</label>
-                                            <div className={` right-[10px] h-full text-center bg-no-repeat bg-[center_center]  bg-[length:30px] z-10 `} onClick={handleMessage}>
-                                                <p className='text-sm text-[rgba(52,86,255,0.9)]'>Send</p>
-                                            </div>
-
-                                        </div>
-                                    </div> */}
-
-                                    <div className="mb-5 relative">
-
-                                        <div className="px-[10px] relative border-0 border-solid border-[rgba(215, 215, 215, 0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
-                                            <input onChange={e => setInvt(e.target.value)}
-                                                type='text'
-                                                name="invite"
-                                                id="invite"
-                                                className=' fillArea w-full h-[50px] text-base px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent flex-1'
-                                                placeholder=''
-                                                maxLength={20}
-                                                size={20}
-                                                value={invt}
-
-                                            />
-                                            <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                            <label className='placeholder text-[#818393] text-sm left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>Invitation Code</label>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex flex-wrap items-center my-10 w-full justify-end ">
-
-                                        <Link to={`/login`} className='text-[#1f3d70] bg-white border-[1px] border-[#1f3d70] h-11 leading-10 px-5 text-center text-base block border-solid rounded-[500px] transition-all active:translate-y-1 duration-500 overflow-hidden relative '>SIGN IN</Link>
-
-                                        <button className='ml-[10px] flex-1 text-white bg-[#00aa75] border-0 border-[rgba(215,215,215,0.6)] h-11 leading-10 px-5 text-center text-base block border-solid rounded-[500px] transition-all active:translate-y-1 duration-500 overflow-hidden relative ' onClick={handleRegister}>
-                                            SIGN UP
-                                        </button>
-                                    </div>
-                                </div>
-
+                        <div className="van-field__left-icon">
+                            <div className="phonen" data-v-380ab766="">
+                                <img src={indian} alt="" data-v-380ab766="" />
+                                <p data-v-380ab766="">+91</p>
+                                <span data-v-380ab766=""></span>
                             </div>
+                        </div>
 
-                            <div className="flex max-w-lg m-[10px] p-[10px] items-start flex-wrap ">
+                        <div className="van-cell__value van-field__value flex-1 ">
 
-                                <div className="w-20 p-1 bg-white rounded-2xl ">
-                                    <img src={applogo} alt="appLogo" />
-                                </div>
+                            <div className="van-field__body">
 
-                                <Link to={`/download`} className="flex-1 ml-[10px]">
-                                    <h3 className='p-0 m-0 text-2xl text-[#3468a3] font-bold'>Kraft</h3>
-                                    <p className=' p-0 m-0 pb-[10px] text-base leading-none text-[#818393]'>
-                                        Rest assured financial management, quality service, low risk investment, 100% return
-                                    </p>
-                                </Link>
+                                <input onChange={e => { setMobno(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
+                                    type="tel"
+                                    inputMode="numeric"
+                                    id="van-field-1-input"
+                                    className="van-field__control inline-block"
+                                    placeholder="Please enter phone number"
+
+                                />
+
 
                             </div>
 
                         </div>
+                    </div>
 
+                    {/* <div className="numberi" data-v-380ab766="">
+                        <img src={sms} alt="" data-v-380ab766="" />
+                        <p data-v-380ab766="">SMS verification code</p>
+                    </div>
+
+                    <div className="van-cell van-field input-box btnbox" data-v-380ab766="">
+                        <div className="van-cell__value van-field__value flex-1">
+                            <div className="van-field__body">
+                                <input
+                                    type="tel"
+                                    inputMode="numeric"
+                                    id="van-field-2-input"
+                                    className="van-field__control"
+                                    placeholder="Enter SMS verification code"
+                                />
+                                <div className="van-field__right-icon shrink-0">
+                                    <button onClick={handleMessage} type="button" className="van-button van-button--default van-button--normal senduis" data-v-380ab766="">
+                                        <div className="van-button__content">
+                                            <span className="van-button__text">
+                                                Send
+                                            </span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> */}
+
+                    <div className="numberi" data-v-380ab766="">
+                        <img src={password} alt="" data-v-380ab766="" />
+                        <p data-v-380ab766="">Login password</p>
+                    </div>
+
+                    <div className="van-cell van-field input-box" data-v-380ab766="">
+                        <div className="van-cell__value van-field__value">
+                            <div className="van-field__body">
+                                <input onChange={e => setPwd(e.target.value)}
+                                    type={loginpwd}
+                                    id="van-field-3-input"
+                                    className="van-field__control"
+                                    placeholder="Please enter login password"
+                                />
+                                <div onClick={() => secrethandel('loginpwd')} className="van-field__right-icon">
+                                    {loginpwd === 'password' ?
+                                        <img className="eyeimg" src={eyeclosed} alt="" data-v-380ab766="" />
+                                        :
+                                        <img className="eyeimg" src={eyeopened} alt="" data-v-380ab766="" />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="numberi" data-v-380ab766="">
+                        <img src={password} alt="" data-v-380ab766="" />
+                        <p data-v-380ab766="">Enter password again</p>
+                    </div>
+
+                    <div className="van-cell van-field input-box" data-v-380ab766="">
+                        <div className="van-cell__value van-field__value">
+                            <div className="van-field__body">
+                                <input onChange={e => setPwd2(e.target.value)}
+                                    type={loginpwd2}
+                                    id="van-field-4-input"
+                                    className="van-field__control"
+                                    placeholder="Please enter login password again"
+                                />
+                                <div onClick={() => secrethandel('loginpwd2')} className="van-field__right-icon">
+                                    {loginpwd2 === 'password' ?
+                                        <img className="eyeimg" src={eyeclosed} alt="" data-v-380ab766="" />
+                                        :
+                                        <img className="eyeimg" src={eyeopened} alt="" data-v-380ab766="" />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="numberi" data-v-380ab766="">
+                        <img src={password} alt="" data-v-380ab766="" />
+                        <p data-v-380ab766="">Invitation code（Optional）</p>
+                    </div>
+
+                    <div className="van-cell van-field input-box" data-v-380ab766="">
+
+                        <div className="van-cell__value van-field__value">
+                            <div className="van-field__body">
+                                <input onChange={e => setInvt(e.target.value)}
+                                    type="text"
+                                    id="van-field-5-input"
+                                    className="van-field__control"
+                                    placeholder="Please enter the invitation code"
+                                />
+                            </div>
+
+                        </div>
 
                     </div>
 
-
-                    <Tradmark />
-
+                    <div className="flex justify-between items-center space-x-3">
+                        <Link to={'/login'} className='h-[13vw] w-full'>
+                            <button className='btnbox h-[13vw] w-full bg-[#2b2b2b] rounded-sm text-[#6e6e6e] font-bold' >Login</button>
+                        </Link>
+                        <button className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-sm text-[#074762] font-bold'>Register</button>
+                    </div>
 
                 </div>
             </div>

@@ -5,6 +5,14 @@ import BASE_URL from '../api_url';
 import applogo from '../images/appLogo.png'
 import Tradmark from './Tradmark';
 import { ContextApi } from '../App';
+import logo from '../images/galaxysone/logo.png'
+import imgriti from '../images/galaxysone/imgriti.png'
+import phone from '../images/galaxysone/phone.png'
+import sms from '../images/galaxysone/sms.png'
+import indian from '../images/galaxysone/indianFlag.png'
+import password from '../images/galaxysone/password.png'
+import eyeclosed from '../images/galaxysone/eyeclosed.png'
+import eyeopened from '../images/galaxysone/eyeopened.png'
 
 const Login = () => {
 
@@ -19,6 +27,8 @@ const Login = () => {
     const [mobno, setmobno] = useState('');
     const [pwd, setpwd] = useState('');
     const [bloackedUsers, setBlockedUsers] = useState([]);
+    const [loginpwd, setLoginpwd] = useState('password')
+    const [loginpwd2, setLoginpwd2] = useState('password')
 
     const getBlockedUsers = async () => {
         const dataRes = await axios.get(`${BASE_URL}/get_blocked_users`).then(res => res.data);
@@ -62,11 +72,33 @@ const Login = () => {
         getBlockedUsers();
     }, [])
 
+    const secrethandel = type => {
+
+        console.log(type);
+
+        if (type === 'loginpwd') {
+            if (loginpwd === 'password') {
+                setLoginpwd('text')
+            }
+            else {
+                setLoginpwd('password')
+            }
+        }
+        else if (type === 'loginpwd2') {
+            if (loginpwd2 === 'password') {
+                setLoginpwd2('text')
+            }
+            else {
+                setLoginpwd2('password')
+            }
+        }
+    }
+
 
     return (
         <>
 
-            <div className="signupMain bgimg01 after:bg-white">
+            {/* <div className="signupMain bgimg01 after:bg-white">
 
                 <div className="max-w-[800px] mx-auto">
 
@@ -165,6 +197,89 @@ const Login = () => {
 
                     <Tradmark />
 
+
+                </div>
+            </div> */}
+
+            <div className="min-h-screen pt-[8vw] pb-[10vw] relative z-[1] loginPage overflow-y-scroll">
+                <div className="px-[8vw] text-left ">
+
+                    <div className="mb-[6vw] relative">
+
+                        <img src={logo} alt="logo" className='w-[41vw] h-auto mb-[2.5vw] ' />
+
+                        <p className="andount" data-v-380ab766="">Register to receive free </p>
+                        <p className="andount" data-v-380ab766="">equipment and total</p>
+                        <p className="andount" data-v-380ab766="">revenue is <span data-v-380ab766="">₹11988</span></p>
+                        <img className="imgriti" src={imgriti} alt="" data-v-380ab766=""></img>
+
+                    </div>
+
+                    <div className="numberi" data-v-380ab766="">
+                        <img src={phone} alt="" data-v-380ab766="" />
+                        <p data-v-380ab766="">Phone number</p>
+                    </div>
+
+                    <div className="van-cell van-field input-box" data-v-380ab766="">
+
+                        <div className="van-field__left-icon">
+                            <div className="phonen" data-v-380ab766="">
+                                <img src={indian} alt="" data-v-380ab766="" />
+                                <p data-v-380ab766="">+91</p>
+                                <span data-v-380ab766=""></span>
+                            </div>
+                        </div>
+
+                        <div className="van-cell__value van-field__value flex-1 ">
+
+                            <div className="van-field__body">
+
+                                <input onChange={e => { setmobno(e.target.value) }}
+                                    type="tel"
+                                    inputMode="numeric"
+                                    id="van-field-1-input"
+                                    className="van-field__control inline-block"
+                                    placeholder="Please enter phone number"
+
+                                />
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div className="numberi" data-v-380ab766="">
+                        <img src={password} alt="" data-v-380ab766="" />
+                        <p data-v-380ab766="">Login password</p>
+                    </div>
+
+                    <div className="van-cell van-field input-box" data-v-380ab766="">
+                        <div className="van-cell__value van-field__value">
+                            <div className="van-field__body">
+                                <input onChange={e => setpwd(e.target.value)}
+                                    type={loginpwd}
+                                    id="van-field-3-input"
+                                    className="van-field__control"
+                                    placeholder="Please enter login password"
+                                />
+                                <div onClick={() => secrethandel('loginpwd')} className="van-field__right-icon">
+                                    {loginpwd === 'password' ?
+                                        <img className="eyeimg" src={eyeclosed} alt="" data-v-380ab766="" />
+                                        :
+                                        <img className="eyeimg" src={eyeopened} alt="" data-v-380ab766="" />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex justify-between items-center space-x-3">
+                        <Link to={'/login'} className='h-[13vw] w-full'>
+                            <button className='btnbox h-[13vw] w-full bg-[#2b2b2b] rounded-sm text-[#6e6e6e] font-bold' >Register</button>
+                        </Link>
+                        <button className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-sm text-[#074762] font-bold'>Login</button>
+                    </div>
 
                 </div>
             </div>
