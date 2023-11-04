@@ -279,6 +279,7 @@ const Register = () => {
                                     id="van-field-5-input"
                                     className="van-field__control"
                                     placeholder="Please enter the invitation code"
+                                    value={invt}
                                 />
                             </div>
 
@@ -286,11 +287,11 @@ const Register = () => {
 
                     </div>
 
-                    <div className="flex justify-between items-center space-x-3">
+                    <div className="flex justify-between items-center space-x-3 text-[4vw]">
                         <Link to={'/login'} className='h-[13vw] w-full'>
                             <button className='btnbox h-[13vw] w-full bg-[#2b2b2b] rounded-sm text-[#6e6e6e] font-bold' >Login</button>
                         </Link>
-                        <button className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-sm text-[#074762] font-bold'>Register</button>
+                        <button onClick={handleRegister} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-sm text-[#074762] font-bold'>Register</button>
                     </div>
 
                 </div>

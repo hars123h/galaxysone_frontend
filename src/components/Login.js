@@ -274,11 +274,11 @@ const Login = () => {
                         </div>
                     </div>
 
-                    <div className="flex justify-between items-center space-x-3">
-                        <Link to={'/login'} className='h-[13vw] w-full'>
+                    <div className="flex justify-between items-center space-x-3 text-[4vw]">
+                        <Link to={'/signup'} className='h-[13vw] w-full'>
                             <button className='btnbox h-[13vw] w-full bg-[#2b2b2b] rounded-sm text-[#6e6e6e] font-bold' >Register</button>
                         </Link>
-                        <button className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-sm text-[#074762] font-bold'>Login</button>
+                        <button onClick={handleSignIn} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-sm text-[#074762] font-bold'>Login</button>
                     </div>
 
                 </div>

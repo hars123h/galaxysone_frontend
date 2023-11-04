@@ -36,15 +36,15 @@ const Home = () => {
 
     // console.log(userDetails);
 
-    useEffect(() => {
-        // console.log(wpwd);
-        if (wpwd === 'undefined') {
-            toaster('Set Trade Password')
-            setTimeout(() => {
-                navigate('/widthdrawlpassword')
-            }, 3000);
-        }
-    }, [])
+    // useEffect(() => {
+    //     // console.log(wpwd);
+    //     if (wpwd === 'undefined') {
+    //         toaster('Set Trade Password')
+    //         setTimeout(() => {
+    //             navigate('/widthdrawlpassword')
+    //         }, 3000);
+    //     }
+    // }, [])
 
     useEffect(() => {
         if (user) {
@@ -62,9 +62,9 @@ const Home = () => {
     return (
         <>
             {/* popup */}
-            <Popup />
+            {/* <Popup /> */}
 
-            <div className="mx-auto mb-28 bgimg overflow-hidden">
+            {/* <div className="mx-auto mb-28 bgimg overflow-hidden">
                 <div className="w-full mx-auto max-w-[800px]" >
 
                     <Link to={`/invite`}>
@@ -86,7 +86,7 @@ const Home = () => {
                             <div className="pt-5 px-5 pb-[10px] bg-white shadow-[0px_-20px_30px_20px_rgba(0,40,14,0.1)] rounded-[7px_7px_0_0] ">
 
                                 <Link to={`/vip`} className='flex items-end top-[10px] right-5 absolute'>
-                                    {/* <RiVipLine size={40} className='text-[#b3bdc4]' /> */}
+                                    <RiVipLine size={40} className='text-[#b3bdc4]' />
                                     <img src={vipimg} alt="" className='w-6' />
                                 </Link>
 
@@ -311,12 +311,16 @@ const Home = () => {
                     <Tradmark />
 
                 </div>
-            </div>
+            </div> */}
 
 
             {/* footer */}
 
             <Navbar />
+
+            <div className="">
+                
+            </div>
 
         </>
     )

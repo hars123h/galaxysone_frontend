@@ -165,21 +165,21 @@ function App() {
             </div>
           }
 
-          {loading &&
+          {/* {loading &&
             <div className='top-0 left-0 right-0 bottom-0 p-5 z-[9999] fixed flex items-center'>
               <div className="before:content-[''] fixed top-0 left-0 right-0 bottom-0 bg-[rgba(46,46,46,0.1)] z-[1] backdrop-blur-[3px]"></div>
               <div className="bg-transparent backdrop-filter-[initial] backdrop-blur-[initial] max-w-[250px] p-5 -top-5 relative mx-auto ">
                 <div className="w-[60px] mx-auto relative flex flex-wrap justify-center items-center cp-spinner cp-balls"></div>
               </div>
             </div>
-          }
+          } */}
 
           <Routes>
 
             <Route path="/" element={<Fallback />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Register />} />
-            {/* <Route path='/home' element={<Home />} /> */}
+            <Route path='/home' element={<Home />} />
             {/* <Route path='/invest' element={<Invest />} /> */}
             {/* <Route path='/account' element={<Account />} /> */}
             {/* <Route path='/deposit' element={<Deposit />} /> */}
