@@ -264,6 +264,7 @@ const Widthdrawl = () => {
                                         id="van-field-1-input"
                                         className="van-field__control inline-block font-bold"
                                         placeholder="Please enter withdraw amount"
+                                        style={{ color: 'white', fontWeight: 700 }}
 
                                     />
 

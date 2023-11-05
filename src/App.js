@@ -182,8 +182,8 @@ function App() {
             <Route path='/home' element={<Home />} />
             {/* <Route path='/invest' element={<Invest />} /> */}
             {/* <Route path='/account' element={<Account />} /> */}
-            {/* <Route path='/deposit' element={<Deposit />} /> */}
-            {/* <Route path="/recharge_window/:recharge_value" element={<RechargeWindow />} /> */}
+            <Route path='/deposit' element={<Deposit />} />
+            <Route path="/recharge_window/:recharge_value" element={<RechargeWindow />} />
             {/* <Route path='/deposit_records' element={<DepositRecords />} /> */}
             {/* <Route path='/invite' element={<Invite />} /> */}
             {/* <Route path='/vip' element={<Vip />} /> */}

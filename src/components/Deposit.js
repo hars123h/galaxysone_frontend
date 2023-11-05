@@ -6,6 +6,8 @@ import { ContextApi } from '../App'
 import QuickAmountCard from './QuickAmountCard'
 import BASE_URL from '../api_url'
 import axios from 'axios'
+import floatings from '../images/galaxysone/g2.png'
+import { BiSolidCoinStack } from 'react-icons/bi'
 
 const Deposit = () => {
 
@@ -31,7 +33,7 @@ const Deposit = () => {
     }, [])
 
 
-    const amount = [575, 2000, 5000, 10000, 30000, 50000, 100000, 200000, 500000]
+    const amount = [650, 1800, 4100, 6500, 14500, 30000, 50000, 95000]
 
     const handleRecharge = () => {
         if (parseInt(Deposit)) {
@@ -67,7 +69,7 @@ const Deposit = () => {
 
         <>
 
-            <div className="after:bg-white after:contents-[' '] after:fixed ">
+            {/* <div className="after:bg-white after:contents-[' '] after:fixed ">
                 <div className="w-full mx-auto max-w-[800px]">
 
                     <header className="h-[50px] leading-[50px] block">
@@ -250,6 +252,121 @@ const Deposit = () => {
 
                         </div>
 
+                    </div>
+
+                </div>
+            </div> */}
+
+            <div className=" after:contents-[' '] after:fixed ">
+                <div className="w-full mx-auto max-w-[800px]">
+
+                    <header className="h-[50px] leading-[50px] block">
+                        <div className="max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center  ">
+
+                            <Link to={'/home'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
+                                <LiaAngleLeftSolid size={22} />
+                            </Link>
+
+                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >Deposit</h2>
+
+                        </div>
+                    </header>
+
+                    <div className="px-5 mt-12 ">
+
+                        <div className="rounded-lg ">
+
+                            <div className="bg-[#009fe9] flex relative justify-between p-5 rounded-lg rounded-bl-none">
+
+                                <div className="">
+                                    <div className="flex items-center space-x-1 mb-1" >
+                                        <BiSolidCoinStack className='text-[yellow]' size={25} /> <span>My deposit</span>
+                                    </div>
+                                    <p className='text-black text-xl font-bold'>
+                                        <em className=' p-0 px-[2px] border-0 not-italic leading-none '>₹</em>
+                                        {userDetails?.recharge_amount.toFixed(2)}
+                                    </p>
+                                </div>
+
+                                <img src={floatings} className='h-32 w-32 absolute right-0 -top-14' alt="" />
+
+                            </div>
+
+                            <div className="flex ">
+                                <div className="flex-1 -z-10 bg-[#009fe9] rounded-xl rounded-t-none inverted_radius relative">
+
+                                </div>
+                                <div className="bg-[#009fe9] flex justify-center items-center rounded-lg border-2 mt-2 border-black px-5 py-2">
+                                    Deposit record
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="van-cell van-field input-box mt-7 bg-[#1e1e20]" data-v-380ab766="" style={{ background: '#1e1e20', border: 'none' }}>
+
+                            <div className="van-field__left-icon">
+                                <div className="phonen" data-v-380ab766="">
+                                    {/* <img src={indian} alt="" data-v-380ab766="" /> */}
+                                    <p data-v-380ab766="" className='mr-1'>₹</p>
+                                    <span data-v-380ab766=""></span>
+                                </div>
+                            </div>
+
+                            <div className="van-cell__value van-field__value flex-1 ">
+
+                                <div className="van-field__body">
+
+                                    <input
+                                        onChange={e => { setDeposit(e.target.value); setSelected() }}
+                                        type="number"
+                                        inputMode="numeric"
+                                        id="van-field-1-input"
+                                        className="van-field__control inline-block font-bold"
+                                        placeholder="Please enter deposit amount"
+                                        style={{ color: 'white', fontWeight: 700 }}
+                                        value={Deposit}
+                                    />
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="flex flex-wrap items-center">
+
+                            {amount.map((data, index) =>
+                                <QuickAmountCard key={index} id={index} selected={selected} setSelected={setSelected} amount={data} setDeposit={setDeposit} />
+                            )}
+
+                        </div>
+
+                        <div className="border border-[#6b6f78] w-full h-0 my-5"></div>
+
+                        <div className="flex justify-between items-center space-x-3 text-[4vw]">
+                            <button onClick={handleRecharge} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-lg text-[#074762] font-bold'>Withdraw</button>
+                        </div>
+
+                        <div className="mx-[10px] mt-5">
+
+                            <p className='leading-6 text-sm text-[white] mb-[10px]'>
+                                <strong>
+                                    1. Please do not modify the deposit amount. Unauthorized modification of the deposit
+                                    amount will result in the deposit not being credited
+                                </strong>
+                            </p>
+
+                            <p className='leading-6 text-sm text-[white] mb-[10px]'>
+                                2. Deposit received within 5 minutes, if not received within 5 minutes, please contact online
+                                customer service for processing
+                            </p>
+
+                            <p className='leading-6 text-sm text-[white] mb-[10px]'>
+                                3. Due to too many deposit users, please try multiple times to obtain the deposit link or try
+                                again after a period of time
+                            </p>
+
+                        </div>
                     </div>
 
                 </div>
