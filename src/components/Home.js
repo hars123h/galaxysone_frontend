@@ -351,10 +351,10 @@ const Home = () => {
                             <p className=''>Deposit </p>
                             <AiFillWallet size={20} className='text-[#0e88fb]' />
                         </div>
-                        <div className="border-2 border-white rounded-md p-2 h-fit flex items-center space-x-2">
+                        <Link to={'/widthdrawl'} className="border-2 z-20 border-[#0e88fb] rounded-md p-2 h-fit flex items-center space-x-2">
                             <p className=''>Withdraw </p>
                             <IoWallet size={20} className='text-[#0e88fb]' />
-                        </div>
+                        </Link>
                     </div>
 
                 </div>

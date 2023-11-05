@@ -5,6 +5,10 @@ import { ContextApi } from '../App';
 import chip from '../images/Chip.svg'
 import BASE_URL from '../api_url';
 import axios from 'axios';
+import { BiSolidCoinStack } from 'react-icons/bi';
+import floatings from '../images/galaxysone/g2.png'
+import eyeclosed from '../images/galaxysone/eyeclosed.png'
+import eyeopened from '../images/galaxysone/eyeopened.png'
 
 const Widthdrawl = () => {
 
@@ -12,6 +16,9 @@ const Widthdrawl = () => {
 
 
     const { userDetails, setLoading, setUserDetails, getUserDetails, user, toaster, amounts, setAmounsts } = useContext(ContextApi);
+    const [loginpwd, setLoginpwd] = useState('password')
+    const [loginpwd2, setLoginpwd2] = useState('password')
+    const [nextBtn, setnextBtn] = useState(false)
 
     // console.log(amounts);
 
@@ -35,8 +42,8 @@ const Widthdrawl = () => {
     withdrawDate.setHours(0, 0, 0, 0)
 
     const isBetween = () => {
-        var startTime = '10:00:00';
-        var endTime = '18:00:00';
+        var startTime = '09:00:00';
+        var endTime = '21:00:00';
 
         var currentDate = new Date()
 
@@ -57,6 +64,8 @@ const Widthdrawl = () => {
     }
 
     const handleWithdrawal = async () => {
+
+        setnextBtn(true)
 
         if (Number(deposit) === false || Number(deposit) <= 0) {
             toaster('Enter a valid number');
@@ -139,23 +148,23 @@ const Widthdrawl = () => {
         }
     }, [])
 
-    useEffect(() => {
-        // console.log(wpwd2);
+    // useEffect(() => {
+    //     // console.log(wpwd2);
 
-        if (wpwd2 === 'undefined') {
-            toaster('Set Trade Password')
-            setTimeout(() => {
-                navigate('/widthdrawlpassword')
-            }, 3000);
-        }
+    //     if (wpwd2 === 'undefined') {
+    //         toaster('Set Trade Password')
+    //         setTimeout(() => {
+    //             navigate('/widthdrawlpassword')
+    //         }, 3000);
+    //     }
 
-        else if (userDetails?.bank_details.bankAccount.length === 0) {
-            toaster("Add bank details first")
-            setTimeout(() => {
-                navigate('/bankcardadd')
-            }, 3000);
-        }
-    }, [])
+    //     else if (userDetails?.bank_details.bankAccount.length === 0) {
+    //         toaster("Add bank details first")
+    //         setTimeout(() => {
+    //             navigate('/bankcardadd')
+    //         }, 3000);
+    //     }
+    // }, [])
 
 
     // console.log(bank_details,'withdrawl');
@@ -163,138 +172,142 @@ const Widthdrawl = () => {
 
     console.log();
 
+    const secrethandel = type => {
+
+        console.log(type);
+
+        if (type === 'loginpwd') {
+            if (loginpwd === 'password') {
+                setLoginpwd('text')
+            }
+            else {
+                setLoginpwd('password')
+            }
+        }
+        else if (type === 'loginpwd2') {
+            if (loginpwd2 === 'password') {
+                setLoginpwd2('text')
+            }
+            else {
+                setLoginpwd2('password')
+            }
+        }
+    }
+
 
 
 
     return (
         <>
-            <div className="after:bg-white after:contents-[' '] after:fixed ">
+            <div className=" after:contents-[' '] after:fixed ">
                 <div className="w-full mx-auto max-w-[800px]">
 
                     <header className="h-[50px] leading-[50px] block">
-                        <div className="max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed bg-[rgb(1,77,173)] z-[9999] flex flex-wrap items-center  ">
+                        <div className="max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center  ">
 
-                            <Link to={'/account'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
+                            <Link to={'/home'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
                                 <LiaAngleLeftSolid size={22} />
                             </Link>
 
-                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >My Bank Account</h2>
+                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >Withdraw</h2>
 
                         </div>
                     </header>
 
-                    <div className="mx-auto relative z-[1]">
+                    <div className="px-5 mt-12 ">
 
-                        <div className="bg-[rgb(1,77,173)] px-5 pt-5 overflow-hidden invite">
+                        <div className="rounded-lg ">
 
-                            <div className="flex flex-wrap items-center mb-5 ">
-                                <div className="mt-[10px]">
-                                    <h3 className='text-[30px] font-bold text-white leading-none' >
-                                        <em className='mr-1 p-0 px-[2px] border-0 text-base font-light align-top not-italic leading-none '>₹</em>
-                                        {(Number(userDetails?.balance)).toFixed(2)}
-                                    </h3>
-                                    <span className='text-base text-[#fffc] opacity-80 leading-none'>Withdrawable account balance</span>
+                            <div className="bg-[#009fe9] flex relative justify-between p-5 rounded-lg rounded-bl-none">
+
+                                <div className="">
+                                    <div className="flex items-center space-x-1 mb-1" >
+                                        <BiSolidCoinStack className='text-[yellow]' size={25} /> <span>My balance</span>
+                                    </div>
+                                    <p className='text-black text-xl font-bold'>
+                                        <em className=' p-0 px-[2px] border-0 not-italic leading-none '>₹</em>
+                                        {userDetails?.balance.toFixed(2)}
+                                    </p>
                                 </div>
+
+                                <img src={floatings} className='h-32 w-32 absolute right-0 -top-14' alt="" />
+
                             </div>
 
-                            <div className="">
-                                <div className=" px-5 pt-[10px] pb-10 relative bankcard rounded-[15px]">
-
-                                    <div className="m-auto relative">
-                                        <p className='text-white text-sm tracking-[2px]'>IFSC:{userDetails?.bank_details?.ifsc}</p>
-                                    </div>
-
-                                    <div className="py-[10px]">
-                                        <h3 className='font-bold text-[26px] text-white'>{userDetails?.bank_details?.bankAccount.toString().replace(/\d{4}(?=.)/g, '$& ')}</h3>
-                                    </div>
-
-                                    <div className="">
-                                        <span className='text-white font-light text-xs leading-4'>CARD HOLDER</span>
-                                        <p className='text-white text-sm tracking-[2px]'>{userDetails?.bank_details?.fullName}</p>
-                                    </div>
-
-                                    <div className="w-[45px] top-5 right-[10px] absolute z-[2]">
-                                        <img src={chip} alt="" className='w-full opacity-20' />
-                                    </div>
-
-                                    <div className="shading rounded-[15px]"></div>
+                            <div className="flex ">
+                                <div className="flex-1 -z-10 bg-[#009fe9] rounded-xl rounded-t-none inverted_radius relative">
 
                                 </div>
+                                <div className="bg-[#009fe9] flex justify-center items-center rounded-lg border-2 mt-2 border-black px-5 py-2">
+                                    Withdraw record
+                                </div>
                             </div>
-
                         </div>
 
-                        <div className="m-[10px] p-[10px]">
+                        <div className="van-cell van-field input-box mt-7 bg-[#1e1e20]" data-v-380ab766="" style={{ background: '#1e1e20', border: 'none' }}>
 
-                            <div className="mb-5 relative">
-
-                                <div className=" relative border-0 border-solid border-[rgba(215, 215, 215, 0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
-
-                                    <div className="flex items-center relative w-full">
-                                        <input
-                                            onChange={e => setDeposit(e.target.value)}
-                                            type="number"
-                                            name="withdrawl"
-                                            id="withdrawl"
-                                            className=' fillArea w-full h-[50px] text-base leading-none px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent flex-1 '
-                                            maxLength={11}
-                                            size={11}
-                                            placeholder=''
-                                        />
-                                        <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                        <label className='placeholder text-[#818393] text-sm leading-none left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>Withdrawal Amount</label>
-
-                                    </div>
+                            <div className="van-field__left-icon">
+                                <div className="phonen" data-v-380ab766="">
+                                    {/* <img src={indian} alt="" data-v-380ab766="" /> */}
+                                    <p data-v-380ab766="" className='mr-1'>₹</p>
+                                    <span data-v-380ab766=""></span>
                                 </div>
                             </div>
 
-                            <div className="mb-5 relative">
+                            <div className="van-cell__value van-field__value flex-1 ">
 
-                                <div className=" relative border-0 border-solid border-[rgba(215, 215, 215, 0.6)] bg-[rgb(246,246,246)] rounded-[7px] flex items-center flex-wrap">
+                                <div className="van-field__body">
 
-                                    <div className="flex items-center relative w-full ">
-                                        <input
-                                            onChange={e => setWpwd(e.target.value)}
-                                            type="password"
-                                            name="wpwd"
-                                            id="wpwd"
-                                            className=' fillArea w-full h-[50px] text-base leading-none px-[5px] py-[10px] appearance-none select-text outline-none border-0 border-[#e0e0e0] border-solid text-[#1e2531] font-medium bg-transparent flex-1 '
-                                            maxLength={11}
-                                            size={11}
-                                            placeholder=''
-                                        />
-                                        <div className="cut bg-transparent rounded-[10px] h-5 left-[10px] absolute -top-5 translate-y-0 w-[100px] transition-transform delay-0 eas duration-200"></div>
-                                        <label className='placeholder text-[#818393] text-sm leading-none left-[10px] pointer-events-none absolute origin-[0_50%] transition-all duration-200  '>Trade Password</label>
+                                    <input onChange={e => { setDeposit(e.target.value) }}
+                                        type="number"
+                                        inputMode="numeric"
+                                        id="van-field-1-input"
+                                        className="van-field__control inline-block font-bold"
+                                        placeholder="Please enter withdraw amount"
 
-                                    </div>
-                                </div>
-                            </div>
+                                    />
 
-                            <div className="px-[5px] py-10 mb-5 relative">
-                                <div className="flex flex-wrap items-stretch w-full ">
-
-                                    {isBetween() ?
-
-                                        <div onClick={handleWithdrawal} className="bg-[#00aa75] flex-1 text-center h-[45px] leading-[45px] px-5 text-base text-white block rounded-[500px] transition-all active:translate-y-1 duration-500 overflow-hidden relative  ">
-                                            Submit
-                                        </div>
-                                        :
-                                        <div onClick={() => toaster('You can withdraw only between 10:00:00 to 18:00:00 ')} className="bg-[#00aa75] flex-1 text-center h-[45px] leading-[45px] px-5 text-base text-white block rounded-[500px] transition-all active:translate-y-1 duration-500 overflow-hidden relative  ">
-                                            Submit
-                                        </div>
-                                    }
 
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
 
-                        <div className="mx-[10px] p-5">
+                        <div className="van-cell van-field input-box" data-v-380ab766="" style={{ background: '#1e1e20', border: 'none' }}>
+                            <div className="van-cell__value van-field__value">
+                                <div className="van-field__body">
+                                    <input onChange={e => setWpwd(e.target.value)}
+                                        type={loginpwd}
+                                        id="van-field-3-input"
+                                        className="van-field__control"
+                                        placeholder="Please enter withdrawl password"
+                                    />
+                                    <div onClick={() => secrethandel('loginpwd')} className="van-field__right-icon">
+                                        {loginpwd === 'password' ?
+                                            <img className="eyeimg" src={eyeclosed} alt="" data-v-380ab766="" />
+                                            :
+                                            <img className="eyeimg" src={eyeopened} alt="" data-v-380ab766="" />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div className="flex justify-between items-center space-x-3 text-[4vw]">
+                            {isBetween() ?
+                                <button onClick={handleWithdrawal} disabled={nextBtn} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-lg text-[#074762] font-bold'>Withdraw</button>
+                                :
+                                <button onClick={() => { toaster('You can withdraw only between 09:00:00 to 21:00:00 ') }} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-lg text-[#074762] font-bold'>Withdraw</button>
+                            }
+                        </div>
+
+                        <div className="mx-[10px] py-5">
                             <div className="my-5">
-                                <p className='leading-tight py-[2px] text-[#4b4d5e] mb-[10px]'>1. The daily withdrawal time is from 10:00:00 to 18:00:00</p>
-                                <p className='leading-tight py-[2px] text-[#4b4d5e] mb-[10px]'>2. The single withdrawal amount is between 300 and 50000</p>
-                                <p className='leading-tight py-[2px] text-[#4b4d5e] mb-[10px]'>3. 10% of the withdrawal amount will be charged as tax for each withdrawal</p>
-                                <p className='leading-tight py-[2px] text-[#4b4d5e] mb-[10px]'>4. In order to facilitate financial settlement, you can only apply for cash withdrawal 1 times a day</p>
+                                <p className='leading-tight py-[2px] text-[white] mb-[10px]'>1. The daily withdrawal time is from 09:00:00 to 21:00:00</p>
+                                <p className='leading-tight py-[2px] text-[white] mb-[10px]'>2. The single withdrawal amount is between 300 and 50000</p>
+                                <p className='leading-tight py-[2px] text-[white] mb-[10px]'>3. 10% of the withdrawal amount will be charged as tax for each withdrawal</p>
+                                <p className='leading-tight py-[2px] text-[white] mb-[10px]'>4. In order to facilitate financial settlement, you can only apply for cash withdrawal 1 times a day</p>
                             </div>
                         </div>
 
