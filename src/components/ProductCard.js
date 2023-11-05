@@ -115,7 +115,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
     return (
         <>
 
-            {pop &&
+            {/* {pop &&
                 <div className="fixed top-0 right-0 left-0 bottom-0 z-50">
 
                     <div className="before:content-[''] fixed top-0 left-0 right-0 bottom-0 bg-[rgba(46,46,46,0.1)] z-[1] backdrop-blur-[3px]"></div>
@@ -230,7 +230,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
 
                                             <div className="">
                                                 <p className='text-base text-[#4b4d5e] break-all whitespace-normal'>
-                                                    {/* <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em> */}
+                                                    <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
                                                     {quantity}</p>
                                             </div>
 
@@ -282,11 +282,11 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                     </div>
 
                 </div>
-            }
+            } */}
 
 
 
-            <div className="w-full p-[5px]">
+            {/* <div className="w-full p-[5px]">
                 <div className="shadow-[0_-3px_30px_1px_rgba(80,35,0,0.1)] p-[10px] bg-white backdrop-blur-sm relative rounded-[7px] ">
 
                     <div className="mb-[10px] overflow-hidden bg-center bg-no-repeat bg-[length:90%_90%] cardBg bg-[#f8f8f8] rounded-[3px]">
@@ -393,7 +393,59 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                     }
 
                 </div>
+            </div> */}
+
+            <div className="border border-white p-3 rounded-md text-white relative mb-10">
+
+                <div className="flex space-x-3">
+
+                    <img src={product_image} alt="" className='border border-white rounded-md w-20' />
+
+                    <div className="flex-1">
+                        <h1>{plan_name}</h1>
+                        <p>
+                            Price
+                        </p>
+                        <p className='text-[#00eefe] font-bold'>
+                            <em className='mr-1 p-0 px-[2px] border-0 font-light not-italic leading-none '>₹</em>
+                            {plan_amount}
+                        </p>
+                    </div>
+
+                </div>
+
+                <div className="flex items-center justify-around">
+
+                    <div className="text-center mt-2">
+                        <p>
+                            <em className='mr-1 p-0 px-[2px] border-0 font-light not-italic leading-none '>₹</em>
+                            {plan_daily_earning}
+                        </p>
+                        <p className='text-[#c6ced9]'>Daily income</p>
+                    </div>
+
+                    <div className="text-center">
+                        <p>
+                            {plan_cycle} days
+                        </p>
+                        <p className='text-[#c6ced9]'>Daily income</p>
+                    </div>
+
+                    <div className="text-center">
+                        <p>
+                            <em className='mr-1 p-0 px-[2px] border-0 font-light not-italic leading-none '>₹</em>
+                            {(plan_daily_earning / 24).toFixed(2)}
+                        </p>
+                        <p className='text-[#c6ced9]'>Hourly income</p>
+                    </div>
+
+                </div>
+
+                <button className='bg-[#00eefe] px-10 py-1 rounded-full absolute -bottom left-[36%] origin-center'>Buy</button>
+
             </div>
+
+
 
         </>
     )

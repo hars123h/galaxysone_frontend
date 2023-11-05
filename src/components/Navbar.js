@@ -26,7 +26,7 @@ const Navbar = () => {
 
         switch (pathname) {
             case '/home':
-                setHead('Head')
+                setHead('Home')
                 return
             case '/equipment':
                 setHead('Equipment')
@@ -54,7 +54,7 @@ const Navbar = () => {
     return (
         <>
 
-            <div className="fixed top-0 max-w-[800px] left-[10px] right-[10px] mx-auto z-[999] mt-5 bg-transparent">
+            <div className="mx-3 left-[10px] right-[10px] z-[999] mt-5 bg-transparent">
 
                 <div className="flex justify-between">
 
@@ -66,16 +66,15 @@ const Navbar = () => {
                     <div className="flex space-x-4 items-center">
                         <TbHeadset className='text-white' size={20} />
                         <FaBars className='text-[#00eefe]' size={20} />
-
                     </div>
 
                 </div>
 
             </div>
 
-            <div className='max-w-[800px] fixed bottom-5 left-[10px] right-[10px] mx-auto z-[999] '>
-                <div className="mx-auto bg-black shadow-[0_-3px_30px_1px_rgba(0,40,14,0.3)] backdrop-blur-[5px] rounded-xl ">
-                    <ul className='flex items-center text-white py-3 text-sm'>
+            <div className=' fixed bottom-5 left-[10px] right-[10px] z-[999] text-[4vw]'>
+                <div className="shadow-[0_-3px_30px_1px_rgba(0,40,14,0.3)] backdrop-blur-[5px] rounded-xl navbg ">
+                    <ul className='flex items-center text-white py-3 '>
 
                         <Link to={`/home`} className={`text-center relative flex-1 no-underline flex flex-col justify-center items-center`}>
                             {pathname === '/home' ?

@@ -262,3 +262,8 @@
     width: 18rem !important;
     height: 18rem !important
 }
+
+.navbg{
+    background: linear-gradient(90deg, rgba(52,0,0,1) 0%, rgba(97,3,3,1) 43%, rgba(41,45,93,1) 58%, rgba(3,2,41,1) 100%);
+    /* opacity: 0.6; */
+}
