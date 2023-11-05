@@ -96,7 +96,7 @@ const DepositRecords = () => {
 
                                                 <p className='text-[green] font-bold'>{nameMapper[String(data.status)]}</p>
 
-                                                <p className='text-[#c6ced9]'>Deposit time</p>
+                                                <p className='text-[#c6ced9]'>Deposit status</p>
 
                                             </div>
 

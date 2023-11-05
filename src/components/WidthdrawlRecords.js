@@ -46,69 +46,59 @@ const WidthdrawlRecords = () => {
 
     return (
         <>
-            <div className="bg-[#e0f2f1]  after:contents-[' '] after:fixed h-screen ">
+            <div className="  after:contents-[' '] after:fixed h-screen ">
                 <div className="w-full mx-auto max-w-[800px]">
 
                     <header className="h-[50px] leading-[50px] block mb-[10px]">
-                        <div className="max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed bg-[rgb(1,77,173)] z-[9999] flex flex-wrap items-center  ">
+                        <div className="max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center  ">
 
-                            <Link to={'/account'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
+                            <Link to={'/home'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
                                 <LiaAngleLeftSolid size={22} />
                             </Link>
 
-                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >Widthdrawl Records</h2>
+                            <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >Withdrawl Records</h2>
 
                         </div>
                     </header>
 
                     <div className="mx-auto relative z-[1]">
                         <div className="m-[5px]">
-                            <ul>
+                            <ul className='px-5 text-white'>
 
                                 {withdrawal_list?.map((data, index) =>
 
-                                    <li key={index} className='my-[5px] p-[10px] bg-[rgba(255,255,255,0.6)] rounded-[7px] flex flex-col items-stretch'>
+                                    <li key={index} className='my-[5px] p-3 bg-[#212121] rounded-[7px] border-2 border-[#424242]'>
 
-                                        {/* <div className="flex-1">
-                                            <p className='text-[#666]'>{nameMapper[String(data.status)]}</p>
-                                            <span className='text-sm text-[#999]'>{new Date(data.time).toLocaleString(undefined, { timeZone: 'Asia/Kolkata' })}</span>
+                                        <div className="flex items-center justify-between">
+
+                                            <p>Withdraw Amount</p>
+
+                                            <p className='text-[#009fe9]'>₹{new Intl.NumberFormat().format(data.withdrawalAmount * 0.9)}</p>
+
                                         </div>
 
-                                        <div className="">
-                                            <p>
-                                                <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                                {new Intl.NumberFormat().format(data.withdrawalAmount)}
-                                            </p>
-                                        </div> */}
+                                        <div className="border border-[#6b6f78] w-full h-0 my-5"></div>
 
                                         <div className="flex justify-between items-center">
-                                            <p>Result</p>
-                                            {nameMapper[String(data.status)] === 'success' ?
-                                                <p className='text-green-600'>Payment Succeeded</p>
-                                                :
-                                                <p className='text-red-700'>Payment Pending</p>
-                                            }
-                                        </div>
 
-                                        <div className="flex justify-between items-center">
-                                            <p className='text-[#666]'>Amount received</p>
-                                            <p className='text-[#666]'>
-                                                <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                                {new Intl.NumberFormat().format(data.withdrawalAmount * 0.9)}
-                                            </p>
-                                        </div>
+                                            <div className="w-2/5 text-center">
 
-                                        <div className="flex justify-between items-center">
-                                            <p className='text-[#666]'>Tax</p>
-                                            <p className='text-[#666]'>
-                                                <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                                {new Intl.NumberFormat().format(data.withdrawalAmount * 0.1)}
-                                            </p>
-                                        </div>
+                                                <p>{new Date(data.time).toLocaleString(undefined, { timeZone: 'Asia/Kolkata', hour12: false })}</p>
 
-                                        <div className="flex justify-between items-center">
-                                            <p className='text-[#666]'>Submit Time</p>
-                                            <p className='text-[#666]'>{new Date(data.time).toLocaleString(undefined, { timeZone: 'Asia/Kolkata' })}</p>
+                                                <p className='text-[#c6ced9]'>Withdraw time</p>
+
+                                            </div>
+
+                                            <div className=" border border-[#6b6f78] w-0 h-5 my-5"></div>
+
+                                            <div className="w-2/5 text-center">
+
+                                                <p className='text-[green] font-bold'>{nameMapper[String(data.status)]}</p>
+
+                                                <p className='text-[#c6ced9]'>Withdraw status</p>
+
+                                            </div>
+
                                         </div>
 
                                     </li>
