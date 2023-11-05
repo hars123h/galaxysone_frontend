@@ -296,9 +296,9 @@ const Deposit = () => {
                                 <div className="flex-1 -z-10 bg-[#009fe9] rounded-xl rounded-t-none inverted_radius relative">
 
                                 </div>
-                                <div className="bg-[#009fe9] flex justify-center items-center rounded-lg border-2 mt-2 border-black px-5 py-2">
+                                <Link to={'/deposit_records'} className="bg-[#009fe9] flex justify-center items-center rounded-lg border-2 mt-2 border-black px-5 py-2">
                                     Deposit record
-                                </div>
+                                </Link>
                             </div>
                         </div>
 
