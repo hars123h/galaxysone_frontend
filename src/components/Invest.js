@@ -7,6 +7,16 @@ import ProductCard from './ProductCard'
 import img202 from '../images/201.png'
 import img302 from '../images/301.png'
 import { ContextApi } from '../App'
+import { FaListAlt } from 'react-icons/fa'
+import g1 from '../images/galaxysone/g1.png'
+import g2 from '../images/galaxysone/g2.png'
+import g3 from '../images/galaxysone/g3.png'
+import g4 from '../images/galaxysone/g4.png'
+import g5 from '../images/galaxysone/g5.png'
+import g6 from '../images/galaxysone/g6.png'
+import g7 from '../images/galaxysone/g7.png'
+import g8 from '../images/galaxysone/g8.png'
+import g9 from '../images/galaxysone/g9.png'
 
 const Invest = () => {
 
@@ -88,316 +98,69 @@ const Invest = () => {
 
     return (
         <>
+            <Navbar />
 
-            <div className="mx-auto mb-28 bgimg">
-                <div className="w-full mx-auto max-w-[800px]" >
+            <div className="mx-3 mt-5 mb-36 text-white">
 
-                    <Link to={`/orders`}>
-                        <div className='max-w-full min-h-[90px] mx-auto bg-[rgb(1,77,173)] invite pb-[120px] ' >
+                <div className="">
 
-                            <div className="relative z-10 flex flex-wrap items-start pt-5 px-5 pb-[10px]">
-
-                                <div className="flex-[3]">
-                                    <p className='text-[26px] font-bold text-white leading-none' >
-                                        <em className='p-0 px-[2px] border-0 text-base font-light align-top not-italic leading-none '>₹</em>
-                                        {userDetails?.totalInvestment.toFixed(2)}
-                                    </p>
-                                    <span className=' text-white opacity-80 leading-none'>Total Investment</span>
-                                </div>
-
-                                <div className="flex-[2]">
-                                    <p className='text-[26px] font-bold text-white leading-none' >
-                                        <em className=' p-0 px-[2px] border-0 text-base font-light not-italic leading-none '>₹</em>
-                                        {totalEarn?.toFixed(2)}
-                                    </p>
-                                    <span className=' text-white opacity-80 leading-none'>Bought-in</span>
-                                </div>
-
-                            </div>
-
-                            <div className="left-0 right-0 px-5 py-[10px] absolute z-[1]"></div>
-
-                        </div>
-                    </Link>
-
-                    <div className="relative -top-[120px] mx-auto z-[1]">
-
-                        {/* itemlist */}
-
-                        <div className="m-[10px]">
-
-                            {/* toogle */}
-
-                            <div className="mx-auto relative overflow-hidden p-0 z[1] ">
-
-                                <div className="swiper pt-[10px] overflow-hidden overflow-x-scroll relative w-full h-full z-[1] flex transition-transform box-content rounded-[7px] ">
-
-                                    <div onClick={() => swiperHandel('stable')} className={`${stable} w-auto mr-[3px] px-[15px] pt-[15px] pb-5 no-underline inline-block relative flex-shrink-0 h-full transition-transform rounded-tl-[7px] rounded-tr-[7px]  `}>
-                                        <p>Stable</p>
-                                        {activelist === 'stable' &&
-                                            <>
-                                                <div className="opacity-100 block -left-10 -bottom-[5px] rotate-45 z-[1] absolute w-[50px] h-[50px] border-[10px] border-solid border-transparent border-r-white rounded-[100%] duration-300 "></div>
-                                                <div className="opacity-100 block -right-10 -bottom-[5px] -rotate-45 z-[1] absolute w-[50px] h-[50px] border-[10px] border-solid border-transparent border-l-white rounded-[100%] duration-300 "></div>
-                                            </>
-                                        }
-                                    </div>
-
-                                    <div onClick={() => swiperHandel('welfare')} className={`${welfare} w-auto mr-[3px] px-[15px] pt-[15px] pb-5 no-underline inline-block relative flex-shrink-0 h-full transition-transform rounded-tl-[7px] rounded-tr-[7px]  `}>
-                                        <p>Welfare</p>
-                                        {activelist === 'welfare' &&
-                                            <>
-                                                <div className="opacity-100 block -left-10 -bottom-[5px] rotate-45 z-[1] absolute w-[50px] h-[50px] border-[10px] border-solid border-transparent border-r-white rounded-[100%] duration-300 "></div>
-                                                <div className="opacity-100 block -right-10 -bottom-[5px] -rotate-45 z-[1] absolute w-[50px] h-[50px] border-[10px] border-solid border-transparent border-l-white rounded-[100%] duration-300 "></div>
-                                            </>
-                                        }
-                                    </div>
-
-                                    <div onClick={() => swiperHandel('activity')} className={`${activity} w-auto mr-[3px] px-[15px] pt-[15px] pb-5 no-underline inline-block relative flex-shrink-0 h-full transition-transform rounded-tl-[7px] rounded-tr-[7px]  `}>
-                                        <img className='w-6 top-0 right-0 absolute' src={hot} alt="" />
-                                        <p>Activity</p>
-
-                                        {activelist === 'activity' &&
-                                            <>
-                                                <div className="opacity-100 block -left-10 -bottom-[5px] rotate-45 z-[1] absolute w-[50px] h-[50px] border-[10px] border-solid border-transparent border-r-white rounded-[100%] duration-300 "></div>
-                                                <div className="opacity-100 block -right-10 -bottom-[5px] -rotate-45 z-[1] absolute w-[50px] h-[50px] border-[10px] border-solid border-transparent border-l-white rounded-[100%] duration-300 "></div>
-                                            </>
-                                        }
-
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                            {/* list */}
-
-                            <div className="">
-
-                                {activelist === 'stable' &&
-                                    <div className="block bg-white -top-[10px] pt-[10px] px-[5px] pb-12 relative z-[2] rounded-[7px] ">
-                                        <div className="flex flex-wrap items-center justify-between">
-
-                                            <ProductCard
-                                                product_image={img202}
-                                                product_type={0}
-                                                plan_cycle={60}
-                                                plan_amount={495}
-                                                plan_daily_earning={190}
-                                            />
-
-                                            <ProductCard
-                                                product_image={img202}
-                                                product_type={0}
-                                                plan_cycle={60}
-                                                plan_amount={1930}
-                                                plan_daily_earning={750}
-                                            />
-
-                                            <ProductCard
-                                                product_image={img202}
-                                                product_type={0}
-                                                plan_cycle={60}
-                                                plan_amount={3780}
-                                                plan_daily_earning={1480}
-                                            />
-
-                                            <ProductCard
-                                                product_image={img202}
-                                                product_type={0}
-                                                plan_cycle={60}
-                                                plan_amount={7700}
-                                                plan_daily_earning={3190}
-                                            />
-
-                                            <ProductCard
-                                                product_image={img202}
-                                                product_type={0}
-                                                plan_cycle={60}
-                                                plan_amount={20000}
-                                                plan_daily_earning={8490}
-                                            />
-
-                                            <ProductCard
-                                                product_image={img202}
-                                                product_type={0}
-                                                plan_cycle={60}
-                                                plan_amount={50000}
-                                                plan_daily_earning={21800}
-                                            />
-
-                                            <ProductCard
-                                                product_image={img202}
-                                                product_type={0}
-                                                plan_cycle={60}
-                                                plan_amount={100000}
-                                                plan_daily_earning={45500}
-                                            />
-
-                                            {/* <ProductCard
-                                                product_image={img202}
-                                                product_type={0}
-                                                plan_cycle={60}
-                                                plan_amount={100000}
-                                                plan_daily_earning={90000}
-                                            /> */}
-
-                                        </div>
-                                    </div>
-
-                                }
-
-                                {activelist === 'welfare' &&
-                                    <div className="block bg-white -top-[10px] pt-[10px] px-[5px] pb-12 relative z-[2] rounded-[7px] ">
-                                        <div className="flex flex-wrap items-center justify-between">
-
-                                            <ProductCard
-                                                product_type={1}
-                                                plan_cycle={1}
-                                                plan_amount={210}
-                                                plan_daily_earning={300}
-                                            />
-
-                                            <ProductCard
-                                                product_type={1}
-                                                plan_cycle={1}
-                                                plan_amount={1700}
-                                                plan_daily_earning={3000}
-                                            />
-
-                                            <ProductCard
-                                                product_type={1}
-                                                plan_cycle={3}
-                                                plan_amount={3700}
-                                                plan_daily_earning={2266}
-                                            />
-
-                                            <ProductCard
-                                                product_type={1}
-                                                plan_cycle={3}
-                                                plan_amount={7700}
-                                                plan_daily_earning={4600}
-                                            />
-
-                                            {/* <ProductCard
-                                                product_type={5}
-                                                plan_cycle={3}
-                                                plan_amount={30000}
-                                                plan_daily_earning={21000}
-                                            />
-
-                                            <ProductCard
-                                                product_type={6}
-                                                plan_cycle={3}
-                                                plan_amount={50000}
-                                                plan_daily_earning={37500}
-                                            /> */}
-
-                                        </div>
-                                    </div>
-
-                                }
-
-                                {activelist === 'activity' &&
-                                    <div className="block bg-white -top-[10px] pt-[10px] px-[5px] h-screen pb-12 relative z-[2] rounded-[7px] ">
-                                        <div className="flex flex-wrap items-center justify-between h-3/5">
-
-                                            {/* <ProductCard
-                                                product_type={1}
-                                                product_image={img302}
-                                                plan_cycle={20}
-                                                plan_amount={2001}
-                                                plan_daily_earning={1500.75}
-                                            />
-
-                                            <ProductCard
-                                                product_type={1}
-                                                product_image={img302}
-                                                plan_cycle={20}
-                                                plan_amount={5000}
-                                                plan_daily_earning={3900}
-                                            />
-
-                                            <ProductCard
-                                                product_type={1}
-                                                product_image={''}
-                                                plan_cycle={27}
-                                                plan_amount={11500}
-                                                plan_daily_earning={8970}
-                                            />
-
-                                            <ProductCard
-                                                product_type={1}
-                                                product_image={img302}
-                                                plan_cycle={30}
-                                                plan_amount={1500}
-                                                plan_daily_earning={675}
-                                            />
-
-                                            <ProductCard
-                                                product_type={1}
-                                                product_image={img302}
-                                                plan_cycle={30}
-                                                plan_amount={5000}
-                                                plan_daily_earning={2350}
-                                            />
-
-                                            <ProductCard
-                                                product_type={1}
-                                                product_image={img302}
-                                                plan_cycle={30}
-                                                plan_amount={10000}
-                                                plan_daily_earning={5000}
-                                            />
-
-                                            <ProductCard
-                                                product_type={1}
-                                                product_image={img302}
-                                                plan_cycle={30}
-                                                plan_amount={50000}
-                                                plan_daily_earning={40000}
-                                            />
-
-                                            <ProductCard
-                                                product_type={1}
-                                                product_image={''}
-                                                plan_cycle={1}
-                                                plan_amount={200}
-                                                plan_daily_earning={300}
-                                                active={false}
-                                            />
-
-                                            <ProductCard
-                                                product_type={2}
-                                                product_image={''}
-                                                plan_cycle={1}
-                                                plan_amount={2700}
-                                                plan_daily_earning={3483}
-                                                active={false}
-                                            /> */}
-
-                                            <div className="h-[50px] relative overflow-hidden text-xs translate-z-0 mx-auto my-auto ">
-                                                <div className="h-[50px] leading-[50px] text-center text-[#cfd0d9]">No more data</div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                }
-
-                            </div>
-
-                        </div>
-
+                    <div className="flex items-center space-x-3">
+                        <FaListAlt className='text-[#0e88fb]' />
+                        <h1>Equipment List</h1>
                     </div>
-                    <div className="fixed bottom-0">
-                        <Tradmark />
+
+                    <div className="mt-5">
+
+                        <ProductCard
+                            product_image={g1}
+                            product_type={1}
+                            plan_cycle={1}
+                            plan_amount={200}
+                            plan_daily_earning={300}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g2}
+                            product_type={2}
+                            plan_cycle={7}
+                            plan_amount={1000}
+                            plan_daily_earning={250}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g3}
+                            product_type={3}
+                            plan_cycle={7}
+                            plan_amount={2500}
+                            plan_daily_earning={500}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g4}
+                            product_type={4}
+                            plan_cycle={10}
+                            plan_amount={4000}
+                            plan_daily_earning={600}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g5}
+                            product_type={5}
+                            plan_cycle={10}
+                            plan_amount={10000}
+                            plan_daily_earning={1500}
+                        // plan_name={'Communication Satellite'}
+                        />
+
                     </div>
 
                 </div>
             </div>
 
-            {/* footer  */}
-            <Navbar />
         </>
     )
 }
