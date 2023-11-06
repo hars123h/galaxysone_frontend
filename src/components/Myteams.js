@@ -117,13 +117,13 @@ const Myteams = () => {
 
                         <div className="text-center">
                             <p className='text-white'>₹{(userDetails?.directRecharge * 0.05).toFixed(2)}</p>
-                            <p className='text-[#c6ced9] text-sm'>Team size</p>
+                            <p className='text-[#c6ced9] text-sm'>Commission</p>
                         </div>
 
-                        {/* <div className="text-center">
-                            <p className='text-white'>₹{(userDetails?.directRecharge * 0.05).toFixed(2)}</p>
-                            <p className='text-[#c6ced9] text-sm'>Team size</p>
-                        </div> */}
+                        <div className="text-center">
+                            <p className='text-white'>₹{(userDetails?.directRecharge).toFixed(2)}</p>
+                            <p className='text-[#c6ced9] text-sm'>Team Recharge</p>
+                        </div>
 
                     </div>
 
@@ -152,13 +152,13 @@ const Myteams = () => {
 
                         <div className="text-center">
                             <p className='text-white'>₹{(userDetails?.indirectRecharge * 0.02).toFixed(2)}</p>
-                            <p className='text-[#c6ced9] text-sm'>Team size</p>
+                            <p className='text-[#c6ced9] text-sm'>Commission</p>
                         </div>
 
-                        {/* <div className="text-center">
-                            <p className='text-white'>₹{(userDetails?.directRecharge * 0.05).toFixed(2)}</p>
-                            <p className='text-[#c6ced9] text-sm'>Team size</p>
-                        </div> */}
+                        <div className="text-center">
+                            <p className='text-white'>₹{(userDetails?.indirectRecharge).toFixed(2)}</p>
+                            <p className='text-[#c6ced9] text-sm'>Team Recharge</p>
+                        </div>
 
                     </div>
 
@@ -184,14 +184,14 @@ const Myteams = () => {
                         </div>
 
                         <div className="text-center">
-                            <p className='text-white'>₹{(userDetails?.in_indirectRecharge * 0.01).toFixed(2)}</p>
-                            <p className='text-[#c6ced9] text-sm'>Team size</p>
+                            <p className='text-white'>₹{(userDetails?.in_indirectRecharge * 0.01)?.toFixed(2)}</p>
+                            <p className='text-[#c6ced9] text-sm'>Commission</p>
                         </div>
 
-                        {/* <div className="text-center">
-                            <p className='text-white'>₹{(userDetails?.directRecharge * 0.05).toFixed(2)}</p>
-                            <p className='text-[#c6ced9] text-sm'>Team size</p>
-                        </div> */}
+                        <div className="text-center">
+                            <p className='text-white'>₹{(userDetails?.in_indirectRecharge)?.toFixed(2)}</p>
+                            <p className='text-[#c6ced9] text-sm'>Team Recharge</p>
+                        </div>
 
                     </div>
 
