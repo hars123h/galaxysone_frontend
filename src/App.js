@@ -42,6 +42,7 @@ import v7 from './images/v7.png'
 import v8 from './images/v8.png'
 import Message from './components/Message';
 import Article from './components/Article';
+import Myteams from './components/Myteams.js';
 
 export const ContextApi = createContext();
 
@@ -201,6 +202,8 @@ function App() {
             {/* <Route path='/task' element={<Task />} /> */}
             {/* <Route path='/message' element={<Message />} /> */}
             {/* <Route path='/article' element={<Article />} /> */}
+            <Route path='/team' element={<Myteams />} />
+
           </Routes>
 
         </BrowserRouter>
