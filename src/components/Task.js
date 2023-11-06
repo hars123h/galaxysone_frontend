@@ -3,10 +3,13 @@ import taskBG from '../images/04.png'
 import { Link } from 'react-router-dom'
 import { LiaAngleLeftSolid } from 'react-icons/lia'
 import { TbTicket } from 'react-icons/tb'
-import { BiSolidGift } from 'react-icons/bi'
+import { BiCopy, BiSolidGift } from 'react-icons/bi'
 import axios from 'axios'
 import BASE_URL from '../api_url'
 import { ContextApi } from '../App'
+import Navbar from './Navbar'
+import { BsFillEnvelopePaperHeartFill } from 'react-icons/bs'
+import CopyToClipboard from 'react-copy-to-clipboard'
 
 const Task = () => {
 
@@ -72,350 +75,85 @@ const Task = () => {
     // console.log(new Date(userDetails?.last_signin_reward) < date);
 
 
+    const origin = window.location.origin
+
+
     return (
         <>
 
-            <div className="mx-auto mb-28 bgimg overflow-hidden">
-                <div className="w-full mx-auto max-w-[800px]" >
+            <Navbar />
 
-                    <div>
+            <div className="px-3 mt-10 mb-36 text-white ">
 
-                        <header className="h-[50px] leading-[50px] block">
-                            <div className="max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed bg-[rgb(1,77,173)] z-[9999] flex flex-wrap items-center  ">
+                <div className="flex items-center space-x-3 ">
 
-                                <Link to={'/home'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
-                                    <LiaAngleLeftSolid size={22} />
-                                </Link>
-
-                                <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >Task Hall</h2>
-
-                            </div>
-                        </header>
-
-                        <div className='max-w-full min-h-[90px] mx-auto bg-[#ff6766] invite ' >
-
-                            <div className="relative z-[1]">
-                                <img src={taskBG} alt="" className='w-full' />
-                            </div>
-
-                            <div className="left-0 right-0 px-5 py-[10px] absolute z-[1]"></div>
-
-                        </div>
+                    <div className="flex items-center justify-center border border-white bg-[rgb(10,170,183)] rounded-full h-10 w-10">
+                        <BsFillEnvelopePaperHeartFill />
                     </div>
 
-                    <div className="relative -top-[50px] mx-auto z-[1] ">
-                        <div className="m-[10px]">
+                    <h1 className='text-sm'>
+                        Invite friends to get rich rewards
+                        <p className='text-[#c6ced9] text-xs'>Share my invitation link</p>
+                    </h1>
 
-                            <div className="my-[10px] p-5 flex flex-wrap items-start rounded-[7px] bg-white">
+                </div>
 
-                                <div className="w-10 h-10 overflow-hidden bg-[#00aa75] relative flex flex-wrap justify-center items-center rounded-[50%]">
-                                    <TbTicket size={26} className='text-white' />
-                                </div>
+                <div className="border border-[#424242] my-5"></div>
 
-                                <div className="flex-1 px-[10px] leading-none">
-                                    <p className='text-lg text-[#1e2531]'>Daily Attendance</p>
-                                    <span className="text-[#818393] text-sm font-light">Sign in every day and get 7 rupees</span>
-                                </div>
+                <div className="border border-[#424242] my-5 bg-[#06454c] rounded-lg p-5">
 
-                                {signinrewardactive ?
-                                    <div onClick={handelSignin} className="rounded-[500px] px-[10px] py-[5px] text-white bg-[rgba(75,169,88,0.9)] text-xs ">
-                                        Sign
-                                    </div>
-                                    :
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[#eee] text-xs ">
-                                        Sign
-                                    </div>
-                                }
+                    <h1 className='text-center'>My invitation code</h1>
 
-                            </div>
+                    <div className="border border-[#ffffff3d] my-3"></div>
 
-                            <div className="my-[10px] p-5 flex flex-wrap items-start rounded-[7px] bg-white">
+                    <div className="flex items-center justify-around">
 
-                                <div className="w-10 h-10 overflow-hidden bg-[#00aa75] relative flex flex-wrap justify-center items-center rounded-[50%]">
-                                    <BiSolidGift size={26} className='text-white' />
-                                </div>
-
-                                <div className="flex-1 px-[10px] leading-none">
-                                    <p className='text-lg text-[#1e2531]'>Invitation Activation</p>
-                                    <span className="text-[#818393] text-sm font-light">Every time you invite a friend to register and activate, you will get a reward of 100 rupees</span>
-                                </div>
-
-                                {userDetails?.vipMemcount < level_1 ?
-                                    <div onClick={activation} className="rounded-[500px] px-[10px] py-[5px] text-white bg-[rgba(75,169,88,0.9)] text-xs ">
-                                        Receive
-                                    </div>
-                                    :
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[#eee] text-xs ">
-                                        Receive
-                                    </div>
-                                }
-
-
-                                <div className="w-full py-[10px] ">
-                                    <div className="w-full relative flex flex-wrap justify-between items-center">
-                                        <div className="bg-[#eee] rounded-[500px] w-full h-[5px] ">
-                                            <div className="bg-[#4c8dcb] rounded-[500px] h-[5px] w-0 ">
-                                                <p className='-bottom-[6px] text-right text-sm font-bold text-[#00aa75] relative whitespace-nowrap'>
-                                                    {userDetails?.vipMemcount - level_1}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div className="my-[10px] p-5 flex flex-wrap items-start rounded-[7px] bg-white">
-
-                                <div className="w-10 h-10 overflow-hidden bg-[#00aa75] relative flex flex-wrap justify-center items-center rounded-[50%]">
-                                    <BiSolidGift size={26} className='text-white' />
-                                </div>
-
-                                <div className="flex-1 px-[10px] leading-none">
-                                    <p className='text-lg text-[#1e2531]'>Invite to activate 5</p>
-                                    <span className="text-[#818393] text-sm font-light">
-                                        Earn money by sharing your invitation links to recommend friends to sign up for Kraft
-                                        App.
-                                        <br />
-                                        Success +5, extra bonus 100
-                                    </span>
-                                </div>
-
-
-
-                                {userDetails?.vipMemcount === 5 ?
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[rgba(75,169,88,0.9)] text-xs ">
-                                        Receive
-                                    </div>
-                                    :
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[#eee] text-xs ">
-                                        Receive
-                                    </div>
-                                }
-
-
-
-                                <div className="w-full py-[10px] ">
-                                    <div className="w-full relative flex flex-wrap justify-between items-center">
-                                        <div className="bg-[#eee] rounded-[500px] w-full h-[5px] ">
-                                            <div className={`bg-[#4c8dcb] rounded-[500px] h-[5px] w-[${level_1 / 5 * 100}%]`}>
-                                                <p className='-bottom-[6px]  text-right text-sm font-bold text-[#00aa75] relative whitespace-nowrap'>
-                                                    {level_1 >= 5 ? '5/5' : `${level_1} /5`}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div className="my-[10px] p-5 flex flex-wrap items-start rounded-[7px] bg-white">
-
-                                <div className="w-10 h-10 overflow-hidden bg-[#00aa75] relative flex flex-wrap justify-center items-center rounded-[50%]">
-                                    <BiSolidGift size={26} className='text-white' />
-                                </div>
-
-                                <div className="flex-1 px-[10px] leading-none">
-                                    <p className='text-lg text-[#1e2531]'>Invite to activate 10</p>
-                                    <span className="text-[#818393] text-sm font-light">
-                                        Earn money by sharing your invitation links to recommend friends to sign up for Kraft
-                                        App.
-                                        <br />
-                                        Success +10, extra bonus 200
-                                    </span>
-                                </div>
-
-                                {userDetails?.vipMemcount === 10 ?
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[rgba(75,169,88,0.9)] text-xs ">
-                                        Receive
-                                    </div>
-                                    :
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[#eee] text-xs ">
-                                        Receive
-                                    </div>
-                                }
-
-                                <div className="w-full py-[10px] ">
-                                    <div className="w-full relative flex flex-wrap justify-between items-center">
-                                        <div className="bg-[#eee] rounded-[500px] w-full h-[5px] ">
-                                            <div className={`bg-[#4c8dcb] rounded-[500px] h-[5px] w-[${level_1 / 10 * 100}%]`}>
-                                                <p className='-bottom-[6px] text-right text-sm font-bold text-[#00aa75] relative whitespace-nowrap'>
-                                                    {level_1 >= 10 ? '10/10' : `${level_1} /10`}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div className="my-[10px] p-5 flex flex-wrap items-start rounded-[7px] bg-white">
-
-                                <div className="w-10 h-10 overflow-hidden bg-[#00aa75] relative flex flex-wrap justify-center items-center rounded-[50%]">
-                                    <BiSolidGift size={26} className='text-white' />
-                                </div>
-
-                                <div className="flex-1 px-[10px] leading-none">
-                                    <p className='text-lg text-[#1e2531]'>Invite to activate 50</p>
-                                    <span className="text-[#818393] text-sm font-light">
-                                        Earn money by sharing your invitation links to recommend friends to sign up for Kraft
-                                        App.
-                                        <br />
-                                        Success +50, extra bonus 1,500
-                                    </span>
-                                </div>
-
-                                {userDetails?.vipMemcount === 50 ?
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[rgba(75,169,88,0.9)] text-xs ">
-                                        Receive
-                                    </div>
-                                    :
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[#eee] text-xs ">
-                                        Receive
-                                    </div>
-                                }
-
-                                <div className="w-full py-[10px] ">
-                                    <div className="w-full relative flex flex-wrap justify-between items-center">
-                                        <div className="bg-[#eee] rounded-[500px] w-full h-[5px] ">
-                                            <div className={`bg-[#4c8dcb] rounded-[500px] h-[5px] w-[${level_1 / 50 * 100}%]`}>
-                                                <p className='-bottom-[6px] text-right text-sm font-bold text-[#00aa75] relative whitespace-nowrap'>
-                                                    {level_1 >= 50 ? '50/50' : `${level_1} /50`}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div className="my-[10px] p-5 flex flex-wrap items-start rounded-[7px] bg-white">
-
-                                <div className="w-10 h-10 overflow-hidden bg-[#00aa75] relative flex flex-wrap justify-center items-center rounded-[50%]">
-                                    <BiSolidGift size={26} className='text-white' />
-                                </div>
-
-                                <div className="flex-1 px-[10px] leading-none">
-                                    <p className='text-lg text-[#1e2531]'>Invite to activate 100</p>
-                                    <span className="text-[#818393] text-sm font-light">
-                                        Earn money by sharing your invitation links to recommend friends to sign up for Kraft
-                                        App.
-                                        <br />
-                                        Success +100, extra bonus 5000
-                                    </span>
-                                </div>
-
-                                {userDetails?.vipMemcount === 100 ?
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[rgba(75,169,88,0.9)] text-xs ">
-                                        Receive
-                                    </div>
-                                    :
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[#eee] text-xs ">
-                                        Receive
-                                    </div>
-                                }
-
-                                <div className="w-full py-[10px] ">
-                                    <div className="w-full relative flex flex-wrap justify-between items-center">
-                                        <div className="bg-[#eee] rounded-[500px] w-full h-[5px] ">
-                                            <div className={`bg-[#4c8dcb] rounded-[500px] h-[5px] w-[${level_1}%]`}>
-                                                <p className='-bottom-[6px] text-right text-sm font-bold text-[#00aa75] relative whitespace-nowrap'>
-                                                    {level_1 >= 100 ? '100/100' : `${level_1} /100`}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div className="my-[10px] p-5 flex flex-wrap items-start rounded-[7px] bg-white">
-
-                                <div className="w-10 h-10 overflow-hidden bg-[#00aa75] relative flex flex-wrap justify-center items-center rounded-[50%]">
-                                    <BiSolidGift size={26} className='text-white' />
-                                </div>
-
-                                <div className="flex-1 px-[10px] leading-none">
-                                    <p className='text-lg text-[#1e2531]'>Invite to activate 500</p>
-                                    <span className="text-[#818393] text-sm font-light">
-                                        Earn money by sharing your invitation links to recommend friends to sign up for Kraft
-                                        App.
-                                        <br />
-                                        Success +500, extra bonus 20,000
-                                    </span>
-                                </div>
-
-                                {userDetails?.vipMemcount === 500 ?
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[rgba(75,169,88,0.9)] text-xs ">
-                                        Receive
-                                    </div>
-                                    :
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[#eee] text-xs ">
-                                        Receive
-                                    </div>
-                                }
-
-                                <div className="w-full py-[10px] ">
-                                    <div className="w-full relative flex flex-wrap justify-between items-center">
-                                        <div className="bg-[#eee] rounded-[500px] w-full h-[5px] ">
-                                            <div className={`bg-[#4c8dcb] rounded-[500px] h-[5px] w-[${level_1 / 500 * 100}%]`}>
-                                                <p className='-bottom-[6px] text-right text-sm font-bold text-[#00aa75] relative whitespace-nowrap'>
-                                                {level_1 >= 5 ? '500/500' : `${level_1} /500`}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div className="my-[10px] p-5 flex flex-wrap items-start rounded-[7px] bg-white">
-
-                                <div className="w-10 h-10 overflow-hidden bg-[#00aa75] relative flex flex-wrap justify-center items-center rounded-[50%]">
-                                    <BiSolidGift size={26} className='text-white' />
-                                </div>
-
-                                <div className="flex-1 px-[10px] leading-none">
-                                    <p className='text-lg text-[#1e2531]'>Invite to activate 5000</p>
-                                    <span className="text-[#818393] text-sm font-light">
-                                        Earn money by sharing your invitation links to recommend friends to sign up for Kraft
-                                        App.
-                                        <br />
-                                        Success +5000, extra bonus 1,000,000,
-                                    </span>
-                                </div>
-
-                                {userDetails?.vipMemcount === 5000 ?
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[rgba(75,169,88,0.9)] text-xs ">
-                                        Receive
-                                    </div>
-                                    :
-                                    <div className="rounded-[500px] px-[10px] py-[5px] text-white bg-[#eee] text-xs ">
-                                        Receive
-                                    </div>
-                                }
-
-                                <div className="w-full py-[10px] ">
-                                    <div className="w-full relative flex flex-wrap justify-between items-center">
-                                        <div className="bg-[#eee] rounded-[500px] w-full h-[5px] ">
-                                            <div className={`bg-[#4c8dcb] rounded-[500px] h-[5px] w-[${level_1 / 5000 * 100}%]`}>
-                                                <p className='-bottom-[6px] text-right text-sm font-bold text-[#00aa75] relative whitespace-nowrap'>
-                                                    {level_1 >= 5 ? '5000/5000' : `${level_1} /5000`}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
+                        <div className="bg-[#021b1d] border border-[#424242] flex justify-center items-center w-8 h-8 rounded-lg text-[#4f999b]">
+                            <span>{userDetails?.user_invite[0]}</span>
                         </div>
+
+                        <div className="bg-[#021b1d] border border-[#424242] flex justify-center items-center w-8 h-8 rounded-lg text-[#4f999b]">
+                            <span>{userDetails?.user_invite[1]}</span>
+                        </div>
+
+                        <div className="bg-[#021b1d] border border-[#424242] flex justify-center items-center w-8 h-8 rounded-lg text-[#4f999b]">
+                            <span>{userDetails?.user_invite[2]}</span>
+                        </div>
+
+                        <div className="bg-[#021b1d] border border-[#424242] flex justify-center items-center w-8 h-8 rounded-lg text-[#4f999b]">
+                            <span>{userDetails?.user_invite[3]}</span>
+                        </div>
+
+                        <div className="bg-[#021b1d] border border-[#424242] flex justify-center items-center w-8 h-8 rounded-lg text-[#4f999b]">
+                            <span>{userDetails?.user_invite[4]}</span>
+                        </div>
+
+                        <div className="bg-[#021b1d] border border-[#424242] flex justify-center items-center w-8 h-8 rounded-lg text-[#4f999b]">
+                            <span>{userDetails?.user_invite[5]}</span>
+                        </div>
+
+                        <CopyToClipboard text={userDetails?.user_invite} onCopy={() => toaster('copied succeded')}>
+                            <BiCopy className='text-[#4f999b]' />
+                        </CopyToClipboard>
+
+
+                    </div>
+
+                    <div className="border border-[#424242] my-4 bg-[#052e32] text-center text-[#96afb3] rounded-lg py-3">
+
+                        <p>{`${origin}/signup?invitation_code=${userDetails?.user_invite}`}</p>
+
                     </div>
 
 
-                </div >
-            </div >
+                    <CopyToClipboard text={`${origin}/signup?invitation_code=${userDetails?.user_invite}`} onCopy={() => toaster('copy succeded')}>
+                        <button className='btnbox block h-[13vw] mx-auto bg-[#13d2e4] rounded-lg text-[#074762] font-bold'>Copy Link</button>
+                    </CopyToClipboard>
 
+
+                </div>
+
+            </div>
 
         </>
     )
