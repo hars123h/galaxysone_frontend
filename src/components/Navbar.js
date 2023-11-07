@@ -22,6 +22,8 @@ const Navbar = () => {
     const pathname = window.location.pathname
 
     const [head, setHead] = useState('Home')
+    const [right, setRight] = useState('')
+
 
     useEffect(() => {
 
@@ -55,7 +57,7 @@ const Navbar = () => {
     return (
         <>
 
-            <Sidebar />
+            <Sidebar right={right} setRight={setRight} />
 
             <div className="mx-3 left-[10px] right-[10px] z-[999] mt-5 bg-transparent">
 
@@ -111,7 +113,7 @@ const Navbar = () => {
                             <p className={``}>Award</p>
                         </Link>
 
-                        <div className={`text-center relative flex-1 no-underline flex flex-col justify-center items-center`}>
+                        <div onClick={() => setRight('right-[0]')} className={`text-center relative flex-1 no-underline flex flex-col justify-center items-center`}>
                             {pathname === '/me' ?
                                 <BsFillEmojiSmileFill size={28} className='text-[#00eefe]' /> :
                                 <BsEmojiSmile size={28} />

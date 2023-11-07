@@ -285,7 +285,7 @@
     height: 50px;
     width: 12px;
     border-top-left-radius: 8px;
-    border-bottom-right-radius: 8px;    
+    border-bottom-right-radius: 8px;
     z-index: -1;
 }
 
@@ -297,7 +297,12 @@
     height: 50px;
     width: 12px;
     /* border-top-left-radius: 8px; */
-    border-bottom-right-radius: 8px;    
+    border-bottom-right-radius: 8px;
     z-index: -1;
     bottom: 0px;
+}
+
+.sidebarBG {
+    background: url(./images/galaxysone/bgimg.jpg);
+    background-position: 50% 50%;
 }
