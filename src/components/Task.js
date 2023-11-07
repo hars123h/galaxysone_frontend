@@ -10,6 +10,10 @@ import { ContextApi } from '../App'
 import Navbar from './Navbar'
 import { BsFillEnvelopePaperHeartFill } from 'react-icons/bs'
 import CopyToClipboard from 'react-copy-to-clipboard'
+import { PiCopyBold } from 'react-icons/pi'
+import giftimg from '../images/galaxysone/giftimg.png'
+import planateglob from '../images/galaxysone/planateglob.png'
+
 
 const Task = () => {
 
@@ -133,7 +137,7 @@ const Task = () => {
                         </div>
 
                         <CopyToClipboard text={userDetails?.user_invite} onCopy={() => toaster('copied succeded')}>
-                            <BiCopy className='text-[#4f999b]' />
+                            <PiCopyBold className='text-[#4f999b]' />
                         </CopyToClipboard>
 
 
@@ -152,6 +156,81 @@ const Task = () => {
 
 
                 </div>
+
+                <h1 className='text-center my-3'>Invite registration rewards</h1>
+
+                <div className="border border-white rounded-lg bg-[#003235] p-5">
+
+                    <div className="flex items-end justify-between">
+
+                        <img src={giftimg} alt="" className='w-[15vw]' />
+
+                        <p className='text-sm'>Invite friends to register and get
+                            <span className='text-[yellow]'> ₹50 </span>
+                            for the first time
+                            <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 1 ? '1' : '0'}</span>/1</p>
+                        </p>
+
+                        <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Finish</button>
+
+                    </div>
+
+                    <div className="border border-[#ffffff3d] my-3"></div>
+
+                    <div className="">
+
+                        <p>Get<span className='text-[yellow]'> ₹6 </span>for every person you invite to register</p>
+
+                        <div className="flex items-end justify-between mt-1">
+
+                            <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 1 ? '1' : '0'}</span>/20</p>
+
+                            <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Finish</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <h1 className='text-center my-3'>Invite investment rewards</h1>
+
+                <div className="border border-white rounded-lg bg-[#003235] p-5">
+
+                    <div className="flex items-center justify-between">
+                        <h1 className=' my-3'>
+                            Invitation mission rewards
+                            <p className='text-xs text-[#c6ced9]'>Invite valid users to invest and get <span className='text-[#13d2e4]'>₹100</span></p>
+                        </h1>
+
+                        <img src={planateglob} alt="" className='w-[15vw]' />
+                    </div>
+
+                    <div className="bg-[#000a09] flex items-center justify-around py-2 mb-5 text-center">
+
+                        <div className="">
+                            <p className='text-[yellow]'>₹300</p>
+                            <p>Received</p>
+                        </div>
+
+                        <div className="">
+                            <p className='text-[yellow]'>₹100.00</p>
+                            <p>Received</p>
+                        </div>
+
+                    </div>
+
+                    <div className="flex justify-between items-center">
+
+                        <p className='text-sm'>Number of people <span className='text-[yellow]'>4</span></p>
+
+                        <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+
+                    </div>
+
+                </div>
+
+
 
             </div>
 

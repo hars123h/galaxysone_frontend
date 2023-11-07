@@ -11,6 +11,7 @@ import { TbHeadset, TbMoneybag, TbSatellite } from 'react-icons/tb'
 import { IoDiamond, IoDiamondOutline } from 'react-icons/io5'
 import { BsEmojiSmile, BsFillEmojiSmileFill } from 'react-icons/bs'
 import navlogo from '../images/galaxysone/navLogo.png'
+import Sidebar from './Sidebar'
 
 
 
@@ -53,6 +54,8 @@ const Navbar = () => {
 
     return (
         <>
+
+            <Sidebar />
 
             <div className="mx-3 left-[10px] right-[10px] z-[999] mt-5 bg-transparent">
 
@@ -108,13 +111,13 @@ const Navbar = () => {
                             <p className={``}>Award</p>
                         </Link>
 
-                        <Link to={`/me`} className={`text-center relative flex-1 no-underline flex flex-col justify-center items-center`}>
+                        <div className={`text-center relative flex-1 no-underline flex flex-col justify-center items-center`}>
                             {pathname === '/me' ?
                                 <BsFillEmojiSmileFill size={28} className='text-[#00eefe]' /> :
                                 <BsEmojiSmile size={28} />
                             }
                             <p className={``}>Me</p>
-                        </Link>
+                        </div>
 
 
                     </ul>
