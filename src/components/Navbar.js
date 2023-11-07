@@ -70,7 +70,7 @@ const Navbar = () => {
 
                     <div className="flex space-x-4 items-center">
                         <TbHeadset className='text-white' size={20} />
-                        <FaBars className='text-[#00eefe]' size={20} />
+                        <FaBars onClick={() => setRight('right-[0]')} className='text-[#00eefe]' size={20} />
                     </div>
 
                 </div>
