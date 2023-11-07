@@ -8,7 +8,7 @@ import axios from 'axios'
 import BASE_URL from '../api_url'
 import { ContextApi } from '../App'
 import Navbar from './Navbar'
-import { BsFillEnvelopePaperHeartFill } from 'react-icons/bs'
+import { BsFillEnvelopePaperHeartFill, BsFlagFill } from 'react-icons/bs'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { PiCopyBold } from 'react-icons/pi'
 import giftimg from '../images/galaxysone/giftimg.png'
@@ -230,7 +230,69 @@ const Task = () => {
 
                 </div>
 
+                <div className="mt-5">
 
+                    <div className="flex space-x-3 my-5">
+                        <div className="px-2 rounded-lg bg-white flex justify-center items-center">
+                            <BsFlagFill className='text-[orange]' size={25} />
+                        </div>
+                        <div className="flex-1 text-sm">
+                            <p className='text-[#c6ced9]'>Invite 20 Level 1 friends to recharge and invest with a bonus of <span className='text-[yellow]'>₹2000</span></p>
+
+                            <div className="flex justify-between items-end">
+                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 1 ? '1' : '0'}</span>/20</p>
+                                <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex space-x-3 my-5">
+                        <div className="px-2 rounded-lg bg-white flex justify-center items-center">
+                            <BsFlagFill className='text-[blue]' size={25} />
+                        </div>
+                        <div className="flex-1 text-sm">
+                            <p className='text-[#c6ced9]'>Invite 50 Level 1 friends to recharge and invest with a bonus of <span className='text-[yellow]'>₹10000</span></p>
+
+                            <div className="flex justify-between items-end">
+                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 1 ? '1' : '0'}</span>/50</p>
+                                <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex space-x-3 my-5">
+                        <div className="px-2 rounded-lg bg-white flex justify-center items-center">
+                            <BsFlagFill className='text-[green]' size={25} />
+                        </div>
+                        <div className="flex-1 text-sm">
+                            <p className='text-[#c6ced9]'>Invite 100 Level 1 friends to recharge and invest with a bonus of <span className='text-[yellow]'>₹50000</span></p>
+
+                            <div className="flex justify-between items-end">
+                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 1 ? '1' : '0'}</span>/100</p>
+                                <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex space-x-3 my-5">
+                        <div className="px-2 rounded-lg bg-white flex justify-center items-center">
+                            <BsFlagFill className='text-[purple]' size={25} />
+                        </div>
+                        <div className="flex-1 text-sm">
+                            <p className='text-[#c6ced9]'>Invite 300 Level 1 friends to recharge and invest with a bonus of <span className='text-[yellow]'>₹150000</span></p>
+
+                            <div className="flex justify-between items-end">
+                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 1 ? '1' : '0'}</span>/30</p>
+                                <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
 
