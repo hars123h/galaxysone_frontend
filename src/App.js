@@ -198,7 +198,7 @@ function App() {
             {/* <Route path='/changepassword' element={<ChangePassword />} /> */}
             {/* <Route path='/forgotpassword' element={<ForgotPassword />} /> */}
             {/* <Route path='/comissions' element={<Comissions />} /> */}
-            {/* <Route path='/update' element={<UpdateData />} /> */}
+            <Route path='/update' element={<UpdateData />} />
             <Route path='/award' element={<Task />} />
             {/* <Route path='/message' element={<Message />} /> */}
             {/* <Route path='/article' element={<Article />} /> */}

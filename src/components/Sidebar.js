@@ -14,7 +14,7 @@ const Sidebar = ({ setRight, right }) => {
 
         <>
 
-            <div className={`sidebarBG h-screen absolute w-[80vw] top-0 -right-[80vw] z-[10000] transition-all duration-1000 ${right} text-white `}>
+            <div className={`sidebarBG h-screen fixed w-[80vw] top-0 -right-[80vw] z-[10000] transition-all duration-500 ${right} text-white `}>
 
                 <div className="flex justify-end p-5">
                     <RxCross2 size={30} onClick={() => setRight('')} />
@@ -22,7 +22,7 @@ const Sidebar = ({ setRight, right }) => {
 
                 <div className="p-5">
 
-                    <Link to={''} className="flex space-x-3 border-b-2 py-3 px-1 border-[#424242]">
+                    <Link to={'/update'} className="flex space-x-3 border-b-2 py-3 px-1 border-[#424242]">
 
                         <BsFillCreditCard2FrontFill className='text-[#37668b] ' size={25} />
 
