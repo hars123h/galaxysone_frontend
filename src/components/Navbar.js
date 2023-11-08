@@ -6,7 +6,7 @@ import { FaBars, FaHome } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import iNav from '../images/invest.png'
 import { BiSolidPlanet } from 'react-icons/bi'
-import { MdSatelliteAlt } from "react-icons/md";
+import { MdHandshake, MdOutlineHandshake, MdSatelliteAlt } from "react-icons/md";
 import { TbHeadset, TbMoneybag, TbSatellite } from 'react-icons/tb'
 import { IoDiamond, IoDiamondOutline } from 'react-icons/io5'
 import { BsEmojiSmile, BsFillEmojiSmileFill } from 'react-icons/bs'
@@ -99,8 +99,8 @@ const Navbar = () => {
 
                         <Link to={`/team`} className={`text-center relative flex-1 no-underline flex flex-col justify-center items-center`}>
                             {pathname === '/team' ?
-                                <IoDiamond size={28} className='text-[#00eefe]' /> :
-                                <IoDiamondOutline size={28} />
+                                <MdHandshake size={28} className='text-[#00eefe]' /> :
+                                <MdOutlineHandshake size={28} />
                             }
                             <p className={``}>Team</p>
                         </Link>

@@ -7,6 +7,9 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import Navbar from './Navbar';
 import { LiaAngleRightSolid } from 'react-icons/lia';
 import teamImg from "../images/galaxysone/teamimg.png";
+import one from "../images/galaxysone/1.png";
+import two from "../images/galaxysone/2.png";
+import three from "../images/galaxysone/3.png";
 import { BiCoinStack } from 'react-icons/bi';
 
 const Myteams = () => {
@@ -100,7 +103,8 @@ const Myteams = () => {
                     <div className=" flex items-center justify-between">
                         <h1 className='flex items-center'>Level 1 Team <LiaAngleRightSolid className='m-2 text-[#00eefe]' /></h1>
 
-                        <div className="text-white w-10 h-10 rounded-full bg-[gold] flex justify-center items-center border border-white"><BiCoinStack size={28} /></div>
+                        {/* <div className="text-white w-10 h-10 rounded-full bg-[gold] flex justify-center items-center border border-white"><BiCoinStack size={28} /></div> */}
+                        <img src={one} alt="" />
                     </div>
 
                     <div className="flex justify-between items-center mt-3">
@@ -134,7 +138,8 @@ const Myteams = () => {
 
                     <div className="flex items-center justify-between">
                         <h1 className='flex items-center'>Level 2 Team <LiaAngleRightSolid className='m-2 text-[#00eefe]' /></h1>
-                        <div className="text-white w-10 h-10 rounded-full bg-[silver] flex justify-center items-center border border-white"><BiCoinStack size={28} /></div>
+                        <img src={two} alt="" />
+                        {/* <div className="text-white w-10 h-10 rounded-full bg-[silver] flex justify-center items-center border border-white"><BiCoinStack size={28} /></div> */}
                     </div>
 
 
@@ -168,7 +173,8 @@ const Myteams = () => {
                 <div className="p-5 border my-3 bg-[#003136] rounded-lg border-[#424242]">
                     <div className="flex items-center justify-between">
                         <h1 className='flex items-center'>Level 3 Team <LiaAngleRightSolid className='m-2 text-[#00eefe]' /></h1>
-                        <div className="text-white w-10 h-10 rounded-full bg-[#CD7F32] flex justify-center items-center border border-white"><BiCoinStack size={28} /></div>
+                        <img src={three} alt="" />
+                        {/* <div className="text-white w-10 h-10 rounded-full bg-[#CD7F32] flex justify-center items-center border border-white"><BiCoinStack size={28} /></div> */}
                     </div>
 
                     <div className="flex justify-between items-center mt-3">

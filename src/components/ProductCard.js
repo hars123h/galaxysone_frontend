@@ -395,7 +395,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                 </div>
             </div> */}
 
-            <div className="border border-white p-3 rounded-md text-white relative mb-10">
+            <div className="border border-white p-3 rounded-md text-white relative mb-10 ptoductBG">
 
                 <div className="flex space-x-3">
 

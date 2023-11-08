@@ -306,3 +306,9 @@
     background: url(./images/galaxysone/bgimg.jpg);
     background-position: 50% 50%;
 }
+
+.ptoductBG{
+    background: url(./images/galaxysone/cardBg.png);
+    background-position: center;
+    background-size: cover;
+}
