@@ -43,6 +43,7 @@ import v8 from './images/v8.png'
 import Message from './components/Message';
 import Article from './components/Article';
 import Myteams from './components/Myteams.js';
+import AccountSecurity from './components/AccountSecurity.js';
 
 export const ContextApi = createContext();
 
@@ -203,6 +204,7 @@ function App() {
             {/* <Route path='/message' element={<Message />} /> */}
             {/* <Route path='/article' element={<Article />} /> */}
             <Route path='/team' element={<Myteams />} />
+            <Route path='/accountsecurity' element={<AccountSecurity />} />
 
           </Routes>
 

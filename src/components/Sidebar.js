@@ -30,7 +30,7 @@ const Sidebar = ({ setRight, right }) => {
 
                     </Link>
 
-                    <Link to={''} className="flex space-x-3 border-b-2 py-3 px-1 border-[#424242]">
+                    <Link to={'/accountsecurity'} className="flex space-x-3 border-b-2 py-3 px-1 border-[#424242]">
 
                         <GoShieldCheck className='text-[#37668b] ' size={25} />
 
