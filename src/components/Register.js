@@ -8,7 +8,7 @@ import { ContextApi } from '../App';
 // import applogo from '../images/appLogo.png'
 // import tradelogo from '../images/logo_g.svg'
 // import Tradmark from './Tradmark';
-import logo from '../images/galaxysone/logo.png'
+import logo from '../images/galaxysone/logo.jpg'
 import imgriti from '../images/galaxysone/imgriti.png'
 import phone from '../images/galaxysone/phone.png'
 import sms from '../images/galaxysone/sms.png'
@@ -144,7 +144,7 @@ const Register = () => {
 
                     <div className="mb-[6vw] relative">
 
-                        <img src={logo} alt="logo" className='w-[41vw] h-auto mb-[2.5vw] ' />
+                        <img src={logo} alt="logo" className='w-[23vw] h-auto mb-[2.5vw] ' />
 
                         <p className="andount" data-v-380ab766="">Register to receive free </p>
                         <p className="andount" data-v-380ab766="">equipment and total</p>

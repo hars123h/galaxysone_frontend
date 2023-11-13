@@ -6,7 +6,7 @@ import BASE_URL from '../api_url';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import Navbar from './Navbar';
 import { LiaAngleRightSolid } from 'react-icons/lia';
-import teamImg from "../images/galaxysone/teamimg.png";
+import teamImg from "../images/galaxysone/teamimg.jpg";
 import one from "../images/galaxysone/1.png";
 import two from "../images/galaxysone/2.png";
 import three from "../images/galaxysone/3.png";
@@ -79,16 +79,16 @@ const Myteams = () => {
 
             <div className="text-white px-3 mt-8 mb-36">
 
-                <div className="flex p-5 justify-between items-start navbg border border-[#424242] rounded-lg">
+                <div className="flex p-5 justify-between items-start bg-white border border-[#424242] rounded-lg text-black">
 
                     <div className="">
-                        <p className='text-[#c6ced9]'>Team Invest</p>
+                        <p className=''>Team Invest</p>
                         <p className='text-[#00eefe]'>₹{teamInvest}</p>
                         <p className='flex items-center mt-3 text-[yellow]'>To invite <LiaAngleRightSolid /></p>
                     </div>
 
                     <div className="">
-                        <p className='text-[#c6ced9]'>Team Size</p>
+                        <p className=''>Team Size</p>
                         <p className=''>{userDetails?.directMember?.length + userDetails?.indirectMember?.length + userDetails?.in_indirectMember?.length}</p>
                     </div>
 

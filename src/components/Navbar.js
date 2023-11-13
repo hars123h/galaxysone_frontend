@@ -10,7 +10,7 @@ import { MdHandshake, MdOutlineHandshake, MdSatelliteAlt } from "react-icons/md"
 import { TbHeadset, TbMoneybag, TbSatellite } from 'react-icons/tb'
 import { IoDiamond, IoDiamondOutline } from 'react-icons/io5'
 import { BsEmojiSmile, BsFillEmojiSmileFill } from 'react-icons/bs'
-import navlogo from '../images/galaxysone/navLogo.png'
+import navlogo from '../images/galaxysone/logo.jpg'
 import Sidebar from './Sidebar'
 
 

@@ -36,7 +36,7 @@ const Task = () => {
 
     useEffect(() => {
         const level1 = async () => {
-            await axios.post(`${BASE_URL}/lvl1`, { _id: localStorage.getItem('uid') }).then(responce => {
+            await axios.post(`${BASE_URL}/lvl1`, { user_id: localStorage.getItem('uid') }).then(responce => {
                 // console.log(responce);
                 // toaster(responce.data.message)
                 setLevel_1(responce.data.level1.filter(element => element.vipLevel > 0).length)

@@ -9,7 +9,7 @@ import { TbHelpSquare } from 'react-icons/tb'
 import { Link, useNavigate } from 'react-router-dom'
 import { ContextApi } from '../App'
 import { LiaAngleLeftSolid } from 'react-icons/lia'
-import navlogo from '../images/galaxysone/navLogo.png'
+import navlogo from '../images/galaxysone/logo.jpg'
 import indian from '../images/galaxysone/indianFlag.png'
 
 
@@ -34,7 +34,7 @@ const Sidebar = ({ setRight, right }) => {
 
         <>
 
-            <div className={`sidebarBG h-screen fixed w-[80vw] top-0 -right-[80vw] z-[10000] transition-all duration-500 ${right} text-white `}>
+            <div className={`bg-green-500 h-screen fixed w-[80vw] top-0 -right-[80vw] z-[10000] transition-all duration-500 ${right} text-white `}>
 
                 <div className="flex justify-between items-start p-5 pr-0">
 
@@ -44,7 +44,7 @@ const Sidebar = ({ setRight, right }) => {
 
                         <img src={navlogo} alt="" className='w-14 h-14 border border-white rounded-md' />
 
-                        <p className='font-bold'>Galaxy One</p>
+                        <p className='font-bold'>Evergreen</p>
 
                         <div className='flex items-center space-x-1'>
                             <img src={indian} alt="" className='w-5' />
@@ -97,13 +97,13 @@ const Sidebar = ({ setRight, right }) => {
 
                     </Link>
 
-                    <Link to={''} className="flex space-x-3 border-b-2 py-3 px-1 border-[#424242]">
+                    {/* <Link to={''} className="flex space-x-3 border-b-2 py-3 px-1 border-[#424242]">
 
                         <TbHelpSquare className='text-[#37668b] ' size={25} />
 
                         <p>Help for newbies</p>
 
-                    </Link>
+                    </Link> */}
 
                     <Link to={''} className="flex space-x-3 border-b-2 py-3 px-1 border-[#424242]">
 
@@ -112,7 +112,7 @@ const Sidebar = ({ setRight, right }) => {
 
                     </Link>
 
-                    <Link to={''} className="flex space-x-3 border-b-2 py-3 px-1 border-[#424242]">
+                    <Link to={'/aboutus'} className="flex space-x-3 border-b-2 py-3 px-1 border-[#424242]">
 
                         <BsFillPersonFill className='text-[#37668b] ' size={25} />
                         <p>About Us</p>

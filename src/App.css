@@ -273,8 +273,9 @@
 }
 
 .navbg {
-    background: linear-gradient(90deg, rgba(52, 0, 0, 1) 0%, rgba(97, 3, 3, 1) 43%, rgba(41, 45, 93, 1) 58%, rgba(3, 2, 41, 1) 100%);
-    /* opacity: 0.6; */
+    background: url(./images/galaxysone/navbg.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 .inverted_radius::before {
@@ -307,8 +308,8 @@
     background-position: 50% 50%;
 }
 
-.ptoductBG{
-    background: url(./images/galaxysone/cardBg.png);
+.ptoductBG {
+    background: url(./images/galaxysone/productbg.jpg);
     background-position: center;
     background-size: cover;
 }
