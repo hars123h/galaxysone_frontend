@@ -191,7 +191,7 @@ function App() {
             {/* <Route path='/vip' element={<Vip />} /> */}
             {/* <Route path='/orders' element={<Order />} /> */}
             {/* <Route path='/bankCard' element={<BankCard />} /> */}
-            {/* <Route path='/bankCardAdd' element={<BankCardAdd />} /> */}
+            <Route path='/bankCardAdd' element={<BankCardAdd />} />
             <Route path='/widthdrawl' element={<Widthdrawl />} />
             <Route path='/widthdrawlrecords' element={<WidthdrawlRecords />} />
             {/* <Route path='/changewidthdrawlpassword' element={<WpasswordChange />} /> */}

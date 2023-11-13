@@ -60,7 +60,7 @@ const ChangePassword = () => {
                     setNewPwd('')
                     toaster('Password successfully updated!');
                     setTimeout(() => {
-                        navigate('/account')
+                        navigate('/home')
                     }, 3000);
                 })
                 .catch(error => toaster('Some Error Occured'));

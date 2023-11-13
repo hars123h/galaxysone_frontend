@@ -89,11 +89,11 @@ const Sidebar = ({ setRight, right }) => {
 
                     </Link>
 
-                    <Link to={''} className="flex space-x-3 border-b-2 py-3 px-1 border-[#424242]">
+                    <Link to={'/bankCardAdd'} className="flex space-x-3 border-b-2 py-3 px-1 border-[#424242]">
 
                         <BsRecordBtn className='text-[#37668b] ' size={25} />
 
-                        <p>Billing Records</p>
+                        <p>Add Bank Account</p>
 
                     </Link>
 

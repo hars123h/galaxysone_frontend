@@ -148,23 +148,23 @@ const Widthdrawl = () => {
         }
     }, [])
 
-    // useEffect(() => {
-    //     // console.log(wpwd2);
+    useEffect(() => {
+        // console.log(wpwd2);
 
-    //     if (wpwd2 === 'undefined') {
-    //         toaster('Set Trade Password')
-    //         setTimeout(() => {
-    //             navigate('/widthdrawlpassword')
-    //         }, 3000);
-    //     }
+        if (wpwd2 === 'undefined') {
+            toaster('Set Trade Password')
+            setTimeout(() => {
+                navigate('/accountsecurity', { state: "pin  " })
+            }, 3000);
+        }
 
-    //     else if (userDetails?.bank_details.bankAccount.length === 0) {
-    //         toaster("Add bank details first")
-    //         setTimeout(() => {
-    //             navigate('/bankcardadd')
-    //         }, 3000);
-    //     }
-    // }, [])
+        else if (userDetails?.bank_details.bankAccount.length === 0) {
+            toaster("Add bank details first")
+            setTimeout(() => {
+                navigate('/bankcardadd')
+            }, 3000);
+        }
+    }, [])
 
 
     // console.log(bank_details,'withdrawl');

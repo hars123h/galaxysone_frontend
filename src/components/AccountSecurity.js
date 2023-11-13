@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { LiaAngleLeftSolid } from 'react-icons/lia'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import WpasswordChange from './WpasswordChange'
 import ChangePassword from './ChangePassword'
 
 const AccountSecurity = () => {
 
-    const [toogle, setToogle] = useState('login')
+    const { state } = useLocation();
+
+    console.log(state);
+
+    const [toogle, setToogle] = useState(state ? state : 'login')
     const [login, setLogin] = useState('')
     const [pin, setPin] = useState('')
 
