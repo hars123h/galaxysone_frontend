@@ -16,7 +16,7 @@ import indian from '../images/galaxysone/indianFlag.png'
 import password from '../images/galaxysone/password.png'
 import eyeclosed from '../images/galaxysone/eyeclosed.png'
 import eyeopened from '../images/galaxysone/eyeopened.png'
-import { GoogleReCaptchaProvider, GoogleReCaptcha } from 'react-google-recaptcha-v3';
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Register = () => {
 
@@ -292,9 +292,7 @@ const Register = () => {
                     </div>
 
                     <div className="my-5">
-                        <GoogleReCaptchaProvider reCaptchaKey="6LfAcRMpAAAAAN9nFiLzIOEtv9lJJI7v5xr7D2Sm">
-                            <GoogleReCaptcha onVerify={handleVerify} />
-                        </GoogleReCaptchaProvider>
+                        <ReCAPTCHA sitekey={process.env.REACT_APP_SITE_KEY} />
                     </div>
 
                     <div className="flex justify-between items-center space-x-3 text-[4vw]">
