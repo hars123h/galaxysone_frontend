@@ -81,6 +81,8 @@ const Task = () => {
 
     const origin = window.location.origin
 
+    console.log(origin);
+
 
     return (
         <>
