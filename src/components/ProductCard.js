@@ -5,6 +5,7 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { ContextApi } from '../App'
 import axios from 'axios'
 import BASE_URL from '../api_url'
+import bgimmg from '../images/galaxysone/cardimg.jpg'
 
 const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_image, plan_name, plan_type, plan_amount, plan_daily_earning, plan_cycle, handleClick }) => {
 
@@ -395,7 +396,10 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                 </div>
             </div> */}
 
-            <div className="border border-white p-3 rounded-md text-white relative mb-10 ptoductBG">
+            <div className="border border-white p-3 rounded-md text-white relative mb-10 ">
+
+            <img src={bgimmg} alt="" className='opacity-30 absolute top-0 left-0 -z-10 w-full h-full' />
+
 
                 <div className="flex space-x-3">
 

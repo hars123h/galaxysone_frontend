@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import BASE_URL from '../api_url';
@@ -16,7 +16,8 @@ import indian from '../images/galaxysone/indianFlag.png'
 import password from '../images/galaxysone/password.png'
 import eyeclosed from '../images/galaxysone/eyeclosed.png'
 import eyeopened from '../images/galaxysone/eyeopened.png'
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
+import RCG from 'react-captcha-generator';
 
 const Register = () => {
 
@@ -65,6 +66,11 @@ const Register = () => {
     const validatePassword = password => /[a-zA-Z]/.test(password) && /[0-9!@#$%^&*(),.?":{}|<>]/.test(password);
 
     const handleRegister = async () => {
+
+        if (userInput !== captchaText) {
+            toaster('Invalid reCaptcha');
+            return;
+        }
 
         if (mobno.length !== 10) {
             toaster('Invalid Mobile Number');
@@ -136,9 +142,72 @@ const Register = () => {
 
     // console.log("otp",otpfield);
 
-    const handleVerify = (value) => {
-        console.log("Captcha value:", value);
-    }
+    const [captchaText, setCaptchaText] = useState('');
+    const [userInput, setUserInput] = useState('');
+    const canvasRef = useRef(null);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        initializeCaptcha(ctx);
+    }, []);
+
+    const generateRandomChar = (min, max) =>
+        String.fromCharCode(Math.floor
+            (Math.random() * (max - min + 1) + min));
+
+    const generateCaptchaText = () => {
+        let captcha = '';
+        for (let i = 0; i < 3; i++) {
+            captcha += generateRandomChar(65, 90);
+            captcha += generateRandomChar(97, 122);
+            captcha += generateRandomChar(48, 57);
+        }
+        return captcha.split('').sort(
+            () => Math.random() - 0.5).join('');
+    };
+
+    const drawCaptchaOnCanvas = (ctx, captcha) => {
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        const textColors = ['rgb(0,0,0)', 'rgb(130,130,130)'];
+        const letterSpace = 150 / captcha.length;
+        for (let i = 0; i < captcha.length; i++) {
+            const xInitialSpace = 25;
+            ctx.font = '20px Roboto Mono';
+            ctx.fillStyle = textColors[Math.floor(
+                Math.random() * 2)];
+            ctx.fillText(
+                captcha[i],
+                xInitialSpace + i * letterSpace,
+
+                // Randomize Y position slightly 
+                Math.floor(Math.random() * 16 + 25),
+                100
+            );
+        }
+    };
+
+    const initializeCaptcha = (ctx) => {
+        setUserInput('');
+        const newCaptcha = generateCaptchaText();
+        setCaptchaText(newCaptcha);
+        drawCaptchaOnCanvas(ctx, newCaptcha);
+    };
+
+    const handleUserInputChange = (e) => {
+        setUserInput(e.target.value);
+    };
+
+    const handleCaptchaSubmit = () => {
+        if (userInput === captchaText) {
+            alert('Success');
+        } else {
+            alert('Incorrect');
+            const canvas = canvasRef.current;
+            const ctx = canvas.getContext('2d');
+            initializeCaptcha(ctx);
+        }
+    };
 
     return (
         <>
@@ -157,150 +226,160 @@ const Register = () => {
 
                     </div>
 
-                    <div className="numberi" data-v-380ab766="">
-                        <img src={phone} alt="" data-v-380ab766="" />
-                        <p data-v-380ab766="">Phone number</p>
-                    </div>
+                    <form>
 
-                    <div className="van-cell van-field input-box" data-v-380ab766="">
+                        <div className="numberi" data-v-380ab766="">
+                            <img src={phone} alt="" data-v-380ab766="" />
+                            <p data-v-380ab766="">Phone number</p>
+                        </div>
 
-                        <div className="van-field__left-icon">
-                            <div className="phonen" data-v-380ab766="">
-                                <img src={indian} alt="" data-v-380ab766="" />
-                                <p data-v-380ab766="">+91</p>
-                                <span data-v-380ab766=""></span>
+                        <div className="van-cell van-field input-box" data-v-380ab766="">
+
+                            <div className="van-field__left-icon">
+                                <div className="phonen" data-v-380ab766="">
+                                    <img src={indian} alt="" data-v-380ab766="" />
+                                    <p data-v-380ab766="">+91</p>
+                                    <span data-v-380ab766=""></span>
+                                </div>
+                            </div>
+
+                            <div className="van-cell__value van-field__value flex-1 ">
+
+                                <div className="van-field__body">
+
+                                    <input onChange={e => { setMobno(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
+                                        type="tel"
+                                        inputMode="numeric"
+                                        id="van-field-1-input"
+                                        className="van-field__control inline-block"
+                                        placeholder="Please enter phone number"
+
+                                    />
+
+
+                                </div>
+
                             </div>
                         </div>
 
-                        <div className="van-cell__value van-field__value flex-1 ">
+                        <div className="numberi" data-v-380ab766="">
+                            <img src={password} alt="" data-v-380ab766="" />
+                            <p data-v-380ab766="">Login password</p>
+                        </div>
 
-                            <div className="van-field__body">
+                        <div className="van-cell van-field input-box" data-v-380ab766="">
+                            <div className="van-cell__value van-field__value">
+                                <div className="van-field__body">
+                                    <input onChange={e => setPwd(e.target.value)}
+                                        type={loginpwd}
+                                        id="van-field-3-input"
+                                        className="van-field__control"
+                                        placeholder="Please enter login password"
+                                    />
+                                    <div onClick={() => secrethandel('loginpwd')} className="van-field__right-icon">
+                                        {loginpwd === 'password' ?
+                                            <img className="eyeimg" src={eyeclosed} alt="" data-v-380ab766="" />
+                                            :
+                                            <img className="eyeimg" src={eyeopened} alt="" data-v-380ab766="" />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                <input onChange={e => { setMobno(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
-                                    type="tel"
-                                    inputMode="numeric"
-                                    id="van-field-1-input"
-                                    className="van-field__control inline-block"
-                                    placeholder="Please enter phone number"
+                        <div className="numberi" data-v-380ab766="">
+                            <img src={password} alt="" data-v-380ab766="" />
+                            <p data-v-380ab766="">Enter password again</p>
+                        </div>
 
-                                />
+                        <div className="van-cell van-field input-box" data-v-380ab766="">
+                            <div className="van-cell__value van-field__value">
+                                <div className="van-field__body">
+                                    <input onChange={e => setPwd2(e.target.value)}
+                                        type={loginpwd2}
+                                        id="van-field-4-input"
+                                        className="van-field__control"
+                                        placeholder="Please enter login password again"
+                                    />
+                                    <div onClick={() => secrethandel('loginpwd2')} className="van-field__right-icon">
+                                        {loginpwd2 === 'password' ?
+                                            <img className="eyeimg" src={eyeclosed} alt="" data-v-380ab766="" />
+                                            :
+                                            <img className="eyeimg" src={eyeopened} alt="" data-v-380ab766="" />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div className="numberi" data-v-380ab766="">
+                            <img src={password} alt="" data-v-380ab766="" />
+                            <p data-v-380ab766="">Invitation code（Optional）</p>
+                        </div>
+
+                        <div className="van-cell van-field input-box" data-v-380ab766="">
+
+                            <div className="van-cell__value van-field__value">
+                                <div className="van-field__body">
+                                    <input onChange={e => setInvt(e.target.value)}
+                                        type="text"
+                                        id="van-field-5-input"
+                                        className="van-field__control"
+                                        placeholder="Please enter the invitation code"
+                                        value={invt}
+                                    />
+                                </div>
 
                             </div>
 
                         </div>
-                    </div>
 
-                    {/* <div className="numberi" data-v-380ab766="">
-                        <img src={sms} alt="" data-v-380ab766="" />
-                        <p data-v-380ab766="">SMS verification code</p>
-                    </div>
+                        <div className="my-5">
 
-                    <div className="van-cell van-field input-box btnbox" data-v-380ab766="">
-                        <div className="van-cell__value van-field__value flex-1">
-                            <div className="van-field__body">
-                                <input
-                                    type="tel"
-                                    inputMode="numeric"
-                                    id="van-field-2-input"
-                                    className="van-field__control"
-                                    placeholder="Enter SMS verification code"
-                                />
-                                <div className="van-field__right-icon shrink-0">
-                                    <button onClick={handleMessage} type="button" className="van-button van-button--default van-button--normal senduis" data-v-380ab766="">
-                                        <div className="van-button__content">
-                                            <span className="van-button__text">
-                                                Send
-                                            </span>
-                                        </div>
+                            <div className="container">
+                                <div className="wrapper bg-white flex justify-between rounded-lg px-5 items-center">
+                                    <canvas ref={canvasRef}
+                                        width="200"
+                                        height="70">
+
+                                    </canvas>
+                                    <button
+                                        id="reload-button"
+                                        type='button'
+                                        className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-lg text-[#074762] font-bold'
+                                        onClick={() => initializeCaptcha(canvasRef.current.getContext('2d'))}>
+                                        Reload
                                     </button>
                                 </div>
+
                             </div>
                         </div>
-                    </div> */}
 
-                    <div className="numberi" data-v-380ab766="">
-                        <img src={password} alt="" data-v-380ab766="" />
-                        <p data-v-380ab766="">Login password</p>
-                    </div>
+                        <div className="van-cell van-field input-box" data-v-380ab766="">
 
-                    <div className="van-cell van-field input-box" data-v-380ab766="">
-                        <div className="van-cell__value van-field__value">
-                            <div className="van-field__body">
-                                <input onChange={e => setPwd(e.target.value)}
-                                    type={loginpwd}
-                                    id="van-field-3-input"
-                                    className="van-field__control"
-                                    placeholder="Please enter login password"
-                                />
-                                <div onClick={() => secrethandel('loginpwd')} className="van-field__right-icon">
-                                    {loginpwd === 'password' ?
-                                        <img className="eyeimg" src={eyeclosed} alt="" data-v-380ab766="" />
-                                        :
-                                        <img className="eyeimg" src={eyeopened} alt="" data-v-380ab766="" />
-                                    }
+                            <div className="van-cell__value van-field__value">
+                                <div className="van-field__body">
+                                    <input onChange={handleUserInputChange}
+                                        type="text"
+                                        id="van-field-5-input"
+                                        className="van-field__control"
+                                        placeholder="Enter reCaptcha"
+                                        value={invt}
+                                    />
                                 </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className="numberi" data-v-380ab766="">
-                        <img src={password} alt="" data-v-380ab766="" />
-                        <p data-v-380ab766="">Enter password again</p>
-                    </div>
-
-                    <div className="van-cell van-field input-box" data-v-380ab766="">
-                        <div className="van-cell__value van-field__value">
-                            <div className="van-field__body">
-                                <input onChange={e => setPwd2(e.target.value)}
-                                    type={loginpwd2}
-                                    id="van-field-4-input"
-                                    className="van-field__control"
-                                    placeholder="Please enter login password again"
-                                />
-                                <div onClick={() => secrethandel('loginpwd2')} className="van-field__right-icon">
-                                    {loginpwd2 === 'password' ?
-                                        <img className="eyeimg" src={eyeclosed} alt="" data-v-380ab766="" />
-                                        :
-                                        <img className="eyeimg" src={eyeopened} alt="" data-v-380ab766="" />
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="numberi" data-v-380ab766="">
-                        <img src={password} alt="" data-v-380ab766="" />
-                        <p data-v-380ab766="">Invitation code（Optional）</p>
-                    </div>
-
-                    <div className="van-cell van-field input-box" data-v-380ab766="">
-
-                        <div className="van-cell__value van-field__value">
-                            <div className="van-field__body">
-                                <input onChange={e => setInvt(e.target.value)}
-                                    type="text"
-                                    id="van-field-5-input"
-                                    className="van-field__control"
-                                    placeholder="Please enter the invitation code"
-                                    value={invt}
-                                />
                             </div>
 
                         </div>
 
-                    </div>
+                        <div className="flex justify-between items-center space-x-3 text-[4vw]">
+                            <Link to={'/login'} className='h-[13vw] w-full'>
+                                <button className='btnbox h-[13vw] w-full bg-[#2b2b2b] rounded-sm text-[#6e6e6e] font-bold' >Login</button>
+                            </Link>
+                            <button type='button' onClick={handleRegister} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-sm text-[#074762] font-bold'>Register</button>
+                        </div>
 
-                    <div className="my-5">
-                        <ReCAPTCHA sitekey={process.env.REACT_APP_SITE_KEY} />
-                    </div>
-
-                    <div className="flex justify-between items-center space-x-3 text-[4vw]">
-                        <Link to={'/login'} className='h-[13vw] w-full'>
-                            <button className='btnbox h-[13vw] w-full bg-[#2b2b2b] rounded-sm text-[#6e6e6e] font-bold' >Login</button>
-                        </Link>
-                        <button onClick={handleRegister} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-sm text-[#074762] font-bold'>Register</button>
-                    </div>
+                    </form>
 
                 </div>
             </div>
