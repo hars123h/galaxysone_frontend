@@ -16,7 +16,7 @@ import indian from '../images/galaxysone/indianFlag.png'
 import password from '../images/galaxysone/password.png'
 import eyeclosed from '../images/galaxysone/eyeclosed.png'
 import eyeopened from '../images/galaxysone/eyeopened.png'
-
+import ReCAPTCHA from 'react-google-recaptcha'
 
 const Register = () => {
 
@@ -135,6 +135,10 @@ const Register = () => {
     }
 
     // console.log("otp",otpfield);
+
+    const recaptchaHandel = (value) => {
+        console.log("Captcha value:", value);
+    }
 
     return (
         <>
@@ -285,6 +289,13 @@ const Register = () => {
 
                         </div>
 
+                    </div>
+
+                    <div className="my-5">
+                        <ReCAPTCHA
+                            sitekey="6LfAcRMpAAAAAN9nFiLzIOEtv9lJJI7v5xr7D2Sm"
+                            onChange={recaptchaHandel}
+                        />
                     </div>
 
                     <div className="flex justify-between items-center space-x-3 text-[4vw]">
