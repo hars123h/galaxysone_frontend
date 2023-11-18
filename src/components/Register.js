@@ -138,6 +138,7 @@ const Register = () => {
 
     const recaptchaHandel = (value) => {
         console.log("Captcha value:", value);
+        console.log('hello');
     }
 
     return (
