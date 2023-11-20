@@ -77,7 +77,7 @@ const Myteams = () => {
         <>
             <Navbar />
 
-            <div className="text-white px-3 mt-8 mb-36">
+            <div className="text-white px-3 mt-8 mb-36 bg-[#003136]">
 
                 <div className="flex p-5 justify-between items-start bg-white border border-[#424242] rounded-lg text-black">
 
@@ -98,7 +98,7 @@ const Myteams = () => {
 
                 <h1 className='text-center text-lg font-bold my-5'>My team</h1>
 
-                <div className="p-5 border my-3 bg-[#003136] rounded-lg border-[#424242]">
+                <div className="p-5 border my-3 bg-black rounded-lg border-[#424242]">
 
                     <div className=" flex items-center justify-between">
                         <h1 className='flex items-center'>Level 1 Team <LiaAngleRightSolid className='m-2 text-[#00eefe]' /></h1>
@@ -134,7 +134,7 @@ const Myteams = () => {
 
                 </div>
 
-                <div className="p-5 border my-3 bg-[#003136] rounded-lg border-[#424242]">
+                <div className="p-5 border my-3 bg-black rounded-lg border-[#424242]">
 
                     <div className="flex items-center justify-between">
                         <h1 className='flex items-center'>Level 2 Team <LiaAngleRightSolid className='m-2 text-[#00eefe]' /></h1>
@@ -170,7 +170,7 @@ const Myteams = () => {
 
                 </div>
 
-                <div className="p-5 border my-3 bg-[#003136] rounded-lg border-[#424242]">
+                <div className="p-5 border my-3 bg-black rounded-lg border-[#424242]">
                     <div className="flex items-center justify-between">
                         <h1 className='flex items-center'>Level 3 Team <LiaAngleRightSolid className='m-2 text-[#00eefe]' /></h1>
                         <img src={three} alt="" />

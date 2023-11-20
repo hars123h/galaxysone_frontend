@@ -201,7 +201,7 @@ const Login = () => {
                 </div>
             </div> */}
 
-            <div className="min-h-screen pt-[8vw] pb-[10vw] relative z-[1] loginPage overflow-y-scroll">
+            <div className="min-h-screen pt-[8vw] pb-[10vw] relative z-[1] bg-[#003136] overflow-y-scroll">
                 <div className="px-[8vw] text-left ">
 
                     <div className="mb-[6vw] relative">
@@ -211,7 +211,7 @@ const Login = () => {
                         <p className="andount" data-v-380ab766="">Register to receive free </p>
                         <p className="andount" data-v-380ab766="">equipment and total</p>
                         <p className="andount" data-v-380ab766="">revenue is <span data-v-380ab766="">₹11988</span></p>
-                        <img className="imgriti" src={imgriti} alt="" data-v-380ab766=""></img>
+                        {/* <img className="imgriti" src={imgriti} alt="" data-v-380ab766=""></img> */}
 
                     </div>
 

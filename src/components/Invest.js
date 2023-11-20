@@ -100,7 +100,7 @@ const Invest = () => {
         <>
             <Navbar />
 
-            <div className="mx-3 mt-5 mb-36 text-white">
+            <div className="mx-3 mt-5 mb-36 text-white bg-[#003136]">
 
                 <div className="">
 

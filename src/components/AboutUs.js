@@ -7,7 +7,7 @@ const AboutUs = () => {
     return (
         <>
 
-            <div className="  after:contents-[' '] after:fixed h-screen ">
+            <div className="  after:contents-[' '] bg-[#003136] after:fixed h-screen ">
                 <div className="w-full mx-auto max-w-[800px]">
 
                     <header className="h-[50px] leading-[50px] block mb-[10px] ">

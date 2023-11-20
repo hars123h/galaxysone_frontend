@@ -77,7 +77,7 @@ const Home = () => {
         <>
             <Navbar />
 
-            <div className="text-white text-[4vw] px-3 mb-36">
+            <div className="text-white bg-[#003136] text-[4vw] px-3 mb-36">
 
                 <img src={herobg} alt="" className='mt-5 rounded-md' />
 
