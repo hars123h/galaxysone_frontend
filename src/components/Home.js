@@ -117,89 +117,8 @@ const Home = () => {
                             product_image={g1}
                             product_type={0}
                             plan_cycle={45}
-                            plan_amount={800}
-                            plan_daily_earning={40}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g2}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={2000}
-                            plan_daily_earning={105}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g3}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={3000}
-                            plan_daily_earning={170}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g4}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={5000}
-                            plan_daily_earning={300}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g5}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={15000}
-                            plan_daily_earning={1000}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g6}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={25000}
-                            plan_daily_earning={22000}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g7}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={40000}
-                            plan_daily_earning={3000}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g8}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={80000}
-                            plan_daily_earning={5000}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g2}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={150000}
-                            plan_daily_earning={20000}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g9}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={200000}
-                            plan_daily_earning={30000}
+                            plan_amount={500}
+                            plan_daily_earning={55}
                         // plan_name={'Communication Satellite'}
                         />
 
@@ -207,8 +126,98 @@ const Home = () => {
                             product_image={g1}
                             product_type={0}
                             plan_cycle={45}
-                            plan_amount={300000}
-                            plan_daily_earning={50000}
+                            plan_amount={1800}
+                            plan_daily_earning={220}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g1}
+                            product_type={0}
+                            plan_cycle={45}
+                            plan_amount={4500}
+                            plan_daily_earning={450}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g1}
+                            product_type={0}
+                            plan_cycle={45}
+                            plan_amount={15000}
+                            plan_daily_earning={1500}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g1}
+                            product_type={0}
+                            plan_cycle={45}
+                            plan_amount={35000}
+                            plan_daily_earning={1500}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g1}
+                            product_type={0}
+                            plan_cycle={45}
+                            plan_amount={50000}
+                            plan_daily_earning={9000}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g1}
+                            product_type={0}
+                            plan_cycle={45}
+                            plan_amount={100000}
+                            plan_daily_earning={20000}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g1}
+                            product_type={1}
+                            plan_cycle={1}
+                            plan_amount={200}
+                            plan_daily_earning={300}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g2}
+                            product_type={2}
+                            plan_cycle={7}
+                            plan_amount={1000}
+                            plan_daily_earning={250}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g3}
+                            product_type={3}
+                            plan_cycle={7}
+                            plan_amount={2500}
+                            plan_daily_earning={500}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g4}
+                            product_type={4}
+                            plan_cycle={10}
+                            plan_amount={4000}
+                            plan_daily_earning={600}
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
+                            product_image={g5}
+                            product_type={5}
+                            plan_cycle={10}
+                            plan_amount={10000}
+                            plan_daily_earning={1500}
                         // plan_name={'Communication Satellite'}
                         />
 

@@ -111,50 +111,7 @@ const Invest = () => {
 
                     <div className="mt-5">
 
-                        <ProductCard
-                            product_image={g1}
-                            product_type={1}
-                            plan_cycle={1}
-                            plan_amount={200}
-                            plan_daily_earning={300}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g2}
-                            product_type={2}
-                            plan_cycle={7}
-                            plan_amount={1000}
-                            plan_daily_earning={250}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g3}
-                            product_type={3}
-                            plan_cycle={7}
-                            plan_amount={2500}
-                            plan_daily_earning={500}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g4}
-                            product_type={4}
-                            plan_cycle={10}
-                            plan_amount={4000}
-                            plan_daily_earning={600}
-                        // plan_name={'Communication Satellite'}
-                        />
-
-                        <ProductCard
-                            product_image={g5}
-                            product_type={5}
-                            plan_cycle={10}
-                            plan_amount={10000}
-                            plan_daily_earning={1500}
-                        // plan_name={'Communication Satellite'}
-                        />
+                        
 
                     </div>
 

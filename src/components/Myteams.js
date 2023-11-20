@@ -84,7 +84,7 @@ const Myteams = () => {
                     <div className="">
                         <p className=''>Team Invest</p>
                         <p className='text-[#00eefe]'>₹{teamInvest}</p>
-                        <p className='flex items-center mt-3 text-[yellow]'>To invite <LiaAngleRightSolid /></p>
+                        <p className='flex items-center mt-3 text-[red]'>To invite <LiaAngleRightSolid /></p>
                     </div>
 
                     <div className="">
@@ -108,7 +108,7 @@ const Myteams = () => {
                     </div>
 
                     <div className="flex justify-between items-center mt-3">
-                        <p className='text-[#c6ced9] text-xs'>Commission rate: <span className='ml-1 text-[#00eefe]'>5%</span></p>
+                        <p className='text-[#c6ced9] text-xs'>Commission rate: <span className='ml-1 text-[#00eefe]'>10%</span></p>
                         {/* <p className='text-[#c6ced9] text-xs'>Rebate rate: <span className='ml-1 text-[#00eefe]'>20%</span></p> */}
                     </div>
 
@@ -144,7 +144,7 @@ const Myteams = () => {
 
 
                     <div className="flex justify-between items-center mt-3">
-                        <p className='text-[#c6ced9] text-xs'>Commission rate: <span className='ml-1 text-[#00eefe]'>2%</span></p>
+                        <p className='text-[#c6ced9] text-xs'>Commission rate: <span className='ml-1 text-[#00eefe]'>3%</span></p>
                         {/* <p className='text-[#c6ced9] text-xs'>Rebate rate: <span className='ml-1 text-[#00eefe]'>20%</span></p> */}
                     </div>
 
