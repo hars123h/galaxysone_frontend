@@ -398,7 +398,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
 
             <div className="border border-white p-3 rounded-md text-white relative mb-10 ">
 
-            <img src={bgimmg} alt="" className='opacity-30 absolute top-0 left-0  w-full h-full' />
+            {/* <img src={bgimmg} alt="" className='opacity-30 absolute top-0 left-0  w-full h-full' /> */}
 
 
                 <div className="flex space-x-3">

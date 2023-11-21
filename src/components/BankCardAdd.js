@@ -37,13 +37,13 @@ const BankCardAdd = () => {
 
     const handleSubmit = async () => {
         // console.log(userDetails.wpwd,wpwd);
-        if (userDetails.wpwd === wpwd) {
+        if (true) {
             setLoading(true)
             await axios.post(`${BASE_URL}/bank_details`, { user_id: localStorage.getItem('uid'), bank_details: details })
                 .then(() => {
                     setLoading(false)
                     toaster('Bank details added successfully!');
-                    navigate('/account')
+                    navigate('/home')
                 })
                 .catch(() => { setLoading(false); toaster('Some error Occured') }
                 );
