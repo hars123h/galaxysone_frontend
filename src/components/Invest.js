@@ -209,7 +209,7 @@ const Invest = () => {
 
                     <div className="p-[5px]">
 
-                        {toogle === 'login' ?
+                        {toogle === 'pin' ?
 
                             <>
                                 {userDetails?.plans_purchased?.map((element, index) => {
