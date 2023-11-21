@@ -208,7 +208,7 @@ const Invest = () => {
 
                     <div className="p-[5px]">
 
-                        {toggle === 'login' ?
+                        {toogle === 'login' ?
 
                             <>
                                 {userDetails?.plans_purchased?.map((element, index) => {
@@ -232,22 +232,51 @@ const Invest = () => {
 
                                             </div> */}
 
-                                                <div className=" border border-1 border-white p-5 ">
+                                                <div className=" border border-1 border-white p-5 rounded-lg my-3 ">
 
                                                     <div className="flex space-x-3">
 
                                                         <img src={g1} alt="" className='border border-white rounded-md w-20' />
 
-                                                        {/* <div className="flex-1">
-                                                            <h1>{plan_name}</h1>
+                                                        <div className="flex-1">
+                                                            {/* <h1>{plan_name}</h1> */}
                                                             <p>
-                                                                Price
+                                                                My income:
                                                             </p>
                                                             <p className='text-[#00eefe] font-bold'>
                                                                 <em className='mr-1 p-0 px-[2px] border-0 font-light not-italic leading-none '>₹</em>
-                                                                {plan_amount}
+                                                                {/* {plan_amount} */}
+                                                                {DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded)) * element.quantity * element.plan_daily_earning}
+
                                                             </p>
-                                                        </div> */}
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div className="flex items-center justify-around">
+
+                                                        <div className="text-center mt-2">
+                                                            <p>
+                                                                <em className='mr-1 p-0 px-[2px] border-0 font-light not-italic leading-none '>₹</em>
+                                                                {(element.plan_daily_earning / 24).toFixed(2)}
+                                                            </p>
+                                                            <p className='text-[#c6ced9]'>Hourly income</p>
+                                                        </div>
+
+                                                        <div className="text-center">
+                                                            <p>
+                                                                {(element.plan_daily_earning).toFixed(2)} days
+                                                            </p>
+                                                            <p className='text-[#c6ced9]'>Daily income</p>
+                                                        </div>
+
+                                                        <div className="text-center">
+                                                            <p>
+                                                                <span className='text-[#00eefe]'>{DateDifference(new Date(element.date_purchased), new Date(element.date_till_rewarded))}</span>/{element.plan_cycle} days
+                                                            </p>
+                                                            <p className='text-[#c6ced9]'>Days of revenue</p>
+                                                        </div>
 
                                                     </div>
 

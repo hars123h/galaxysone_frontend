@@ -4,10 +4,24 @@ import WpImg from "../images/whatsapp.svg";
 import TeleImg from "../images/telegram.svg";
 
 import { IoIosArrowForward } from "react-icons/io";
+import { LiaAngleLeftSolid } from "react-icons/lia";
+import { Link } from "react-router-dom";
 
 const CustomerCare = () => {
     return (
         <>
+
+            <header className="h-[50px] leading-[50px] block mb-[10px] ">
+                <div className="bg-black max-w-[800px] h-[50px] leading-[50px] left-0 right-0 top-0 mx-auto fixed z-[9999] flex flex-wrap items-center  ">
+
+                    <Link to={'/home'} className="w-[60px] h-[50px] left-0 text-center text-white text-[22px] absolute z-[2] flex justify-center items-center ">
+                        <LiaAngleLeftSolid size={22} />
+                    </Link>
+
+                    <h2 className='left-0 right-0 text-center text-lg font-medium absolute z-[1] flex-1 text-white ' >Customer Service</h2>
+
+                </div>
+            </header>
             <div className="p-5 text-white ">
                 <div className="w-full flex items-center justify-center mb-[60px]">
                     <img className=" w-[150px]" src={TeamImg} alt="" />
