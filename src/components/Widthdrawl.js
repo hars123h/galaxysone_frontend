@@ -230,7 +230,7 @@ const Widthdrawl = () => {
                                     </p>
                                 </div>
 
-                                <img src={floatings} className='h-32 w-32 absolute right-0 -top-14' alt="" />
+                                {/* <img src={floatings} className='h-32 w-32 absolute right-0 -top-14' alt="" /> */}
 
                             </div>
 
