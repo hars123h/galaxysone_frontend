@@ -45,6 +45,7 @@ import Article from './components/Article';
 import Myteams from './components/Myteams.js';
 import AccountSecurity from './components/AccountSecurity.js';
 import AboutUs from './components/AboutUs.js';
+import CustomerCare from './components/Customer.js';
 
 export const ContextApi = createContext();
 
@@ -207,6 +208,7 @@ function App() {
             <Route path='/team' element={<Myteams />} />
             <Route path='/accountsecurity' element={<AccountSecurity />} />
             <Route path='/aboutus' element={<AboutUs />} />
+            <Route path='/customer' element={<CustomerCare />} />
 
           </Routes>
 
