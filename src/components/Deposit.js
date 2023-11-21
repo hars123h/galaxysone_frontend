@@ -344,7 +344,7 @@ const Deposit = () => {
                         <div className="border border-[#6b6f78] w-full h-0 my-5"></div>
 
                         <div className="flex justify-between items-center space-x-3 text-[4vw]">
-                            <button onClick={handleRecharge} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-lg text-[#074762] font-bold'>Withdraw</button>
+                            <button onClick={handleRecharge} className='btnbox h-[13vw] w-full bg-[#0098e7] rounded-lg text-[#074762] font-bold'>Deposit</button>
                         </div>
 
                         <div className="mx-[10px] mt-5">

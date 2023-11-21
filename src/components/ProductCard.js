@@ -432,7 +432,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                         <p>
                             {plan_cycle} days
                         </p>
-                        <p className='text-[#c6ced9]'>Daily income</p>
+                        <p className='text-[#c6ced9]'>Days</p>
                     </div>
 
                     <div className="text-center">
