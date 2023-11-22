@@ -87,7 +87,7 @@ function App() {
       }
     }).catch(error => console.log('Some error occured', error));
 
-    getuserearn();
+    // getuserearn();
   }
 
   const getData = async () => {
@@ -140,6 +140,15 @@ function App() {
     }
 
   }, [getUserDetails])
+
+  useEffect(() => {
+
+    // setInterval(() => {
+      getuserearn();
+    // }, 86400000);
+
+  }, [])
+
 
 
   return (
