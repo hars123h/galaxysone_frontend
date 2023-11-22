@@ -84,6 +84,8 @@ const Task = () => {
     console.log(origin);
 
 
+
+
     return (
         <>
 
@@ -173,7 +175,11 @@ const Task = () => {
                             <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 1 ? '1' : '0'}</span>/1</p>
                         </p>
 
-                        <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Finish</button>
+                        {userDetails?.direactMember === 1 && userDetails.memcount !== 1 ?
+                            <button onClick={activation} className='bg-[yellow] text-black text-xs px-3 py-1 rounded-full font-bold'>Finish</button>
+                            :
+                            <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Finish</button>
+                        }
 
                     </div>
 
@@ -185,9 +191,13 @@ const Task = () => {
 
                         <div className="flex items-end justify-between mt-1">
 
-                            <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 1 ? '1' : '0'}</span>/20</p>
+                            <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 20 ? '20' : userDetails?.direactMember}</span>/20</p>
 
-                            <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Finish</button>
+                            {userDetails?.direactMember === 20 && userDetails.memcount !== 20 ?
+                                <button onClick={activation} className='bg-[yellow] text-black text-xs px-3 py-1 rounded-full font-bold'>Finish</button>
+                                :
+                                <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Finish</button>
+                            }
 
                         </div>
 
@@ -205,28 +215,34 @@ const Task = () => {
                             <p className='text-xs text-[#c6ced9]'>Invite valid users to invest and get <span className='text-[#13d2e4]'>₹100</span></p>
                         </h1>
 
-                        <img src={planateglob} alt="" className='w-[15vw]' />
+                        {/* <img src={planateglob} alt="" className='w-[15vw]' /> */}
                     </div>
 
                     <div className="bg-[#000a09] flex items-center justify-around py-2 mb-5 text-center">
 
                         <div className="">
-                            <p className='text-[yellow]'>₹300</p>
+                            <p className='text-[yellow]'>₹{(userDetails?.vipMemcount * 100)}</p>
                             <p>Received</p>
                         </div>
 
                         <div className="">
-                            <p className='text-[yellow]'>₹100.00</p>
-                            <p>Received</p>
+                            <p className='text-[yellow]'>₹{((level_1 - userDetails?.vipMemcount) * 100)}</p>
+                            <p>Active</p>
                         </div>
 
                     </div>
 
                     <div className="flex justify-between items-center">
 
-                        <p className='text-sm'>Number of people <span className='text-[yellow]'>4</span></p>
+                        <p className='text-sm'>Number of people <span className='text-[yellow]'>{level_1}</span></p>
 
-                        <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+                        {userDetails?.vipMemcount < level_1 ?
+
+                            <button onClick={activation} className='bg-[yelloe] text-black text-xs px-3 py-1 rounded-full font-bold'>Receive</button>
+                            :
+                            <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+
+                        }
 
                     </div>
 
@@ -242,8 +258,13 @@ const Task = () => {
                             <p className='text-[#c6ced9]'>Invite 20 Level 1 friends to recharge and invest with a bonus of <span className='text-[yellow]'>₹2000</span></p>
 
                             <div className="flex justify-between items-end">
-                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 1 ? '1' : '0'}</span>/20</p>
-                                <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 20 ? '20' : userDetails?.direactMember}</span>/20</p>
+
+                                {userDetails?.vipMemcount !== 20 && level_1 === 20 ?
+                                    <button onClick={activation} className='bg-[yelloe] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+                                    :
+                                    <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+                                }
 
                             </div>
                         </div>
@@ -257,8 +278,12 @@ const Task = () => {
                             <p className='text-[#c6ced9]'>Invite 50 Level 1 friends to recharge and invest with a bonus of <span className='text-[yellow]'>₹10000</span></p>
 
                             <div className="flex justify-between items-end">
-                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 1 ? '1' : '0'}</span>/50</p>
-                                <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 50 ? '50' : userDetails?.direactMember}</span>/50</p>
+                                {userDetails?.vipMemcount !== 50 && level_1 === 50 ?
+                                    <button onClick={activation} className='bg-[yelloe] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+                                    :
+                                    <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+                                }
 
                             </div>
                         </div>
@@ -272,8 +297,12 @@ const Task = () => {
                             <p className='text-[#c6ced9]'>Invite 100 Level 1 friends to recharge and invest with a bonus of <span className='text-[yellow]'>₹50000</span></p>
 
                             <div className="flex justify-between items-end">
-                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 1 ? '1' : '0'}</span>/100</p>
-                                <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 100 ? '100' : userDetails?.direactMember}</span>/100</p>
+                                {userDetails?.vipMemcount !== 100 && level_1 === 100 ?
+                                    <button onClick={activation} className='bg-[yelloe] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+                                    :
+                                    <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+                                }
 
                             </div>
                         </div>
@@ -287,9 +316,12 @@ const Task = () => {
                             <p className='text-[#c6ced9]'>Invite 300 Level 1 friends to recharge and invest with a bonus of <span className='text-[yellow]'>₹150000</span></p>
 
                             <div className="flex justify-between items-end">
-                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 1 ? '1' : '0'}</span>/30</p>
-                                <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
-
+                                <p>Invite people: <span className='text-[yellow]'> {userDetails?.direactMember > 300 ? '300' : userDetails?.direactMember}</span>/300</p>
+                                {userDetails?.vipMemcount !== 300 && level_1 === 300 ?
+                                    <button onClick={activation} className='bg-[yelloe] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+                                    :
+                                    <button className='bg-[#767c81] text-black text-xs px-3 py-1 rounded-full font-bold'>Received</button>
+                                }
                             </div>
                         </div>
                     </div>
