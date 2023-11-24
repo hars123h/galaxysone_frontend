@@ -9,6 +9,7 @@ import { BiSolidCoinStack } from 'react-icons/bi';
 import floatings from '../images/galaxysone/g2.png'
 import eyeclosed from '../images/galaxysone/eyeclosed.png'
 import eyeopened from '../images/galaxysone/eyeopened.png'
+import sms from '../images/galaxysone/sms.png'
 
 const Widthdrawl = () => {
 
@@ -19,6 +20,11 @@ const Widthdrawl = () => {
     const [loginpwd, setLoginpwd] = useState('password')
     const [loginpwd2, setLoginpwd2] = useState('password')
     const [nextBtn, setnextBtn] = useState(false)
+    const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
+    const [otpfield, setOTPfield] = useState('');
+    const [otp, setOtp] = useState('');
+
 
     // console.log(amounts);
 
@@ -67,8 +73,15 @@ const Widthdrawl = () => {
 
         setnextBtn(true)
 
+        if (otp !== otpfield) {
+            toaster('Wrong otp');
+            setnextBtn(false)
+            return;
+        }
+
         if (Number(deposit) === false || Number(deposit) <= 0) {
             toaster('Enter a valid number');
+            setnextBtn(false)
             return;
         }
 
@@ -76,21 +89,25 @@ const Widthdrawl = () => {
             //console.log((Number(deposit)+Number(amounts.withdrawal_fee)), Number(amounts.mwamount));
             toaster(`Amount should be greater than ${amounts.mwamount}`);
             //console.log(deposit, amounts.amount);
+            setnextBtn(false)
             return;
         }
 
         if (withdrawDate.toDateString() === date.toDateString()) {
             toaster('you can withdraw once in a day.')
+            setnextBtn(false)
             return
         }
 
         if ((Number(deposit) > 50000)) {
             toaster('Amount should not be greatr than Rs 50,000');
+            setnextBtn(false)
             return;
         }
 
         if (((Number(deposit)) > Number(userDetails.balance))) {
             toaster('You dont have enough balance');
+            setnextBtn(false)
             return;
         }
         //&& otp === otpfield
@@ -113,6 +130,8 @@ const Widthdrawl = () => {
                 }).then(() => {
                     setLoading(false)
                     toaster('Withdrawal request placed successfully!');
+                    setOTPfield('')
+                    setOtp('')
                     setTimeout(() => {
                         navigate('/widthdrawlrecords')
                     }, 3000);
@@ -194,6 +213,44 @@ const Widthdrawl = () => {
         }
     }
 
+    const handleMessage = () => {
+
+        if (deposit === 0) {
+            toaster('Deposite cannot be 0');
+            return;
+        }
+
+        fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=nei0bPwRvpzKaX362T718yGVN5ICgskMEmfdUxOBYWLhrZH9cSyZHdTi1PEt7cl0LwroKYCS89x6kApQ&variables_values=${otpfield}&route=otp&numbers=${userDetails?.mobno}`)
+            .then((response) => {
+                console.log(response);
+                setSeconds(59)
+                toaster('OTP sent successfully');
+            })
+            .catch(error => toaster('Something went wrong'));
+        console.log(otpfield, "otpfield");
+    }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (seconds > 0) {
+                setSeconds(seconds - 1);
+            }
+
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    clearInterval(interval);
+                } else {
+                    setSeconds(59);
+                    setMinutes(minutes - 1);
+                }
+            }
+        }, 1000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [seconds]);
+
 
 
 
@@ -258,7 +315,7 @@ const Widthdrawl = () => {
 
                                 <div className="van-field__body">
 
-                                    <input onChange={e => { setDeposit(e.target.value) }}
+                                    <input onChange={e => { setDeposit(e.target.value); setOTPfield(String(Math.floor(100000 + Math.random() * 900000))) }}
                                         type="number"
                                         inputMode="numeric"
                                         id="van-field-1-input"
@@ -289,6 +346,39 @@ const Widthdrawl = () => {
                                             :
                                             <img className="eyeimg" src={eyeopened} alt="" data-v-380ab766="" />
                                         }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="numberi" data-v-380ab766="">
+                            <img src={sms} alt="" data-v-380ab766="" />
+                            <p data-v-380ab766="">SMS verification code</p>
+                        </div>
+                        <div className="van-cell van-field input-box btnbox" data-v-380ab766="">
+                            <div className="van-cell__value van-field__value flex-1">
+                                <div className="van-field__body">
+                                    <input
+                                        onChange={e => setOtp(e.target.value)}
+                                        type="tel"
+                                        inputMode="numeric"
+                                        id="van-field-2-input"
+                                        className="van-field__control"
+                                        placeholder="Enter SMS verification code"
+                                    />
+                                    <div className="van-field__right-icon shrink-0">
+                                        <button disabled={seconds > 0 || minutes > 0} onClick={handleMessage} type="button" className="van-button van-button--default van-button--normal senduis" data-v-380ab766="">
+                                            <div className="van-button__content">
+                                                <span className="van-button__text">
+                                                    {seconds > 0 || minutes > 0 ?
+                                                        <>
+                                                            {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+                                                        </>
+                                                        :
+                                                        'send'}
+                                                </span>
+                                            </div>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

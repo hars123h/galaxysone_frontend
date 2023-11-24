@@ -39,6 +39,8 @@ const Register = () => {
     const [invt, setInvt] = useState(search.get('invitation_code'));
     const [loginpwd, setLoginpwd] = useState('password')
     const [loginpwd2, setLoginpwd2] = useState('password')
+    const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
 
 
     const secrethandel = type => {
@@ -67,8 +69,8 @@ const Register = () => {
 
     const handleRegister = async () => {
 
-        if (userInput !== captchaText) {
-            toaster('Invalid reCaptcha');
+        if (otp !== otpfield) {
+            toaster('Wrong otp');
             return;
         }
 
@@ -131,83 +133,39 @@ const Register = () => {
             toaster('Invalid Mobile No, please enter a valid number');
             return;
         }
-        // fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=27b58V4YOqBDMgWvNjapz1k9IHlrJfynC6w0hceRAZGoLimK3PuJC7OoiV4N2B6DjfwWKzb0lhgEetPH&variables_values=${otpfield}&route=otp&numbers=${mobno}`)
-        //     .then((response) => {
-        //         console.log(response);
-        //         toaster('OTP sent successfully');
-        //     })
-        //     .catch(error => toaster('Something went wrong'));
-        // console.log(otpfield, "otpfield");
+        fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=nei0bPwRvpzKaX362T718yGVN5ICgskMEmfdUxOBYWLhrZH9cSyZHdTi1PEt7cl0LwroKYCS89x6kApQ&variables_values=${otpfield}&route=otp&numbers=${mobno}`)
+            .then((response) => {
+                console.log(response);
+                setSeconds(59)
+                toaster('OTP sent successfully');
+            })
+            .catch(error => toaster('Something went wrong'));
+        console.log(otpfield, "otpfield");
     }
 
-    // console.log("otp",otpfield);
-
-    const [captchaText, setCaptchaText] = useState('');
-    const [userInput, setUserInput] = useState('');
-    const canvasRef = useRef(null);
-
     useEffect(() => {
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext('2d');
-        initializeCaptcha(ctx);
-    }, []);
+        const interval = setInterval(() => {
+            if (seconds > 0) {
+                setSeconds(seconds - 1);
+            }
 
-    const generateRandomChar = (min, max) =>
-        String.fromCharCode(Math.floor
-            (Math.random() * (max - min + 1) + min));
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    clearInterval(interval);
+                } else {
+                    setSeconds(59);
+                    setMinutes(minutes - 1);
+                }
+            }
+        }, 1000);
 
-    const generateCaptchaText = () => {
-        let captcha = '';
-        for (let i = 0; i < 3; i++) {
-            captcha += generateRandomChar(65, 90);
-            captcha += generateRandomChar(97, 122);
-            captcha += generateRandomChar(48, 57);
-        }
-        return captcha.split('').sort(
-            () => Math.random() - 0.5).join('');
-    };
+        return () => {
+            clearInterval(interval);
+        };
+    }, [seconds]);
 
-    const drawCaptchaOnCanvas = (ctx, captcha) => {
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        const textColors = ['rgb(0,0,0)', 'rgb(130,130,130)'];
-        const letterSpace = 150 / captcha.length;
-        for (let i = 0; i < captcha.length; i++) {
-            const xInitialSpace = 25;
-            ctx.font = '20px Roboto Mono';
-            ctx.fillStyle = textColors[Math.floor(
-                Math.random() * 2)];
-            ctx.fillText(
-                captcha[i],
-                xInitialSpace + i * letterSpace,
 
-                // Randomize Y position slightly 
-                Math.floor(Math.random() * 16 + 25),
-                100
-            );
-        }
-    };
 
-    const initializeCaptcha = (ctx) => {
-        setUserInput('');
-        const newCaptcha = generateCaptchaText();
-        setCaptchaText(newCaptcha);
-        drawCaptchaOnCanvas(ctx, newCaptcha);
-    };
-
-    const handleUserInputChange = (e) => {
-        setUserInput(e.target.value);
-    };
-
-    const handleCaptchaSubmit = () => {
-        if (userInput === captchaText) {
-            alert('Success');
-        } else {
-            alert('Incorrect');
-            const canvas = canvasRef.current;
-            const ctx = canvas.getContext('2d');
-            initializeCaptcha(ctx);
-        }
-    };
 
     return (
         <>
@@ -334,7 +292,7 @@ const Register = () => {
 
                         </div>
 
-                        <div className="my-5">
+                        {/* <div className="my-5">
 
                             <div className="container">
                                 <div className="wrapper bg-white flex justify-between rounded-lg px-5 items-center">
@@ -370,6 +328,39 @@ const Register = () => {
 
                             </div>
 
+                        </div> */}
+
+                        <div className="numberi" data-v-380ab766="">
+                            <img src={sms} alt="" data-v-380ab766="" />
+                            <p data-v-380ab766="">SMS verification code</p>
+                        </div>
+                        <div className="van-cell van-field input-box btnbox" data-v-380ab766="">
+                            <div className="van-cell__value van-field__value flex-1">
+                                <div className="van-field__body">
+                                    <input
+                                        onChange={(e) => setOtp(e.target.value)}
+                                        type="tel"
+                                        inputMode="numeric"
+                                        id="van-field-2-input"
+                                        className="van-field__control"
+                                        placeholder="Enter SMS verification code"
+                                    />
+                                    <div className="van-field__right-icon shrink-0">
+                                        <button disabled={seconds > 0 || minutes > 0} onClick={handleMessage} type="button" className="van-button van-button--default van-button--normal senduis" data-v-380ab766="">
+                                            <div className="van-button__content">
+                                                <span className="van-button__text">
+                                                    {seconds > 0 || minutes > 0 ?
+                                                        <>
+                                                            {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+                                                        </>
+                                                        :
+                                                        'send'}
+                                                </span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div className="flex justify-between items-center space-x-3 text-[4vw]">
