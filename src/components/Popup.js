@@ -5,59 +5,71 @@ import applogo from '../images/appLogo.png'
 import telegram from '../images/telegram.svg'
 import { toast } from 'react-toastify'
 import kraft from '../images/app-release.apk'
+import navlogo from '../images/galaxysone/logo.jpg'
+import calender from '../images/galaxysone/calender.png'
+import { FaGift } from "react-icons/fa";
+import { FaTelegramPlane } from "react-icons/fa";
 
 const Popup = () => {
 
     const [popOpen, setPopOpen] = useState('block')
-    const [download, setDownload] = useState(true)
+    // const [download, setDownload] = useState(true)
 
 
     return (
         <>
-            <div className={`top-0 right-0 bottom-0 left-0 p-5 fixed z-[999] justify-center items-center flex ${popOpen} `}>
+            <div className={`top-0 right-0 bottom-0 left-0 p-5 fixed z-[999] justify-center items-center h-screen max-h-screen flex ${popOpen} `}>
                 <div className="before:content-[''] fixed top-0 left-0 right-0 bottom-0 bg-[rgba(46,46,46,0.1)] z-[1] backdrop-blur-[3px]"></div>
-                {download ?
-                    <div className="px-5 pb-5 pt-[50px] max-w-[600px] w-full -top-[20%] relative mx-auto bg-white backdrop-blur-sm shadow-[0_0_10px_1px_rgba(0,0,0,0.1)] z-[2] rounded-[15px]">
-                        <div onClick={() => setDownload(!download)} className="w-[45px] h-[45px] top-0 right-0 font-bold absolute bg-[rgba(255,87,40,0.9)] z-50 rounded-bl-[30px] flex justify-center items-center ">
-                            <RxCross1 size={16} className='font-bold text-white' />
-                        </div>
-                        <a href={kraft}
-                            download="kraft"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <div className="w-[90px] h-[90px] bg-white shadow-[0_0_20px_3px_rgba(0,0,0,0.1)] overflow-hidden rounded-[15px] flex justify-center items-center ">
-                                <img src={applogo} alt="applogo" className='w-4/5' />
-                            </div>
-                            <div className="my-5">
-                                <h3 className='text-[#4b4d5e] text-[28px]'>
-                                    Download App
-                                </h3>
-                                <p className='py-[2px] text-[#4b4d5e] text-base leading-5'>For your safer use of this product<br />please try to download this APP</p>
-                            </div>
-                        </a>
+
+                <div className="p-5 max-w-[600px] w-full -top-5 relative mx-auto bg-white backdrop-blur-sm shadow-[0_0_10px_1px_rgba(0,0,0,0.1)] z-[2] rounded-[15px]">
+
+                    {/* <div  className="w-[45px] h-[45px] top-0 right-0 font-bold absolute bg-[rgba(255,87,40,0.9)] z-50 rounded-bl-[30px] flex justify-center items-center ">
+                        <RxCross1 size={16} className='font-bold text-white' />
+                    </div> */}
+
+                    <div className="flex space-x-3 items-center">
+
+                        <img src={navlogo} alt="" className='w-10' />
+                        <h1 className='text-xl font-bold'>Evergreen</h1>
+
                     </div>
-                    :
-                    <div className="max-w-[600px] w-full -top-[20%] relative mx-auto p-5 bg-white backdrop-blur-sm shadow-[0_0_10px_1px_rgba(0,0,0,0.1)] z-[2] rounded-[15px]">
-                        <div onClick={() => setPopOpen('hidden')} className="w-[45px] h-[45px] top-0 right-0 font-bold absolute bg-[rgba(255,87,40,0.9)] z-50 rounded-bl-[30px] flex justify-center items-center ">
-                            <RxCross1 size={16} className='font-bold text-white' />
-                        </div>
-                        <div className="">
-                            <div className="w-full my-[10px]">
-                                <h3 className='text-2xl font-bold'>Official telegram channel</h3>
-                                <p className='text-sm text-[#818393] leading-5'>Join the official telegram channel <br />to get the latest daily rewards</p>
+
+                    <hr className='my-5' />
+
+                    <h1 className='text-lg font-bold mb-5'>Latest good news</h1>
+
+                    <div className="bg-[#f4f4f6] px-2 py-5 rounded-lg overflow-hidden text-sm">
+
+                        <div className="overflow-x-scroll h-80">
+
+                            <h2 className='text-[#a41213] font-bold'><span className='inline-block'><FaGift /></span> Most Profitable Long Term App Name in India [Bursa Malaysia] </h2>
+
+                            <p className='text-[#787b8a] py-5'><img src={calender} alt="" className='w-5 inline-block' /> Launch date: November 19, 2023</p>
+                            <br />
+                            <div className="text-[#787b8a]">
+                                <p>👉1. All plans are daily income and daily withdrawals. Invest in all plans of and you will be able to earn 5-10 percent profit... Don't miss the most profitable long-term application.</p>
+                                <br />
+                                <p>👉2. Fill in your telegram or Whatsapp username on the APP and get 50Rs bonus instantly. </p>
+                                <br />
+                                <p>👉3. Get 6 for every people you invite to register.</p>
+                                <br />
+                                <p>👉4. Make money by completing the rewards.</p>
+                                <br />
+                                <p>👉5. After purchasing the first package, your balance transfer function will be activated, and your balances can be transferred to each other. No handling fee.</p>
                             </div>
+
                         </div>
 
-                        <Link to={'https://telegram.me/kraftofficial1'} className="flex justify-center items-end">
-                            <div>
-                                <img src={telegram} alt="telegram" className='w-12 m-1' />
-                                <p className='text-[#818393] text-base'>Telegram</p>
-                            </div>
+                    </div>
 
-                        </Link>
+                    <a href='https://telegram.me/Evergreenofficial656' className='text-white mt-5 bg-[#f65246] text-sm flex items-center justify-center w-full py-2 rounded-md'><FaTelegramPlane className='inline-block mr-1' />Service</a>
 
-                    </div>}
+                    <div onClick={() => setPopOpen('hidden')}  className="absolute -bottom-10 flex justify-center items-center w-full ">
+                        <div className="bg-[#848484] w-7 h-7 flex justify-center items-center rounded-full mx-auto text-white">X</div>
+                    </div>
+
+                </div>
+
             </div>
         </>
     )

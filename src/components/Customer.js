@@ -41,7 +41,7 @@ const CustomerCare = () => {
                 </p>
 
                 <div>
-                    <div className="flex items-center border-gray-400	border-2 p-4 rounded-lg my-3 ">
+                    <a href="https://wa.me/447578046579" className="flex items-center border-gray-400	border-2 p-4 rounded-lg my-3 ">
                         <img className="w-[45px] pr-[10px] border-r-2" src={WpImg} alt="" />
                         <div className="pl-[10px] pr-[10px] ">
                             <div>Whatsapp</div>
@@ -50,9 +50,9 @@ const CustomerCare = () => {
                             </p>
                         </div>
                         <IoIosArrowForward />
-                    </div>
+                    </a>
 
-                    <div className="flex items-center border-gray-400	border-2 p-4 rounded-lg my-3 ">
+                    <a href='https://telegram.me/Evergreenofficial656' className="flex items-center border-gray-400	border-2 p-4 rounded-lg my-3 ">
                         <img className="w-[45px] pr-[10px] border-r-2" src={TeleImg} alt="" />
                         <div className="pl-[10px] pr-[10px] ">
                             <div>Telegram</div>
@@ -61,7 +61,7 @@ const CustomerCare = () => {
                             </p>
                         </div>
                         <IoIosArrowForward />
-                    </div>
+                    </a>
 
 
 

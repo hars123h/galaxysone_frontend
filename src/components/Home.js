@@ -76,6 +76,7 @@ const Home = () => {
     return (
         <>
             <Navbar />
+            <Popup />
 
             <div className="text-white bg-[#003136] text-[4vw] px-3 mb-36">
 
