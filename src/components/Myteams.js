@@ -84,7 +84,7 @@ const Myteams = () => {
                     <div className="">
                         <p className=''>Team Invest</p>
                         <p className='text-[#00eefe]'>₹{teamInvest}</p>
-                        <p className='flex items-center mt-3 text-[red]'>To invite <LiaAngleRightSolid /></p>
+                        <Link to={'/award'} className='flex items-center mt-3 text-[red]'>To invite <LiaAngleRightSolid /></Link>
                     </div>
 
                     <div className="">
