@@ -38,33 +38,26 @@ const Popup = () => {
 
                     <h1 className='text-lg font-bold mb-5'>Latest good news</h1>
 
-                    <div className="bg-[#f4f4f6] px-2 py-5 rounded-lg overflow-hidden text-sm">
-
-                        <div className="overflow-x-scroll h-80">
-
+                    <div className="bg-[#f4f4f6] px-2 py-5 rounded-lg text-sm">
+                    
                             <h2 className='text-[#a41213] font-bold'><span className='inline-block'><FaGift /></span> Most Profitable Long Term App Name in India [Bursa Malaysia] </h2>
 
                             <p className='text-[#787b8a] py-5'><img src={calender} alt="" className='w-5 inline-block' /> Launch date: November 19, 2023</p>
                             <br />
                             <div className="text-[#787b8a]">
-                                <p>👉1. All plans are daily income and daily withdrawals. Invest in all plans of and you will be able to earn 5-10 percent profit... Don't miss the most profitable long-term application.</p>
-                                <br />
-                                <p>👉2. Fill in your telegram or Whatsapp username on the APP and get 50Rs bonus instantly. </p>
-                                <br />
-                                <p>👉3. Get 6 for every people you invite to register.</p>
-                                <br />
-                                <p>👉4. Make money by completing the rewards.</p>
-                                <br />
-                                <p>👉5. After purchasing the first package, your balance transfer function will be activated, and your balances can be transferred to each other. No handling fee.</p>
+                                <p>
+                                    An evergreen, or timeless, person or thing.
+                                    Webster's New World. Something that remains perennially fresh, interesting, or well liked.
+                                    American Heritage. (colloquial) A news story that can be published or broadcast at any time.
+                                </p>
                             </div>
 
-                        </div>
 
                     </div>
 
                     <a href='https://telegram.me/Evergreenofficial656' className='text-white mt-5 bg-[#f65246] text-sm flex items-center justify-center w-full py-2 rounded-md'><FaTelegramPlane className='inline-block mr-1' />Service</a>
 
-                    <div onClick={() => setPopOpen('hidden')}  className="absolute -bottom-10 flex justify-center items-center w-full ">
+                    <div onClick={() => setPopOpen('hidden')} className="absolute -bottom-10 flex justify-center items-center w-full ">
                         <div className="bg-[#848484] w-7 h-7 flex justify-center items-center rounded-full mx-auto text-white">X</div>
                     </div>
 
