@@ -255,15 +255,15 @@ const Invest = () => {
                                                     </div>
 
 
-                                                    <div className="flex items-center justify-around">
+                                                    <div className="flex items-center justify-between mt-2">
 
-                                                        <div className="text-center mt-2">
+                                                        {/* <div className="text-center mt-2">
                                                             <p>
                                                                 <em className='mr-1 p-0 px-[2px] border-0 font-light not-italic leading-none '>₹</em>
                                                                 {(element.plan_daily_earning / 24).toFixed(2)}
                                                             </p>
                                                             <p className='text-[#c6ced9]'>Hourly income</p>
-                                                        </div>
+                                                        </div> */}
 
                                                         <div className="text-center">
                                                             <p>
@@ -332,15 +332,15 @@ const Invest = () => {
                                                     </div>
 
 
-                                                    <div className="flex items-center justify-around">
+                                                    <div className="flex items-center justify-between mt-2">
 
-                                                        <div className="text-center mt-2">
+                                                        {/* <div className="text-center mt-2">
                                                             <p>
                                                                 <em className='mr-1 p-0 px-[2px] border-0 font-light not-italic leading-none '>₹</em>
                                                                 {(element.plan_daily_earning / 24).toFixed(2)}
                                                             </p>
                                                             <p className='text-[#c6ced9]'>Hourly income</p>
-                                                        </div>
+                                                        </div> */}
 
                                                         <div className="text-center">
                                                             <p>

@@ -438,9 +438,9 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                     <div className="text-center">
                         <p>
                             <em className='mr-1 p-0 px-[2px] border-0 font-light not-italic leading-none '>₹</em>
-                            {(plan_daily_earning / 24).toFixed(2)}
+                            {(plan_daily_earning *plan_cycle).toFixed(2)}
                         </p>
-                        <p className='text-[#c6ced9]'>Hourly income</p>
+                        <p className='text-[#c6ced9]'>Total income</p>
                     </div>
 
                 </div>
