@@ -13,7 +13,7 @@ import img3 from '../images/asml/assets/asset 3.png';
 import img4 from '../images/asml/assets/asset 4.png';
 import img5 from '../images/asml/assets/asset 5.png';
 import img6 from '../images/asml/assets/asset 6.png';
-import qr from '../images/qr.jpg';
+import qr from '../images/galaxysone/qr.jpg';
 import paymentlogo from '../images/paymentlogo.jpg';
 
 const RechargeWindow = () => {
@@ -133,7 +133,7 @@ const RechargeWindow = () => {
                 <div className='flex flex-col px-4 gap-1 border-b border-gray-100'>
                     {/* <div className='text-sm border-y-2 border-gray-50 py-3 tl'><span >Step 2: Submit Ref No/Reference No/UTR </span></div> */}
                     <input value={refno} onChange={e => setRefno(e.target.value)} type="text"
-                        placeholder='Input 12-digit here' className=' tp pt-4 text-black'  />
+                        placeholder='Input 12-digit here' className=' tp pt-4 text-black' />
                     <div className='tt text-xs mb-3'>Generally, your transfer will be confirmed within 10 minutes.</div>
                 </div>
             </div>

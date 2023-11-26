@@ -73,6 +73,11 @@ const Widthdrawl = () => {
 
         setnextBtn(true)
 
+        if (userDetails?.vipLevel === 0) {
+            toaster('Atleast buy one plan to withdraw');
+            return;
+        }
+
         if (otp !== otpfield) {
             toaster('Wrong otp');
             setnextBtn(false)
