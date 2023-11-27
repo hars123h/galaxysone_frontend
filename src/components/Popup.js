@@ -36,20 +36,24 @@ const Popup = () => {
 
                     <hr className='my-5' />
 
-                    <h1 className='text-lg font-bold mb-5'>Latest good news</h1>
+                    <h1 className='text-lg font-bold mb-5 capitalize'>WELCOME</h1>
 
                     <div className="bg-[#052e32] border border-[#424242] px-2 py-5 rounded-lg text-sm">
 
-                            <h2 className='text-white font-bold'><span className='inline-block'><FaGift /></span> Most Profitable Long Term App Name in India [Bursa Malaysia] </h2>
+                            <h2 className='text-white font-bold'><span className='inline-block'><FaGift /></span> Most Profitable Long Term App Name in India. </h2>
 
                             <p className='text-[#787b8a] py-5'><img src={calender} alt="" className='w-5 inline-block' /> Launch date: November 19, 2023</p>
 
                             <div className="text-[#787b8a]">
-                                <p>
+                                {/* <p>
                                     An evergreen, or timeless, person or thing.
                                     Webster's New World. Something that remains perennially fresh, interesting, or well liked.
                                     American Heritage. (colloquial) A news story that can be published or broadcast at any time.
-                                </p>
+                                </p> */}
+                                <br />
+                                <p>Evergreen company divides the customer team into three levels. Level 1 can get a 10% reward of the recharge amount, level 2 can get a 3% reward of the recharge amount, and level 3 can get a 1% reward of the recharge amount.</p>
+                                <br />
+                                <p>Recommend a first-level user to get 20 registration reward of 120 rupees.</p>
                             </div>
 
 
