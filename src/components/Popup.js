@@ -40,9 +40,9 @@ const Popup = () => {
 
                     <div className="bg-[#052e32] border border-[#424242] px-2 py-5 rounded-lg text-sm">
 
-                            <h2 className='text-white font-bold'><span className='inline-block'><FaGift /></span> Most Profitable Long Term App Name in India. </h2>
+                            {/* <h2 className='text-white font-bold'><span className='inline-block'><FaGift /></span> Most Profitable Long Term App Name in India. </h2>
 
-                            <p className='text-[#787b8a] py-5'><img src={calender} alt="" className='w-5 inline-block' /> Launch date: November 19, 2023</p>
+                            <p className='text-[#787b8a] py-5'><img src={calender} alt="" className='w-5 inline-block' /> Launch date: November 19, 2023</p> */}
 
                             <div className="text-[#787b8a]">
                                 {/* <p>
