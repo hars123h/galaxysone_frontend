@@ -201,6 +201,8 @@ const Home = () => {
                             plan_cycle={7}
                             plan_amount={1000}
                             plan_daily_earning={250}
+                            pre_sale={true}
+
                         // plan_name={'Communication Satellite'}
                         />
 
