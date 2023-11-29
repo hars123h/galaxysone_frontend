@@ -13,7 +13,7 @@ import img3 from '../images/asml/assets/asset 3.png';
 import img4 from '../images/asml/assets/asset 4.png';
 import img5 from '../images/asml/assets/asset 5.png';
 import img6 from '../images/asml/assets/asset 6.png';
-import qr from '../images/galaxysone/qr.jpg';
+import qr from '../images/galaxysone/qr.jpeg';
 import paymentlogo from '../images/paymentlogo.jpg';
 
 const RechargeWindow = () => {
