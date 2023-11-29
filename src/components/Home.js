@@ -120,6 +120,8 @@ const Home = () => {
                             plan_cycle={45}
                             plan_amount={500}
                             plan_daily_earning={55}
+                            pre_sale={true}
+
                         // plan_name={'Communication Satellite'}
                         />
 
@@ -129,6 +131,8 @@ const Home = () => {
                             plan_cycle={45}
                             plan_amount={1800}
                             plan_daily_earning={220}
+                            pre_sale={true}
+
                         // plan_name={'Communication Satellite'}
                         />
 
@@ -138,6 +142,8 @@ const Home = () => {
                             plan_cycle={45}
                             plan_amount={4500}
                             plan_daily_earning={450}
+                            pre_sale={true}
+
                         // plan_name={'Communication Satellite'}
                         />
 
@@ -147,6 +153,7 @@ const Home = () => {
                             plan_cycle={45}
                             plan_amount={15000}
                             plan_daily_earning={1500}
+                            pre_sale={true}
                         // plan_name={'Communication Satellite'}
                         />
 
@@ -155,7 +162,7 @@ const Home = () => {
                             product_type={0}
                             plan_cycle={45}
                             plan_amount={35000}
-                            plan_daily_earning={1500}
+                            plan_daily_earning={5000}
                         // plan_name={'Communication Satellite'}
                         />
 
