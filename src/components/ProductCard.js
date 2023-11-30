@@ -27,7 +27,23 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
     const [pop, setpop] = useState(false)
     const [quantity, setQuantity] = useState(1)
 
+    const lvl1plan = userDetails?.plans_purchased?.filter(e => e.product_type === 1)
+
+    // console.log(lvl1plan);
+
     const handelInvest = async () => {
+
+        if (lvl1plan?.some(element => {
+            if (element.plan_amount === plan_amount) {
+                return true;
+            }
+
+            return false;
+        })) {
+            toaster("you can buy this plan only once")
+            return
+        }
+
         if (quantity <= 0) {
             toaster('Please a positive value!');
         } else {
@@ -398,7 +414,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
 
             <div className="border border-white p-3 rounded-md text-white relative mb-10 ">
 
-            {/* <img src={bgimmg} alt="" className='opacity-30 absolute top-0 left-0  w-full h-full' /> */}
+                {/* <img src={bgimmg} alt="" className='opacity-30 absolute top-0 left-0  w-full h-full' /> */}
 
 
                 <div className="flex space-x-3">
@@ -438,7 +454,7 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                     <div className="text-center">
                         <p>
                             <em className='mr-1 p-0 px-[2px] border-0 font-light not-italic leading-none '>₹</em>
-                            {(plan_daily_earning *plan_cycle).toFixed(2)}
+                            {(plan_daily_earning * plan_cycle).toFixed(2)}
                         </p>
                         <p className='text-[#c6ced9]'>Total income</p>
                     </div>
@@ -446,10 +462,10 @@ const ProductCard = ({ active, pre_sale, long_plan_state, product_type, product_
                 </div>
 
                 {/* <button onClick={handelInvest} className='bg-[#00eefe] text-black px-10 py-1 rounded-full absolute -bottom left-[36%] origin-center'>Buy</button> */}
-                {pre_sale? 
-             <button onClick={handelInvest} className='bg-[#00eefe] text-black px-10 py-1 rounded-full absolute -bottom left-[36%] origin-center'>Buy</button>
-             :  <button  className='bg-[#767c81] text-black px-10 py-1 rounded-full absolute -bottom left-[36%] origin-center' disabled>Pre sale</button>    
-            }
+                {pre_sale ?
+                    <button onClick={handelInvest} className='bg-[#00eefe] text-black px-10 py-1 rounded-full absolute -bottom left-[36%] origin-center'>Buy</button>
+                    : <button className='bg-[#767c81] text-black px-10 py-1 rounded-full absolute -bottom left-[36%] origin-center' disabled>Pre sale</button>
+                }
 
             </div>
 
