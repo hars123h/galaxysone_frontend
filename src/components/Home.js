@@ -207,6 +207,17 @@ const Home = () => {
                         />
 
                         <ProductCard
+                            product_image={g8}
+                            product_type={1}
+                            plan_cycle={1}
+                            plan_amount={700}
+                            plan_daily_earning={1100}
+                            pre_sale={true}
+
+                        // plan_name={'Communication Satellite'}
+                        />
+
+                        <ProductCard
                             product_image={g2}
                             product_type={1}
                             plan_cycle={7}
