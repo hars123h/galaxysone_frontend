@@ -77,7 +77,7 @@ const Myteams = () => {
         <>
             <Navbar />
 
-            <div className="text-white px-3 mt-8 mb-36 bg-[#003136]">
+            <div className="text-white px-3 mt-8 mb-36 bg-[#c80e00]">
 
                 <div className="flex p-5 justify-between items-start bg-white border border-[#424242] rounded-lg text-black">
 

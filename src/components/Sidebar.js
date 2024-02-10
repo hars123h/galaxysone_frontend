@@ -9,7 +9,7 @@ import { TbHelpSquare } from 'react-icons/tb'
 import { Link, useNavigate } from 'react-router-dom'
 import { ContextApi } from '../App'
 import { LiaAngleLeftSolid } from 'react-icons/lia'
-import navlogo from '../images/galaxysone/logo.jpg'
+import navlogo from '../images/galaxysone/logo.png'
 import indian from '../images/galaxysone/indianFlag.png'
 
 
@@ -34,7 +34,7 @@ const Sidebar = ({ setRight, right }) => {
 
         <>
 
-            <div className={`bg-[#003136] h-screen fixed w-[80vw] top-0 -right-[80vw] z-[10000] transition-all duration-500 ${right} text-white `}>
+            <div className={`bg-[#c80d00] h-screen fixed w-[80vw] top-0 -right-[80vw] z-[10000] transition-all duration-500 ${right} text-white `}>
 
                 <div className="flex justify-between items-start p-5 pr-0">
 
@@ -42,9 +42,9 @@ const Sidebar = ({ setRight, right }) => {
 
                     <div className="flex flex-col items-center">
 
-                        <img src={navlogo} alt="" className='w-14 h-14 border border-white rounded-md' />
+                        <img src={navlogo} alt="" className='w-32 border border-white rounded-md' />
 
-                        <p className='font-bold'>Evergreen</p>
+                        {/* <p className='font-bold'>Hamburg Sud</p> */}
 
                         <div className='flex items-center space-x-1'>
                             <img src={indian} alt="" className='w-5' />

@@ -21,7 +21,6 @@ export const getuserearn = async () => {
     var plans_purchased = []
     var earn = 0;
     const today = new Date();
-    today.setHours(0, 0, 0, 0)
 
     await axios.post(`/get_user`, { user_id: localStorage.getItem('uid') }).then(async (responce) => {
         plans_purchased = responce.data.plans_purchased;

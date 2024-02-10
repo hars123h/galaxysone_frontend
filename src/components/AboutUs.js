@@ -7,7 +7,7 @@ const AboutUs = () => {
     return (
         <>
 
-            <div className="  after:contents-[' '] bg-[#003136] after:fixed h-screen ">
+            <div className="  after:contents-[' '] bg-[#c80e00] after:fixed h-screen ">
                 <div className="w-full mx-auto max-w-[800px]">
 
                     <header className="h-[50px] leading-[50px] block mb-[10px] ">
@@ -26,16 +26,29 @@ const AboutUs = () => {
                         <img src={aboutusimg} alt="" className='border border-white rounded-lg mb-5' />
 
                         <div className="">
-                            Adopted in May 2007, Evergreen Line is the common trading name for the Evergreen Group's container shipping companies that comprise Evergreen Marine Corp. (Taiwan) Ltd., Italia Marittima S.p.A., Evergreen Marine (UK) Ltd., Evergreen Marine (Hong Kong) Ltd., and Evergreen Marine (Singapore) Pte. Ltd..
+                            WE ARE BY YOUR SIDE
+                            <br />
+                            As your trusted logistics partner, we support you every step of the way – and we prefer to do so personally. We start by listening to you and understanding your business. Only then can we together find the best solution tailored specifically to your growth strategy.
+
+                            If any unforeseen changes should occur, we find quick and pragmatic solutions. Always being close by when you need us.
 
                             <br /> <br />
 
-                            With Evergreen Marine (Asia) Pte. Ltd. joining the brand name agreement in year 2021, the six shipping companies operate a modern fleet of container ships with a combined capacity of more than 1.5 million TEU and maintain services across a broad array of trade lanes around the world.
+                            THIS IS WHAT WE STAND FOR: <br />
+                            Benefits pictogram <br />
+                            TRUSTED <br />
+                            We deliver on our promises and constantly ensure that cargo arrives at its destination on time and in good condition. Because we feel responsible for every single shipment. Large or small. From the first mile to the last.
 
                             <br /> <br />
 
-                            Since its establishment, Evergreen Line has been a global brand which symbolizes innovative, reliable and sustainable marine transportation service. We continue with our mission to build efficient e-commerce platforms and to accelerate our fleet renewal program, introducing ever more eco-friendly container ships.
+                            By your side pictogram <br />
+                            BY YOUR SIDE <br />
+                            We care about your business and are dedicated to your success. We offer smart digital solutions, while at the same time ensuring that our ties to you, our valued customers, remain personal.
+                            <br /><br />
 
+                            Multibrand pictogram <br />
+                            CAN-DO <br />
+                            We are can-do people. We anticipate challenges before they arise, we react flexibly to changing needs and situations – and we find solutions, often making the seemingly impossible possible.
                             <br /> <br />
                         </div>
                     </div>

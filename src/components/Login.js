@@ -5,7 +5,7 @@ import BASE_URL from '../api_url';
 import applogo from '../images/appLogo.png'
 import Tradmark from './Tradmark';
 import { ContextApi } from '../App';
-import logo from '../images/galaxysone/logo.jpg'
+import logo from '../images/galaxysone/logo.png'
 import imgriti from '../images/galaxysone/imgriti.png'
 import phone from '../images/galaxysone/phone.png'
 import sms from '../images/galaxysone/sms.png'
@@ -201,12 +201,12 @@ const Login = () => {
                 </div>
             </div> */}
 
-            <div className="min-h-screen pt-[8vw] pb-[10vw] relative z-[1] bg-[#003136] overflow-y-scroll">
+            <div className="min-h-screen pt-[8vw] pb-[10vw] relative z-[1] bg-[#c80e00] overflow-y-scroll">
                 <div className="px-[8vw] text-left ">
 
                     <div className="mb-[6vw] relative">
 
-                        <img src={logo} alt="logo" className='w-[23vw] h-auto mb-[2.5vw] ' />
+                        <img src={logo} alt="logo" className='w-[40vw] h-auto mb-[2.5vw] ' />
 
                         <p className="andount" data-v-380ab766="">Register to receive free </p>
                         <p className="andount" data-v-380ab766="">equipment and total</p>

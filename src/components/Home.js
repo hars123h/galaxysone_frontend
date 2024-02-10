@@ -30,10 +30,10 @@ import g2 from '../images/galaxysone/g2.jpg'
 import g3 from '../images/galaxysone/g3.jpg'
 import g4 from '../images/galaxysone/g4.jpg'
 import g5 from '../images/galaxysone/g5.jpg'
-import g6 from '../images/galaxysone/g6.jpg'
-import g7 from '../images/galaxysone/g1.jpg'
-import g8 from '../images/galaxysone/g2.jpg'
-import g9 from '../images/galaxysone/g3.jpg'
+// import g6 from '../images/galaxysone/g6.jpg'
+// import g7 from '../images/galaxysone/g1.jpg'
+// import g8 from '../images/galaxysone/g2.jpg'
+// import g9 from '../images/galaxysone/g3.jpg'
 
 
 
@@ -78,7 +78,7 @@ const Home = () => {
             <Navbar />
             <Popup />
 
-            <div className="text-white bg-[#003136] text-[4vw] px-3 mb-36">
+            <div className="text-white bg-[#c80e00] text-[4vw] px-3 mb-36">
 
                 <img src={herobg} alt="" className='mt-5 rounded-md' />
 
@@ -126,7 +126,7 @@ const Home = () => {
                         />
 
                         <ProductCard
-                            product_image={g1}
+                            product_image={g2}
                             product_type={0}
                             plan_cycle={45}
                             plan_amount={1800}
@@ -137,7 +137,7 @@ const Home = () => {
                         />
 
                         <ProductCard
-                            product_image={g1}
+                            product_image={g3}
                             product_type={0}
                             plan_cycle={45}
                             plan_amount={4500}
@@ -148,7 +148,7 @@ const Home = () => {
                         />
 
                         <ProductCard
-                            product_image={g1}
+                            product_image={g4}
                             product_type={0}
                             plan_cycle={45}
                             plan_amount={15000}
@@ -158,7 +158,7 @@ const Home = () => {
                         />
 
                         <ProductCard
-                            product_image={g1}
+                            product_image={g5}
                             product_type={0}
                             plan_cycle={45}
                             plan_amount={35000}
@@ -176,7 +176,7 @@ const Home = () => {
                         />
 
                         <ProductCard
-                            product_image={g1}
+                            product_image={g2}
                             product_type={0}
                             plan_cycle={45}
                             plan_amount={100000}
@@ -185,7 +185,7 @@ const Home = () => {
                         />
 
                         <ProductCard
-                            product_image={g1}
+                            product_image={g3}
                             product_type={1}
                             plan_cycle={1}
                             plan_amount={200}
@@ -196,7 +196,7 @@ const Home = () => {
                         />
 
                         <ProductCard
-                            product_image={g1}
+                            product_image={g4}
                             product_type={1}
                             plan_cycle={1}
                             plan_amount={350}
@@ -207,7 +207,7 @@ const Home = () => {
                         />
 
                         <ProductCard
-                            product_image={g8}
+                            product_image={g5}
                             product_type={1}
                             plan_cycle={1}
                             plan_amount={700}
@@ -218,7 +218,7 @@ const Home = () => {
                         />
 
                         <ProductCard
-                            product_image={g2}
+                            product_image={g1}
                             product_type={1}
                             plan_cycle={7}
                             plan_amount={1000}
@@ -229,7 +229,7 @@ const Home = () => {
                         />
 
                         <ProductCard
-                            product_image={g4}
+                            product_image={g2}
                             product_type={1}
                             plan_cycle={1}
                             plan_amount={1200}

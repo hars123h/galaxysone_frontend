@@ -108,7 +108,7 @@ const Task = () => {
 
                 <div className="border border-[#424242] my-5"></div>
 
-                <div className="border border-[#424242] my-5 bg-[#06454c] rounded-lg p-5">
+                <div className="border border-[#424242] my-5 bg-[rgba(200,13,0,0.56)] rounded-lg p-5">
 
                     <h1 className='text-center'>My invitation code</h1>
 
@@ -163,7 +163,7 @@ const Task = () => {
 
                 <h1 className='text-center my-3'>Invite registration rewards</h1>
 
-                <div className="border border-white rounded-lg bg-[#003235] p-5">
+                <div className="border border-white rounded-lg bg-[rgba(200,13,0,0.56)] p-5">
 
                     <div className="flex items-end justify-between">
 
@@ -207,7 +207,7 @@ const Task = () => {
 
                 <h1 className='text-center my-3'>Invite investment rewards</h1>
 
-                <div className="border border-white rounded-lg bg-[#003235] p-5">
+                <div className="border border-white rounded-lg bg-[rgba(200,13,0,0.56)] p-5">
 
                     <div className="flex items-center justify-between">
                         <h1 className=' my-3'>

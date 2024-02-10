@@ -10,7 +10,7 @@ import { MdHandshake, MdOutlineHandshake, MdSatelliteAlt } from "react-icons/md"
 import { TbHeadset, TbMoneybag, TbSatellite } from 'react-icons/tb'
 import { IoDiamond, IoDiamondOutline } from 'react-icons/io5'
 import { BsEmojiSmile, BsFillEmojiSmileFill } from 'react-icons/bs'
-import navlogo from '../images/galaxysone/logo.jpg'
+import navlogo from '../images/galaxysone/logo.png'
 import Sidebar from './Sidebar'
 
 
@@ -64,7 +64,7 @@ const Navbar = () => {
                 <div className="flex justify-between">
 
                     <div className="flex space-x-4 items-center">
-                        <img src={navlogo} alt="" className='w-10 h-10 border border-white rounded-md' />
+                        <img src={navlogo} alt="" className='w-32 border border-white rounded-md' />
                         <h1 className='text-white'>{head}</h1>
                     </div>
 
