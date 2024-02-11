@@ -6,7 +6,7 @@ import BASE_URL from '../api_url';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import Navbar from './Navbar';
 import { LiaAngleRightSolid } from 'react-icons/lia';
-import teamImg from "../images/galaxysone/teamimg.jpg";
+import teamImg from "../images/galaxysone/logo.png";
 import one from "../images/galaxysone/1.png";
 import two from "../images/galaxysone/2.png";
 import three from "../images/galaxysone/3.png";
