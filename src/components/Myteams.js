@@ -108,7 +108,7 @@ const Myteams = () => {
                     </div>
 
                     <div className="flex justify-between items-center mt-3">
-                        <p className='text-[#c6ced9] text-xs'>Commission rate: <span className='ml-1 text-[#00eefe]'>10%</span></p>
+                        <p className='text-[#c6ced9] text-xs'>Commission rate: <span className='ml-1 text-[#00eefe]'>25%</span></p>
                         {/* <p className='text-[#c6ced9] text-xs'>Rebate rate: <span className='ml-1 text-[#00eefe]'>20%</span></p> */}
                     </div>
 

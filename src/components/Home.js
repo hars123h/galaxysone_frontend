@@ -117,9 +117,9 @@ const Home = () => {
                         <ProductCard
                             product_image={g1}
                             product_type={0}
-                            plan_cycle={45}
-                            plan_amount={500}
-                            plan_daily_earning={55}
+                            plan_cycle={60}
+                            plan_amount={4500}
+                            plan_daily_earning={1510}
                             pre_sale={true}
 
                         // plan_name={'Communication Satellite'}
@@ -128,9 +128,9 @@ const Home = () => {
                         <ProductCard
                             product_image={g2}
                             product_type={0}
-                            plan_cycle={45}
+                            plan_cycle={60}
                             plan_amount={1800}
-                            plan_daily_earning={220}
+                            plan_daily_earning={560}
                             pre_sale={true}
 
                         // plan_name={'Communication Satellite'}
@@ -139,9 +139,9 @@ const Home = () => {
                         <ProductCard
                             product_image={g3}
                             product_type={0}
-                            plan_cycle={45}
-                            plan_amount={4500}
-                            plan_daily_earning={450}
+                            plan_cycle={60}
+                            plan_amount={650}
+                            plan_daily_earning={190}
                             pre_sale={true}
 
                         // plan_name={'Communication Satellite'}
@@ -149,15 +149,15 @@ const Home = () => {
 
                         <ProductCard
                             product_image={g4}
-                            product_type={0}
-                            plan_cycle={45}
-                            plan_amount={15000}
-                            plan_daily_earning={1500}
+                            product_type={1}
+                            plan_cycle={3}
+                            plan_amount={700}
+                            plan_daily_earning={350}
                             pre_sale={true}
                         // plan_name={'Communication Satellite'}
                         />
 
-                        <ProductCard
+                        {/* <ProductCard
                             product_image={g5}
                             product_type={0}
                             plan_cycle={45}
@@ -264,7 +264,7 @@ const Home = () => {
                             plan_amount={10000}
                             plan_daily_earning={1500}
                         // plan_name={'Communication Satellite'}
-                        />
+                        /> */}
 
                     </div>
 
