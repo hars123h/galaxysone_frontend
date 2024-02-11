@@ -115,12 +115,13 @@ const Home = () => {
                     <div className="mt-5">
 
                         <ProductCard
-                            product_image={g4}
-                            product_type={1}
-                            plan_cycle={3}
-                            plan_amount={700}
-                            plan_daily_earning={350}
-                            pre_sale={true}
+                            product_image={g1}
+                            product_type={0}
+                            plan_cycle={60}
+                            plan_amount={4500}
+                            plan_daily_earning={1510}
+                            pre_sale={false}
+
                         // plan_name={'Communication Satellite'}
                         />
 
@@ -147,13 +148,12 @@ const Home = () => {
                         />
 
                         <ProductCard
-                            product_image={g1}
-                            product_type={0}
-                            plan_cycle={60}
-                            plan_amount={4500}
-                            plan_daily_earning={1510}
-                            pre_sale={false}
-
+                            product_image={g4}
+                            product_type={1}
+                            plan_cycle={3}
+                            plan_amount={700}
+                            plan_daily_earning={350}
+                            pre_sale={true}
                         // plan_name={'Communication Satellite'}
                         />
 
