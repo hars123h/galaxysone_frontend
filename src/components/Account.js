@@ -49,7 +49,7 @@ const Account = () => {
     return (
         <>
 
-            <div className="mx-auto mb-28 bg-[#c80e00]">
+            <div className="mx-auto mb-28 bg-[#ff5353]">
                 <div className="w-full mx-auto max-w-[800px]" >
 
                     <div className="relative mx-auto z-[1]">

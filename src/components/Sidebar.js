@@ -34,7 +34,7 @@ const Sidebar = ({ setRight, right }) => {
 
         <>
 
-            <div className={`bg-[#c80d00] h-screen fixed w-[80vw] top-0 -right-[80vw] z-[10000] transition-all duration-500 ${right} text-white `}>
+            <div className={`bg-[#ff5353] h-screen fixed w-[80vw] top-0 -right-[80vw] z-[10000] transition-all duration-500 ${right} text-white `}>
 
                 <div className="flex justify-between items-start p-5 pr-0">
 

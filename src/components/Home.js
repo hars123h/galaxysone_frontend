@@ -78,7 +78,7 @@ const Home = () => {
             <Navbar />
             <Popup />
 
-            <div className="text-white bg-[#c80e00] text-[4vw] px-3 mb-36">
+            <div className="text-white bg-[#ff5353] text-[4vw] px-3 mb-36">
 
                 <img src={herobg} alt="" className='mt-5 rounded-md' />
 

@@ -170,7 +170,7 @@ const Register = () => {
     return (
         <>
 
-            <div className="min-h-screen pt-[8vw] pb-[10vw] relative z-[1] bg-[#c80e00] overflow-y-scroll">
+            <div className="min-h-screen pt-[8vw] pb-[10vw] relative z-[1] bg-[#ff5353] overflow-y-scroll">
                 <div className="px-[8vw] text-left ">
 
                     <div className="mb-[6vw] relative">

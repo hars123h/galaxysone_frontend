@@ -64,6 +64,7 @@ const Deposit = () => {
 
     }, [])
 
+    console.log(amounts);
 
     return (
 

@@ -21,7 +21,7 @@ const Popup = () => {
             <div className={`top-0 right-0 bottom-0 left-0 p-5 fixed z-[999] justify-center items-center h-screen max-h-screen flex ${popOpen} `}>
                 <div className="before:content-[''] fixed top-0 left-0 right-0 bottom-0 bg-[rgba(46,46,46,0.1)] z-[1] backdrop-blur-[3px]"></div>
 
-                <div className="p-5 max-w-[600px] w-full -top-5 relative mx-auto bg-[#c80e00] text-white border border-white backdrop-blur-sm shadow-[0_0_10px_1px_rgba(0,0,0,0.1)] z-[2] rounded-[15px]">
+                <div className="p-5 max-w-[600px] w-full -top-5 relative mx-auto bg-[#ff5353] text-white border border-white backdrop-blur-sm shadow-[0_0_10px_1px_rgba(0,0,0,0.1)] z-[2] rounded-[15px]">
 
                     {/* <div  className="w-[45px] h-[45px] top-0 right-0 font-bold absolute bg-[rgba(255,87,40,0.9)] z-50 rounded-bl-[30px] flex justify-center items-center ">
                         <RxCross1 size={16} className='font-bold text-white' />
@@ -38,13 +38,13 @@ const Popup = () => {
 
                     <h1 className='text-lg font-bold mb-5 capitalize'>WELCOME</h1>
 
-                    <div className="bg-[#052e32] border border-[#424242] px-2 py-5 rounded-lg text-sm">
+                    <div className="bg-[#ff5353] border border-white px-2 py-5 rounded-lg text-sm">
 
                             {/* <h2 className='text-white font-bold'><span className='inline-block'><FaGift /></span> Most Profitable Long Term App Name in India. </h2>
 
                             <p className='text-[#787b8a] py-5'><img src={calender} alt="" className='w-5 inline-block' /> Launch date: November 19, 2023</p> */}
 
-                            <div className="text-[#787b8a]">
+                            <div className="">
                                 {/* <p>
                                     An Hamburg Sud, or timeless, person or thing.
                                     Webster's New World. Something that remains perennially fresh, interesting, or well liked.

@@ -153,7 +153,7 @@ const Invest = () => {
         <>
             <Navbar />
 
-            <div className="mx-3 mt-5 mb-36 text-white bg-[#c80e00]">
+            <div className="mx-3 mt-5 mb-36 text-white bg-[#ff5353]">
 
                 <div className="rounded-lg ">
 
