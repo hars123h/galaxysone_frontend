@@ -59,7 +59,7 @@ const Popup = () => {
 
                     </div>
 
-                    <a href='https://telegram.me/Hamburg Sudofficial656' className='text-white mt-5 bg-[#13d2e4] text-sm flex items-center justify-center w-full py-2 rounded-md'><FaTelegramPlane className='inline-block mr-1' />Service</a>
+                    <a href='https://t.me/hamburgsudd' className='text-white mt-5 bg-[#13d2e4] text-sm flex items-center justify-center w-full py-2 rounded-md'><FaTelegramPlane className='inline-block mr-1' />Service</a>
 
                     <div onClick={() => setPopOpen('hidden')} className="absolute -bottom-10 flex justify-center items-center w-full ">
                         <div className="bg-[#848484] w-7 h-7 flex justify-center items-center rounded-full mx-auto text-white">X</div>
